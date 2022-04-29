@@ -63,7 +63,8 @@ export default function Home({ allPosts, currentPage }) {
           Not signed in </p>
           <button onClick={handleSignin}>Sign in</button></>
           :
-          <><p>Signed in as {session.user.email} <br/>
+          <><p>Hi {session.user.name} - you're signed in as {session.user.email} <br/>
+          <img src={`https://avatars.githubusercontent.com/u/6318762?v=4`} />
           <button onClick={signOut}>Sign out</button>
         </p></>}
     </div>
