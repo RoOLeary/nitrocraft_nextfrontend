@@ -2,8 +2,12 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useRef, useEffect } from 'react'
 import styles from './../styles/Nav.module.css'
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const Nav = () => {
+    const { data: session } = useSession();
+
+    console.log(session);
     let menuRef = useRef();
     let unitRef = useRef();
 
@@ -43,7 +47,17 @@ const Nav = () => {
                     <li className="c-nav__menuItem"><Link href={"/about"}><a className="c-nav__menuLink">About</a></Link></li>
                     <li className="c-nav__menuItem"><Link href={"/tech"}><a className="c-nav__menuLink">Tech</a></Link></li>
                     <li className="c-nav__menuItem"><Link href={"/articles/test-article"}><a className="c-nav__menuLink">Article</a></Link></li>
-                    <li className="c-nav__menuItem"><Link href={"/articles/test-article-2"}><a className="c-button c-button--primary">Article 2</a></Link></li>
+                    <li className="c-nav__menuItem">
+                        {!session ? <>
+                        <a className="c-button c-button--primary" onClick={signIn}>Sign In</a></>
+                        :
+                        <>Hi {session.user.name} <br/>
+                        <a className="c-button c-button--primary" onClick={signOut}>Sign Out</a>
+                        </>}
+                    
+                    
+                    </li>
+                    {/* <li className="c-nav__menuItem"><a className="c-button c-button--primary">Login</a></li> */}
                 </ul>
             </div>
         </nav>

@@ -34,7 +34,7 @@ export default function Home({ allPosts, currentPage }) {
   }
 
   const textVisualContent = {
-    title: 'Smoke Potent Weed',
+    title: 'Pack the bags',
     content: 'Casually arise and get Molly ready for her stroll. Here goes...',
     image: '/assets/img/conf.jpg',
     link: 'articles/test-article-3',
@@ -59,14 +59,14 @@ export default function Home({ allPosts, currentPage }) {
 		<Related />
 		<Faq />
 		<TextVisual content={textVisualContent} />
-     {!session ? <><p>
+     {/* {!session ? <><p>
           Not signed in </p>
           <button onClick={handleSignin}>Sign in</button></>
           :
           <><p>Hi {session.user.name} - you're signed in as {session.user.email} <br/>
           <img src={`https://avatars.githubusercontent.com/u/6318762?v=4`} />
           <button onClick={signOut}>Sign out</button>
-        </p></>}
+        </p></>} */}
     </div>
   	)
 }
