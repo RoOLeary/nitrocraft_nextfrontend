@@ -15,11 +15,12 @@ export default function Post({ entry }) {
                 <div className='article-container' style={{ "padding": "4em 0" }}>
                     <h2 className={styles.title} dangerouslySetInnerHTML={{__html: entry.subHeadline}} />
                     <br />
-                    <div className={styles.grid} dangerouslySetInnerHTML={{__html: entry.articleBody}} />
-                    <br />
-                    
-                    <Link href={`/`}><a>Home</a></Link>
+                    <div className={styles.grid}>
+                        <div className={styles.paragraph} dangerouslySetInnerHTML={{__html: entry.articleBody}} />
+                        <div>I'm an advert</div>
+                    </div>
                 </div>
+                <Link href={`/`}><a>Home</a></Link>
             </main>  
             <Related />
         </section>
