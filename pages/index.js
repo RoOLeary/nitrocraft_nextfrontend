@@ -8,6 +8,7 @@ import Hero from '../components/Hero';
 import Text from '../components/Text'
 import TextVisual from '../components/TextVisual';
 import Faq from '../components/Faq';
+// import Slider from '../components/Slider';
 import Related from '../components/Related';
 import { useSession, signIn, signOut } from "next-auth/react"
 
@@ -16,7 +17,7 @@ export default function Home({ allPosts, currentPage }) {
   const [currentPageNo, setCurrentPageNo] = useState(currentPage);
   const { data: session } = useSession();
 
-  console.log(session);
+  // console.log(session);
 
   const leadPost = allPosts.slice(0, 1)
   const morePosts = allPosts.slice(1)
@@ -57,6 +58,7 @@ export default function Home({ allPosts, currentPage }) {
 		<Hero content={HeroText} />
 		<Text content={leadPost} />
 		<Related />
+    {/* <Slider />   */}
 		<Faq />
 		<TextVisual content={textVisualContent} />
      {/* {!session ? <><p>

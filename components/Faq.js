@@ -19,8 +19,9 @@ const Faq = () => {
         answerInners.forEach(answerInner => {
             answerInner.parentElement.style.setProperty('--height', answerInner.offsetHeight + 'px')
         })
+
         questions.forEach(question => question.addEventListener('click', (e) => onQuestionClick(e)))
-    });
+    },[]);
 
     return(
         <section className="b-faq c-section js-faq">
