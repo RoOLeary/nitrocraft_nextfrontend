@@ -26,7 +26,7 @@ export default function Category({ slug, catPosts, currentPage }) {
 
     return(
         <div className={styles.container}>
-            <Header headline={`Category Name: ${title}`} />
+            <Header headline={`Category Name: ${title.charAt(0).toUpperCase() + title.slice(1) }`} />
             
             <Related />
             <Faq />
