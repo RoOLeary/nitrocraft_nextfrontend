@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import styles from '../styles/Inner.module.css';
 import Header from './../components/Header';
 import Hero from '../components/Hero';
@@ -6,8 +7,14 @@ import TextVisual from '../components/TextVisual';
 import Faq from '../components/Faq';
 import Related from '../components/Related';
 import Link from 'next/link';
+import { getAllPostsByCategory } from './../lib/api'
 
-export default function Category({ entry }) {
+
+export default function Category({ slug, catPosts, currentPage }) {
+    const router = useRouter()
+    const { category } = router.query
+    const title = category;
+    console.log(slug);
 
     const textVisualContent = {
         title: 'Smoke Potent Weed',
@@ -19,12 +26,20 @@ export default function Category({ entry }) {
 
     return(
         <div className={styles.container}>
-            <Header headline="Tech"/>
+            <Header headline={`Category Name: ${title}`} />
             
             <Related />
             <Faq />
             <main className="o-wrapper">
-                <div className='article-container' style={{ "padding": "4em 0" }}>
+                <ul>
+                    {catPosts.map((post, index) => {
+                        console.log(post)
+                        return(
+                            <li key={index}><Link href={`/articles/${post.slug}`}><a>{post.title}</a></Link></li>
+                        )
+                    })}
+                </ul>
+                <div className='article-container' style={{ "padding": "4em 2em" }}>
                     Maecenas dictum sem elit, id cursus lectus auctor eget. Nulla et elit eu tortor finibus fringilla. Phasellus id ipsum viverra, pharetra velit nec, ullamcorper risus. Donec consequat faucibus enim eget vulputate. Suspendisse ut magna efficitur, egestas risus a, facilisis dolor. Sed quis luctus elit. Maecenas ultricies rhoncus augue, vel interdum ligula rhoncus et. Etiam fermentum, ante at viverra hendrerit, ipsum mi volutpat justo, a elementum felis justo non felis. Nullam ut metus sed erat tincidunt faucibus sit amet tincidunt dui. Aenean faucibus quam dui, a interdum mauris pulvinar sit amet. Nulla facilisi. Donec non malesuada erat, vehicula placerat diam. Etiam hendrerit vestibulum posuere. Praesent vitae mattis est. Donec rhoncus risus eu arcu aliquet, eu sollicitudin augue tincidunt. Morbi placerat dignissim augue, ac semper nunc congue id. Nulla massa lorem, mattis eget ultrices vitae, condimentum non augue. Duis varius rutrum ullamcorper. In pulvinar odio vel ex sollicitudin pulvinar. Sed sit amet augue gravida, viverra mi vel, maximus libero. Praesent sagittis rutrum libero, sed varius nisi sagittis et. Fusce ac varius neque. Quisque aliquet, felis nec rhoncus aliquet, mi justo faucibus nunc, sed feugiat ipsum magna vitae nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. In in efficitur felis. Integer sed sem in massa ultricies convallis hendrerit id leo.
                     <br /><br />
                     </div>
@@ -32,4 +47,18 @@ export default function Category({ entry }) {
             </main>    
         </div>
     )
+}
+
+
+export async function getServerSideProps(context) {
+    const slug = context.query.category
+    const data = await getAllPostsByCategory(slug);
+
+    return {
+        props: { 
+            slug: context.query.category,
+            catPosts: data.entries,
+            currentPage: "1",
+        }
+    };
 }
