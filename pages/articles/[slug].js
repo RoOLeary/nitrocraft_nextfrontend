@@ -8,6 +8,8 @@ import Slider from './../../components/Slider'
 
 export default function Post({ entry }) {
     const router = useRouter()
+    console.log(entry.manualRelatedArticles);
+    
     return (
         <section>
             <Header headline={entry.headline} />
@@ -22,7 +24,7 @@ export default function Post({ entry }) {
                 </div>
                 <Link href={`/`}><a>Home</a></Link>
             </main>  
-            <Related />
+            <Related related={entry.manualRelatedArticles} currentslug={entry.slug} />
         </section>
     )
   }
