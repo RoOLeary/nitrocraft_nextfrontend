@@ -37,7 +37,7 @@ export default function Category({ slug, catPosts, currentPage }) {
                         console.log(post)
                         return(
                             <li key={index}>
-                                <Link href={`/articles/${post.slug}`}>
+                                <Link href={`/${title}/${post.slug}`}>
                                     <a>{post.title}</a>
                                 </Link>
                                 <p>{post.subHeadline}</p>

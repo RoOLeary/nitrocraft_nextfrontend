@@ -47,16 +47,14 @@ const Nav = () => {
                     <li className="c-nav__menuItem"><Link href={"/about"}><a className="c-nav__menuLink">About</a></Link></li>
                     <li className="c-nav__menuItem"><Link href={"/tech"}><a className="c-nav__menuLink">Tech</a></Link></li>
                     <li className="c-nav__menuItem"><Link href={"/test"}><a className="c-nav__menuLink">Test</a></Link></li>
-                    <li className="c-nav__menuItem"><Link href={"/longreads"}><a className="c-nav__menuLink">Longreads</a></Link></li>
+                    {session ? <li className="c-nav__menuItem"><Link href={"/"}><a className="c-nav__menuLink">Members</a></Link></li> : ''}
                     <li className="c-nav__menuItem">
                         {!session ? <>
                         <a className="c-button c-button--primary" onClick={signIn}>Sign In</a></>
                         :
-                        <>Hi {session.user.name} <br/>
+                        <>
                         <a className="c-button c-button--primary" onClick={signOut}>Sign Out</a>
                         </>}
-                    
-                    
                     </li>
                     {/* <li className="c-nav__menuItem"><a className="c-button c-button--primary">Login</a></li> */}
                 </ul>
