@@ -1,20 +1,18 @@
 import { useRouter } from 'next/router'
-import styles from '../styles/Inner.module.css';
-import Header from '../components/Header';
-import Hero from '../components/Hero';
-import Text from '../components/Text'
-import TextVisual from '../components/TextVisual';
-import Faq from '../components/Faq';
-import Related from '../components/Related';
+import styles from './../../styles/Inner.module.css';
+import Header from './../../components/Header';
+import TextVisual from './../../components/TextVisual';
+import Faq from './../../components/Faq';
+import Related from './../../components/Related';
 import Link from 'next/link';
-import { getAllPostsByCategory } from '../lib/api'
+import { getAllPostsByCategory } from './../../lib/api'
 
 
 export default function Category({ slug, catPosts, currentPage }) {
     const router = useRouter()
-    const { category } = router.query
-    const title = category;
-    console.log(category);
+    const categoryPath = router.query.category
+    const title = router.query.category;
+    console.log(categoryPath); 
 
     const textVisualContent = {
         title: 'Go to Work',
@@ -27,11 +25,10 @@ export default function Category({ slug, catPosts, currentPage }) {
 
     return(
         <div className={styles.container}>
-            <Header headline={`Category: ${title.charAt(0).toUpperCase() + title.slice(1) }`} />
-            
+            <Header headline={`Category: ${title.charAt(0).toUpperCase() + title.slice(1) } - Generic`} />
+            <Related related={catPosts} currentslug={categoryPath}/>
             <TextVisual content={textVisualContent} />
             <Faq />
-            <Related related={catPosts}/>
             
             <main className="o-wrapper">
                 <ul>
@@ -39,7 +36,7 @@ export default function Category({ slug, catPosts, currentPage }) {
                         console.log(post)
                         return(
                             <li key={index}>
-                                <Link href={`/articles/${post.slug}`}>
+                                <Link href={`/${categoryPath}/articles/${post.slug}`}>
                                     <a>{post.title}</a>
                                 </Link>
                                 <p>{post.subHeadline}</p>
@@ -62,7 +59,7 @@ export async function getServerSideProps(context) {
 
     return {
         props: { 
-            slug: context.query.category,
+            slug: context.query,
             catPosts: data.entries,
             currentPage: "1",
         }

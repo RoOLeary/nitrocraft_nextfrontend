@@ -23,7 +23,7 @@ const Related = ( props ) => {
                                 </div>
                                 
                                 <div className="b-blocks__ctas">
-                                    <Link href={`/articles/${post.slug}`}><a className="c-button c-button--inverted">Learn More.</a></Link>
+                                    <Link href={`/${currentslug}/articles/${post.slug}`}><a className="c-button c-button--inverted">Learn More.</a></Link>
                                 </div>
                             
                             </div>
