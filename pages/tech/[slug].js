@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import styles from './../../styles/Inner.module.css'
-import { getPostAndMorePosts } from './../../lib/api'
-import Header from './../../components/Header'
-import Related from './../../components/Related'
-import Slider from './../../components/Slider'
+import { getPostAndMorePosts } from '../../lib/api'
+import Header from '../../components/Header'
+import Related from '../../components/Related'
+import Slider from '../../components/Slider'
 
 export default function Post({ entry }) {
     const router = useRouter()
@@ -24,6 +24,7 @@ export default function Post({ entry }) {
                         </div>
                     </div>
                 </div>
+                <Slider />
             </section>
             
             

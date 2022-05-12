@@ -57,7 +57,7 @@ export default function Home({ allPosts, currentPage }) {
     <div className={styles.container}>
 		<Hero content={HeroText} />
 		<Text content={leadPost} />
-		<Related />
+    <Related related={morePosts} currentslug={'/'} />
     {/* <Slider />   */}
 		<Faq />
 		<TextVisual content={textVisualContent} />

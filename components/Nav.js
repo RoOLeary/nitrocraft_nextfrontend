@@ -48,7 +48,6 @@ const Nav = () => {
                     <li className="c-nav__menuItem"><Link href={"/tech"}><a className="c-nav__menuLink">Tech</a></Link></li>
                     <li className="c-nav__menuItem"><Link href={"/test"}><a className="c-nav__menuLink">Test</a></Link></li>
                     <li className="c-nav__menuItem"><Link href={"/longreads"}><a className="c-nav__menuLink">Longreads</a></Link></li>
-                    <li className="c-nav__menuItem"><Link href={"/articles/test-article"}><a className="c-nav__menuLink">Article</a></Link></li>
                     <li className="c-nav__menuItem">
                         {!session ? <>
                         <a className="c-button c-button--primary" onClick={signIn}>Sign In</a></>
