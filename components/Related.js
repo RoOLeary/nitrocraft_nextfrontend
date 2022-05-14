@@ -3,9 +3,9 @@ import Link from 'next/link';
 const Related = ( props ) => {
     const related = props.related;
     const currentslug = props.currentslug ? props.currentslug : 'articles';
-    console.log(currentslug);
+    // console.log(currentslug);
     const relPosts = related.map((post, index) => { 
-        console.log(post);
+        // console.log(post);
         return(
             <div key={index} className={`b-blocks__block b-blocks__block--${++index} o-grid__col l:o-grid__col--span-6`}>
                     <div className="o-grid">

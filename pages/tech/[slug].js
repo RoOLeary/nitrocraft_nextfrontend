@@ -8,7 +8,7 @@ import Slider from '../../components/Slider'
 
 export default function Post({ entry }) {
     const router = useRouter()
-    console.log(entry.manualRelatedArticles);
+    // console.log(entry.manualRelatedArticles);
     
     return (
         <section>

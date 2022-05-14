@@ -9,7 +9,12 @@ import Slider from '../../components/Slider'
 export default function Post({ entry }) {
     const router = useRouter()
     const slug = router.query
-    console.log(slug);
+    const tags = entry.tags;
+    const tagList = Object.entries(tags).map((tag, i) => {
+        return(
+            <li><Link href={`/topics/${tag[1].slug}`} key={i}><a>{tag[1].title}</a></Link></li>
+        )
+    })
     
     return (
         <section>
@@ -24,6 +29,9 @@ export default function Post({ entry }) {
                             <div className={"c-formatted"} dangerouslySetInnerHTML={{__html: entry.articleBody}} />        
                         </div>
                     </div>
+                </div>
+                <div>
+                    {tagList}
                 </div>
                 <Slider />
             </section>
