@@ -27,9 +27,9 @@ export default function Tech({ slug, catPosts, currentPage }) {
 
     return(
         <div className={styles.container}>
-            <Header headline={`Category: ${title.charAt(0).toUpperCase() + title.slice(1) } - and Tech only. Example Case`} />
+            <Header headline={`Bespoke category: ${title.charAt(0).toUpperCase() + title.slice(1) } - Example Case`} />
             
-            <Related related={catPosts}/>
+            <Related related={catPosts} currentslug={`tech`} />
             <Faq />
             <main className="o-wrapper">
                 <ul>

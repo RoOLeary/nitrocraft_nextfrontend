@@ -11,7 +11,6 @@ import { getAllPostsByCategory } from './../../lib/api'
 export default function Category({ slug, catPosts, currentPage }) {
     const router = useRouter()
     const categoryPath = router.query.category
-    const title = router.query.category;
     console.log(categoryPath); 
 
     const textVisualContent = {
@@ -25,8 +24,8 @@ export default function Category({ slug, catPosts, currentPage }) {
 
     return(
         <div className={styles.container}>
-            <Header headline={`Category: ${title.charAt(0).toUpperCase() + title.slice(1) } - Generic`} />
-            <Related related={catPosts} currentslug={categoryPath}/>
+            <Header headline={`Category: ${categoryPath.charAt(0).toUpperCase() + categoryPath.slice(1) } - Generic`} />
+            <Related related={catPosts} currentslug={categoryPath} />
             <TextVisual content={textVisualContent} />
             <Faq />
             
@@ -36,7 +35,7 @@ export default function Category({ slug, catPosts, currentPage }) {
                         console.log(post)
                         return(
                             <li key={index}>
-                                <Link href={`/${categoryPath}/articles/${post.slug}`}>
+                                <Link href={`/${categoryPath}/${post.slug}`}>
                                     <a>{post.title}</a>
                                 </Link>
                                 <p>{post.subHeadline}</p>
