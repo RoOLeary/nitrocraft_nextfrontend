@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Hero = (props) => {
-    const { eyebrow, headline, subHeadline } = props.content;
+    const { eyebrow, heading, subHeadline } = props.content;
     
     return(
         <section className={"b-hero js-equinoxNode t-dark"}>
@@ -25,8 +25,8 @@ const Hero = (props) => {
 
                 <div className={"b-hero__content"}>
                     <div className={"b-hero__contentInner"}>
-                        <h4 className={"b-hero__eyebrow"}>{eyebrow}</h4>
-                        <h1 className={"b-hero__heading"}>{headline}</h1>
+                        <h4 className={"b-hero__eyebrow"}>{eyebrow ? eyebrow : ''}</h4>
+                        <h1 className={"b-hero__heading"}>{heading}</h1>
                         <div className={"b-hero__intro"}>
                            <p>{subHeadline}</p>
                         </div>

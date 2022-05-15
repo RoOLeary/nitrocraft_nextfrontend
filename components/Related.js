@@ -2,10 +2,10 @@ import Link from 'next/link';
 
 const Related = ( props ) => {
     const related = props.related;
-    const currentslug = props.currentslug;
-    console.log(currentslug);
+    const currentslug = props.currentslug ? props.currentslug : 'articles';
+    // console.log(currentslug);
     const relPosts = related.map((post, index) => { 
-        console.log(post.slug);
+        // console.log(post);
         return(
             <div key={index} className={`b-blocks__block b-blocks__block--${++index} o-grid__col l:o-grid__col--span-6`}>
                     <div className="o-grid">
@@ -23,7 +23,7 @@ const Related = ( props ) => {
                                 </div>
                                 
                                 <div className="b-blocks__ctas">
-                                    <Link href={`/articles/${post.slug}`}><a className="c-button c-button--inverted">Learn More.</a></Link>
+                                    <Link href={`/${currentslug}/${post.slug}`}><a className="c-button c-button--inverted">Learn More.</a></Link>
                                 </div>
                             
                             </div>
