@@ -8,10 +8,10 @@ import Link from 'next/link';
 import { getAllPostsByCategory } from './../../lib/api'
 
 
-export default function Category({ slug, catPosts, currentPage }) {
+export default function Category({ catPosts, currentPage }) {
     const router = useRouter()
     const categoryPath = router.query.category
-    console.log(categoryPath); 
+    console.log(currentPage); 
 
     const textVisualContent = {
         title: 'Go to Work',
@@ -31,7 +31,7 @@ export default function Category({ slug, catPosts, currentPage }) {
             <main className="o-wrapper">
                 <ul>
                     {catPosts.map((post, index) => {
-                        console.log(post)
+                        // console.log(post)
                         return(
                             <li key={index}>
                                 <Link href={`/${categoryPath}/${post.slug}`}>
@@ -57,7 +57,6 @@ export async function getServerSideProps(context) {
 
     return {
         props: { 
-            slug: context.query,
             catPosts: data.entries,
             currentPage: "1",
         }
