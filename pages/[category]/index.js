@@ -2,7 +2,6 @@ import { useRouter } from 'next/router'
 import styles from './../../styles/Inner.module.css';
 import Header from './../../components/Header';
 import TextVisual from './../../components/TextVisual';
-import Faq from './../../components/Faq';
 import Related from './../../components/Related';
 import Link from 'next/link';
 import { getAllPostsByCategory } from './../../lib/api'
