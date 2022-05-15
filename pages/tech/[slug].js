@@ -8,10 +8,8 @@ import Slider from '../../components/Slider'
 
 export default function Post({ entry }) {
     const router = useRouter()
-    // console.log(entry.manualRelatedArticles);
-    
     return (
-        <section>
+        <>
             <Header headline={entry.headline} />
             <section className="b-text  c-section" id="learn-more">
                 <div className="o-wrapper">
@@ -24,12 +22,9 @@ export default function Post({ entry }) {
                         </div>
                     </div>
                 </div>
-                <Slider />
-            </section>
-            
-            
-            <Related related={entry.manualRelatedArticles} currentslug='tech' />
-        </section>
+                <Related related={entry.manualRelatedArticles} currentslug='tech' />
+            </section>    
+        </>
     )
   }
   

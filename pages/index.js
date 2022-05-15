@@ -30,7 +30,7 @@ export default function Home({ allPosts, currentPage }) {
 
   const HeroText = {
     eyebrow: 'Ask my arse',
-    headline: 'Snappy Title Goes Here',
+    heading: 'Snappy Title Goes Here',
     subHeadline: leadPost[0].subHeadline,
   }
 
@@ -58,17 +58,8 @@ export default function Home({ allPosts, currentPage }) {
 		<Hero content={HeroText} />
 		<Text content={leadPost} />
     <Related related={morePosts} />
-    {/* <Slider />   */}
-		<Faq />
+    <Faq />
 		<TextVisual content={textVisualContent} />
-     {/* {!session ? <><p>
-          Not signed in </p>
-          <button onClick={handleSignin}>Sign in</button></>
-          :
-          <><p>Hi {session.user.name} - you're signed in as {session.user.email} <br/>
-          <img src={`https://avatars.githubusercontent.com/u/6318762?v=4`} />
-          <button onClick={signOut}>Sign out</button>
-        </p></>} */}
     </div>
   	)
 }

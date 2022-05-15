@@ -5,14 +5,18 @@ import { getPostAndMorePosts } from '../../lib/api'
 import Header from '../../components/Header'
 import Related from '../../components/Related'
 import Slider from '../../components/Slider'
+import PageBlocks from '../../components/PageBlocks'
 
 export default function Post({ entry }) {
+
+    const pageBlocks = entry['pageBlocks'];
+
     const router = useRouter()
     const slug = router.query
     const tags = entry.tags;
     const tagList = Object.entries(tags).map((tag, i) => {
         return(
-            <li><Link href={`/topics/${tag[1].slug}`} key={i}><a>{tag[1].title}</a></Link></li>
+            <li key={i}><Link href={`/topics/${tag[1].slug}`} key={i}><a>{tag[1].title}</a></Link></li>
         )
     })
     
@@ -33,11 +37,13 @@ export default function Post({ entry }) {
                 <div>
                     {tagList}
                 </div>
-                <Slider />
             </section>
             
             
             <Related related={entry.manualRelatedArticles} currentslug={entry.slug} />
+        
+            <PageBlocks content={pageBlocks} />
+        
         </section>
     )
   }

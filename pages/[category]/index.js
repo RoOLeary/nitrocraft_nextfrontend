@@ -27,7 +27,6 @@ export default function Category({ slug, catPosts, currentPage }) {
             <Header headline={`Category: ${categoryPath.charAt(0).toUpperCase() + categoryPath.slice(1) } - Generic`} />
             <Related related={catPosts} currentslug={categoryPath} />
             <TextVisual content={textVisualContent} />
-            <Faq />
             
             <main className="o-wrapper">
                 <ul>
