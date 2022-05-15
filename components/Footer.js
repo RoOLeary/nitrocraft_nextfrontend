@@ -15,20 +15,26 @@ const Footer = () => {
                         </div>
                     
 
-                        <div className="o-grid__col l:o-grid__col--span-4">
-                            <h3 className="u-m-m">Lorem ipsum dolor</h3>
+                        
+                    
+                        <div className="o-grid__col l:o-grid__col--span-5">
+                            <h3 className="u-m-m">Contact</h3>
                             <p className="c-footer__text">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet lacus in ante semper dictum. In eu sapien blandit, tincidunt nibh nec, pharetra nisi. Suspendisse ac ante rhoncus, tristique nibh ac, faucibus quam.
                             </p>
                         </div>
                     
-                        <div className="o-grid__col l:o-grid__col--span-4">
-                            <h3 className="u-m-m">Lorem ipsum dolor</h3>
-                            <p className="c-footer__text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet lacus in ante semper dictum. In eu sapien blandit, tincidunt nibh nec, pharetra nisi. Suspendisse ac ante rhoncus, tristique nibh ac, faucibus quam.
-                            </p>
+
+                        <div className="o-grid__col l:o-grid__col--span-3">
+                            <h3 className="u-m-m">Quick Links</h3>
+                            <ul>
+                                <li><a href="#">Lorem ipsum dolor</a></li>
+                                <li><a href="#">Lorem ipsum dolor</a></li>
+                                <li><a href="#">Lorem ipsum dolor</a></li>
+                                <li><a href="#">Lorem ipsum dolor</a></li>
+                                <li><a href="#">Lorem ipsum dolor</a></li>
+                            </ul>
                         </div>
-                    
 
                     </div>
                 </div>
