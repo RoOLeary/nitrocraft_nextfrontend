@@ -4,7 +4,6 @@ import styles from './../../styles/Inner.module.css'
 import { getPostAndMorePosts } from '../../lib/api'
 import Header from '../../components/Header'
 import Related from '../../components/Related'
-import Slider from '../../components/Slider'
 import PageBlocks from '../../components/PageBlocks'
 
 export default function Post({ entry }) {
@@ -39,10 +38,9 @@ export default function Post({ entry }) {
                 </div>
             </section>
             
-            
-            <Related related={entry.manualRelatedArticles} currentslug={entry.slug} />
-        
             <PageBlocks content={pageBlocks} />
+
+            <Related related={entry.manualRelatedArticles} currentslug={entry.slug} />
         
         </section>
     )

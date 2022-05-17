@@ -13,7 +13,10 @@ const PageBlocks = ({ content }) => {
                 return <Hero key={block.uid} content={block} />
             case 'pageBlocks_text_BlockType':
                 return <TextBlock key={block.uid} content={block} />
+            case 'pageBlocks_textVisual_BlockType':
+                    return <TextVisual key={block.uid} content={block} />
             case 'pageBlocks_imageSlider_BlockType':
+                console.log('slider');
                 return <Slider key={block.uid} content={block} />
             case 'pageBlocks_faq_BlockType':
                 return <Faq key={block.uid} content={block} />

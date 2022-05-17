@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Hero = (props) => {
-    const { eyebrow, heading, subHeadline } = props.content;
+const Hero = ({ content }) => {
+    const { eyebrow, heading, subHeadline } = content;
     
     return(
         <section className={"b-hero js-equinoxNode t-dark"}>

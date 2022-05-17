@@ -22,8 +22,8 @@ export default function Post({ entry }) {
                         </div>
                     </div>
                 </div>
-                <Related related={entry.manualRelatedArticles} currentslug='tech' />
             </section>    
+            <Related related={entry.manualRelatedArticles} currentslug='tech' />
         </>
     )
   }
