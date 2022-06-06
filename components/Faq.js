@@ -1,7 +1,10 @@
 import React from 'react';
 import { useEffect } from 'react';
 
-const Faq = () => { 
+const Faq = ({ content }) => { 
+
+    const { faqHeading, faqLeadtext, faqs } = content;
+    console.log(faqLeadtext);
 
     let classNameIsExpanded = 'is-expanded';
     let selectorAnswerInner = '.js-faqAnswerInner';
@@ -29,9 +32,9 @@ const Faq = () => {
                 <div className="o-grid o-grid--gap-xxl l:o-grid--reverse">
                     <div className="o-grid__col l:o-grid__col--span-4">
                         <div className="c-section__sticky">
-                            <h2 className="c-section__heading">ASK ME ANYTHING?</h2>
+                            <h2 className="c-section__heading">{faqHeading ? faqHeading : 'ASK ME ANYTHING?'}</h2>
                             <div className="c-formatted c-section__text">
-                                Maybe start with these questions.
+                                {faqLeadtext ? faqLeadtext : 'We’re here to help you find the answers to your questions.'}
                             </div>
                             <div className="c-section__cta">
                                 <a className="c-button c-button--primary" href="#">CONTACT</a>
@@ -40,32 +43,18 @@ const Faq = () => {
                     </div>
                     <div className="o-grid__col l:o-grid__col--span-8">
                         <ul className="b-faq__list">
-                            <li className="b-faq__listItem">
-                                <div className="b-faq__question js-faqQuestion" onClick={(e) => onQuestionClick(e)}>YOU AND WHAT ARMY?</div>
-                                <div className="b-faq__answer">
-                                    <div className="b-faq__answerInner c-formatted js-faqAnswerInner">
-                                        Sed sit amet augue gravida, viverra mi vel, maximus libero. Praesent sagittis rutrum libero, sed varius nisi sagittis et. Fusce ac varius neque. Quisque aliquet, felis nec rhoncus aliquet, mi justo faucibus nunc, sed feugiat ipsum magna vitae nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. In in efficitur felis. Integer sed sem in massa ultricies convallis hendrerit id leo.
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li className="b-faq__listItem">
-                                <div className="b-faq__question js-faqQuestion" onClick={(e) => onQuestionClick(e)}>WHAT IS THE MOON?</div>
-                                <div className="b-faq__answer">
-                                    <div className="b-faq__answerInner c-formatted js-faqAnswerInner">
-                                    Sed sit amet augue gravida, viverra mi vel, maximus libero. Praesent sagittis rutrum libero, sed varius nisi sagittis et. Fusce ac varius neque. Quisque aliquet, felis nec rhoncus aliquet, mi justo faucibus nunc, sed feugiat ipsum magna vitae nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. In in efficitur felis. Integer sed sem in massa ultricies convallis hendrerit id leo.
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li className="b-faq__listItem">
-                                <div className="b-faq__question js-faqQuestion" onClick={(e) => onQuestionClick(e)}>WILL I EVER GET A HUG FROM JURGEN KLOPP?</div>
-                                <div className="b-faq__answer">
-                                    <div className="b-faq__answerInner c-formatted js-faqAnswerInner">
-                                        We live in hope! Sed sit amet augue gravida, viverra mi vel, maximus libero. Praesent sagittis rutrum libero, sed varius nisi sagittis et. Fusce ac varius neque. Quisque aliquet, felis nec rhoncus aliquet, mi justo faucibus nunc, sed feugiat ipsum magna vitae nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. In in efficitur felis. Integer sed sem in massa ultricies convallis hendrerit id leo.
-                                    </div>
-                                </div>
-                            </li>
+                            {faqs.map((faq, i) => {
+                                return(
+                                    <li key={i} className="b-faq__listItem">
+                                        <div className="b-faq__question js-faqQuestion" onClick={(e) => onQuestionClick(e)}>{faq.question}</div>
+                                        <div className="b-faq__answer">
+                                            <div className="b-faq__answerInner c-formatted js-faqAnswerInner" dangerouslySetInnerHTML={{ __html: faq.answer }} />
+                                            
+                                        </div>
+                                    </li>
+                                );
+                            }
+                        )}
                         </ul>
                     </div>
                 </div>

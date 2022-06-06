@@ -58,8 +58,7 @@ export default function Home({ allPosts, currentPage }) {
 		<Hero content={HeroText} />
 		<Text content={leadPost} />
     <Related related={morePosts} />
-    <Faq />
-		<TextVisual content={textVisualContent} />
+    <TextVisual content={textVisualContent} />
     </div>
   	)
 }

@@ -30,7 +30,7 @@ export default function Tech({ slug, catPosts, currentPage }) {
             <Header headline={`Bespoke category: ${title.charAt(0).toUpperCase() + title.slice(1) } - Example Case`} />
             
             <Related related={catPosts} currentslug={`tech`} />
-            <Faq />
+            
             <main className="o-wrapper">
                 <ul>
                     {catPosts.map((post, index) => {

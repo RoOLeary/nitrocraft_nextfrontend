@@ -16,7 +16,6 @@ const PageBlocks = ({ content }) => {
             case 'pageBlocks_textVisual_BlockType':
                     return <TextVisual key={block.uid} content={block} />
             case 'pageBlocks_imageSlider_BlockType':
-                console.log('slider');
                 return <Slider key={block.uid} content={block} />
             case 'pageBlocks_faq_BlockType':
                 return <Faq key={block.uid} content={block} />
