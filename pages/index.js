@@ -55,10 +55,10 @@ export default function Home({ allPosts, currentPage }) {
   return (
    
     <div className={styles.container}>
-		<Hero content={HeroText} />
-		<Text content={leadPost} />
-    <Related related={morePosts} />
-    <TextVisual content={textVisualContent} />
+      <Hero content={HeroText} />
+      <Text content={leadPost} />
+      <Related related={morePosts} />
+      <TextVisual content={textVisualContent} />
     </div>
   	)
 }
