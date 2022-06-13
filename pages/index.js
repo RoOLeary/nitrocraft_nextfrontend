@@ -4,6 +4,7 @@ import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import { gql } from "@apollo/client";
 import client from "../apollo-client";
+import Layout from '../components/Layout';
 import Hero from '../components/Hero';
 import Text from '../components/Text'
 import TextVisual from '../components/TextVisual';
@@ -55,10 +56,12 @@ export default function Home({ allPosts, currentPage }) {
   return (
    
     <div className={styles.container}>
-      <Hero content={HeroText} />
-      <Text content={leadPost} />
-      <Related related={morePosts} />
-      <TextVisual content={textVisualContent} />
+      <Layout>
+        <Hero content={HeroText} />
+        <Text content={leadPost} />
+        <Related related={morePosts} />
+        <TextVisual content={textVisualContent} />
+      </Layout>
     </div>
   	)
 }
