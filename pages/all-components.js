@@ -7,7 +7,7 @@ import { getPageBySlug } from './../lib/api';
 export default function AllComponents({ entry }) {
     return (
         <div className={styles.container}>
-            <Header headline="About"/>
+            <Header headline="All Fucking Components"/>
             <PageBlocks content={entry['pageBlocks']} />
             <Link href={`/`}><a>Home</a></Link><Link href={`/tech`}><a>Tech</a></Link>
         </div>

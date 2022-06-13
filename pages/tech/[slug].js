@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import styles from './../../styles/Inner.module.css'
-import { getTags, getPostAndMorePosts } from '../../lib/api'
+import { getPostAndMorePosts } from '../../lib/api'
+import Layout from '../../components/Layout'
 import Header from '../../components/Header'
 import Related from '../../components/Related'
 import Slider from '../../components/Slider'
@@ -10,7 +11,7 @@ export default function Post({ entry }) {
     console.log(entry);
     const router = useRouter()
     return (
-        <>
+        <Layout>
             <Header headline={entry.headline} />
             <section className="b-text  c-section" id="learn-more">
                 <div className="o-wrapper">
@@ -25,7 +26,7 @@ export default function Post({ entry }) {
                 </div>
             </section>    
             {/* <Related related={entry.manualRelatedArticles} currentslug='tech' /> */}
-        </>
+        </Layout>
     )
   }
   

@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import styles from './../../styles/Inner.module.css';
+import Layout from '../../components/Layout';
 import Header from '../../components/Header';
 import Hero from '../../components/Hero';
 import Text from '../../components/Text'
@@ -26,7 +27,7 @@ export default function Tech({ slug, catPosts, currentPage }) {
      
 
     return(
-        <div className={styles.container}>
+        <Layout>
             <Header headline={`Bespoke category: ${title.charAt(0).toUpperCase() + title.slice(1) } - Example Case`} />
             
             <Related related={catPosts} currentslug={`tech`} />
@@ -48,7 +49,7 @@ export default function Tech({ slug, catPosts, currentPage }) {
                 <br /><br />
                 <Link href={`/`}><a>Home</a></Link>
             </main>    
-        </div>
+        </Layout>
     )
 }
 

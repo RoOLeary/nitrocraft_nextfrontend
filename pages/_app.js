@@ -13,9 +13,7 @@ function NitroBlogFrontend({ Component, pageProps }) {
     <SessionProvider session={pageProps.session}>
       <ApolloProvider client={client}>
         <Nav />
-        <Layout>
           <Component {...pageProps} />
-        </Layout>
         <Footer />
       </ApolloProvider>
     </SessionProvider>
