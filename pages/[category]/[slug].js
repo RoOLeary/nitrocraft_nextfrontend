@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import styles from './../../styles/Inner.module.css'
 import { getPostAndMorePosts } from '../../lib/api'
+import Layout from '../../components/Layout'
 import Header from '../../components/Header'
 import Related from '../../components/Related'
 import PageBlocks from '../../components/PageBlocks'
@@ -20,7 +21,7 @@ export default function Post({ entry }) {
     })
     
     return (
-        <section>
+        <Layout>
             <Header headline={entry.headline} />
             <section className="b-text  c-section" id="learn-more">
                 <div className="o-wrapper">
@@ -42,7 +43,7 @@ export default function Post({ entry }) {
 
             <Related related={entry.manualRelatedArticles} currentslug={entry.slug} />
         
-        </section>
+        </Layout>
     )
   }
   

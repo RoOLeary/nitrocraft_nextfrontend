@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import styles from './../../styles/Inner.module.css';
+import Layout from './../../components/Layout';
 import Header from './../../components/Header';
 import TextVisual from './../../components/TextVisual';
 import Related from './../../components/Related';
@@ -22,7 +23,7 @@ export default function Category({ catPosts, currentPage }) {
      
 
     return(
-        <div className={styles.container}>
+        <Layout>
             <Header headline={`Category: ${categoryPath.charAt(0).toUpperCase() + categoryPath.slice(1) } - Generic`} />
             <Related related={catPosts} currentslug={categoryPath} />
             <TextVisual content={textVisualContent} />
@@ -45,7 +46,7 @@ export default function Category({ catPosts, currentPage }) {
                 
                 <Link href={`/`}><a>Home</a></Link>
             </main>    
-        </div>
+        </Layout>
     )
 }
 
