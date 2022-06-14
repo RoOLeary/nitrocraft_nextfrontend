@@ -88,17 +88,13 @@ export default function Slider({ content }) {
         }
     }, [activeSlide, isAutoPlay, transitionSlide]);
 
-
-
     return(
         <>
-            
             <div className="slider__wrapper" ref={elementRef}>
                     {content.sliderMatrix.map((sl, i) => {
-                       
                         const current = ++i;
                         return(
-                            <div key={++i} className={`flex__container flex--${sl.slideColor.toLowerCase()} ${activeSlide == current ? `flex--active` : 'animate--start' }`} data-slide={current}>
+                            <div key={++i} className={`flex__container flex--${sl.slideColor.toLowerCase().replace(/\s/g, '')} ${activeSlide == current ? `flex--active` : 'animate--start' }`} data-slide={current}>
                                 <div className="flex__item flex__item--left">
                                 <div className="flex__content">
                                     <p className="text--sub">{sl.textSub}</p>
@@ -113,23 +109,6 @@ export default function Slider({ content }) {
                         )
                     })}
                     
-                    {/* <div className={`flex__container flex--yellow ${activeSlide == 5 ? `flex--active` : 'animate--start' }`} data-slide="5">
-                        <div className="flex__item flex__item--left">
-                        <div className="flex__content">
-                            <p className="text--sub">Five</p>
-                            <h1 className="text--big font-serif">Lessons</h1>
-                            <p className="text--normal">Quisque ac leo eget ante fermentum tempus. Phasellus malesuada, mi eu sagittis euismod, est leo scelerisque magna, a euismod sapien nisl vitae sapien.</p>  
-                            <br />
-                            <Link href={`/lessons`}>
-                                <a>Lesson Enquiries</a>
-                            </Link>
-                        </div>
-                        <p className="text__background font-serif">Lessons</p>
-                        </div>
-                        <div className="flex__item flex__item--right"></div>
-                        <img className="isabel_img hidden md:block" src="https://isabelvaz.com/wp-content/uploads/2020/03/IMG_0874-scaled.jpeg" />
-                    </div> */}
-
                     <div className="slider__navi">
                         {content.sliderMatrix.map((sl, i) => {
                             const current = ++i;
