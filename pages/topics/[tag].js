@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import styles from './../../styles/Inner.module.css'
+import Layout from '../../components/Layout'
 import Header from '../../components/Header'
 import { getTags } from './../../lib/api'
 
@@ -11,7 +12,7 @@ export default function Tag({ entries }) {
     
     return (
         
-        <div className={styles.container}>
+        <Layout>
             <Header headline={slug.tag} />
             <main className="o-wrapper">
                 <h1>Tag: {slug.tag}</h1>
@@ -24,7 +25,7 @@ export default function Tag({ entries }) {
                 })}
                 </ul>
             </main>
-        </div>
+        </Layout>
     
     )
   }

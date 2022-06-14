@@ -8,7 +8,7 @@ import { getPageBySlug } from './../lib/api';
 export default function About({ entry }) {
     return (
         <Layout>
-            <Header headline="About"/>
+            {/* <Header headline="About"/> */}
             <PageBlocks content={entry['pageBlocks']} />
             <Link href={`/`}><a>Home</a></Link><Link href={`/tech`}><a>Tech</a></Link>
         </Layout>

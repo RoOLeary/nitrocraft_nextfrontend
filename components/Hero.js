@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Hero = ({ content }) => {
     const { eyebrow, heading, subHeadline } = content;
@@ -31,7 +32,7 @@ const Hero = ({ content }) => {
                            <p>{subHeadline}</p>
                         </div>
                         <div className={"b-hero__cta"}>
-                            <a className={"c-button c-button--primary"}>Learn more</a>
+                            <Link href={"/all-components"}><a className={"c-button c-button--primary"}>All Components</a></Link>
                         </div>
                     </div>
                 </div>

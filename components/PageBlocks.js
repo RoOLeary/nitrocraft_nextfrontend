@@ -2,6 +2,7 @@ import Hero from './Hero';
 import TextBlock from './TextBlock';
 import Slider from './Slider';
 import Faq from './Faq';
+import Video from './Video';
 
 
 const PageBlocks = ({ content }) => {   
@@ -19,6 +20,8 @@ const PageBlocks = ({ content }) => {
                 return <Slider key={block.uid} content={block} />
             case 'pageBlocks_faq_BlockType':
                 return <Faq key={block.uid} content={block} />
+            case 'pageBlocks_video_BlockType':
+                    return <Video key={block.uid} content={block} />
             default:
                 return(
                     <div key={i}>

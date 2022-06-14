@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router'
 import styles from './../../styles/Inner.module.css';
-import Header from '../../components/Header';
+import Layout from '../../components/Layout';
 import Link from 'next/link';
 
 export default function Topic() {
    
     return(
-        <div className={styles.container}>
+        <Layout>
             <main className="o-wrapper">
                 <h1>TOPICS INDEX</h1>
                 <p>Probably just a list</p>
@@ -22,7 +22,7 @@ export default function Topic() {
                 </ul>
                 <Link href={`/`}><a>Home</a></Link>
             </main>    
-        </div>
+        </Layout>
     )
 }
 

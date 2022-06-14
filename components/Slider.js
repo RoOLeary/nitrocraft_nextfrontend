@@ -9,7 +9,7 @@ let initialState = {
 }
 
 export default function Slider() {
-    console.log('in the slider');
+    // console.log('in the slider');
     const elementRef = useRef();
     const divElement = elementRef.current;
 
