@@ -104,7 +104,7 @@ export default function Slider({ content }) {
                                 <p className="text__background font-serif">{sl.textBackground}</p>
                                 </div>
                                 <div className="flex__item flex__item--right"></div>
-                                <img className="isabel_img hidden md:block" src="https://isabelvaz.com/wp-content/uploads/2020/03/2E8A9134-scaled.jpg" />
+                                <img className="isabel_img hidden md:block" src={sl.slideImage} />
                             </div>
                         )
                     })}
