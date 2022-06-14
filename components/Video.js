@@ -1,5 +1,5 @@
 const Video = ({ content }) => {
-    console.log(content);
+    // console.log(content);
     const videoEmbedCode = content.videoEmbedCode;
     return(
         <section className="b-video">

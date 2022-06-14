@@ -94,9 +94,6 @@ export default function Slider({ content }) {
         <>
             
             <div className="slider__wrapper" ref={elementRef}>
-                   
-                 
-
                     {content.sliderMatrix.map((sl, i) => {
                         const current = ++i;
                         return(
@@ -133,11 +130,12 @@ export default function Slider({ content }) {
                     </div> */}
 
                     <div className="slider__navi">
-                        <a href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == 1 ? `active` : '' }`} data-slide="1">blue</a>
-                        <a href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == 2 ? `active` : '' }`} data-slide="2">yellow</a>
-                        <a href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == 3 ? `active` : '' }`} data-slide="3">red</a> 
-                        {/*<a href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == 4 ? `active` : '' }`} data-slide="4">darkblue</a>
-                        <a href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == 5 ? `active` : '' }`} data-slide="5">gray</a> */}
+                        {content.sliderMatrix.map((sl, i) => {
+                            const current = ++i;
+                            return(
+                                <a href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == current ? `active` : '' }`} data-slide={++i}>blue</a>
+                            ) 
+                        })} 
                     </div>
                     
                 </div>

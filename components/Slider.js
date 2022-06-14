@@ -8,8 +8,12 @@ let initialState = {
     defaultActive: 1,
 }
 
-export default function Slider() {
-    console.log('in the slider');
+export default function Slider({ content }) {
+    
+    console.log(content);
+    
+    const length = content.sliderMatrix.length;
+
     const elementRef = useRef();
     const divElement = elementRef.current;
 
@@ -69,7 +73,7 @@ export default function Slider() {
                 autoFadeSl.classList.remove('flex--active', 'animate--end');
                 autoFadeSl.classList.add('animate--start');
             
-                if (activeSlide == 5) {
+                if (activeSlide == length) {
                         setActiveSlide(initialState.defaultActive)                
                     } else {
                         let nxtSld = ++nextSlide;
@@ -84,73 +88,32 @@ export default function Slider() {
         }
     }, [activeSlide, isAutoPlay, transitionSlide]);
 
+
+
     return(
         <>
             
             <div className="slider__wrapper" ref={elementRef}>
-                   
-                   <div className={`flex__container flex--gray ${activeSlide == 1 ? `flex--active` : 'animate--start' }`} data-slide="1">
-                        <div className="flex__item flex__item--left">
-                        <div className="flex__content">
-                            <p className="text--sub">One</p>
-                            <h1 className="text--big font-serif">Trigger</h1>
-                            {/* <p className="text--normal"></p>  */}
-                        </div>
-                        <p className="text__background font-serif">Trigger Media</p>
-                        </div>
-                        <div className="flex__item flex__item--right"></div>
-                        <img className="isabel_img hidden md:block" src="https://isabelvaz.com/wp-content/uploads/2020/03/2E8A9134-scaled.jpg" />
-                    </div>
-
-                    <div className={`flex__container flex--darkblue  ${activeSlide == 2 ? `flex--active` : 'animate--start' }`} data-slide="2">
-                        <div className="flex__item flex__item--left">
-                        <div className="flex__content">
-                            <p className="text--sub">Two</p>
-                            <h1 className="text--big font-serif">Gallery</h1>
-                            <Link href={`/videos`}>
-                                <a>View Gallery</a>
-                            </Link>
-                            {/* <p className="text--normal">.</p>  */}
-                        </div>
-                        <p className="text__background font-serif">Gallery</p>
-                        </div>
-                        <div className="flex__item flex__item--right"></div>
-                        <img className="isabel_img hidden md:block" src="https://isabelvaz.com/wp-content/uploads/2020/03/IMG_0694.jpeg" />
-                    </div>
-
-                    <div className={`flex__container flex--blue  ${activeSlide == 3 ? `flex--active` : 'animate--start' }`} data-slide="3">
-                        <div className="flex__item flex__item--left">
-                        <div className="flex__content">
-                            <p className="text--sub">Three</p>
-                            <h1 className="text--big font-serif">About</h1>
-                            <p className="text--normal">Isabel Vaz was born in Lisbon, Portugal, and started playing the cello by the age of seven. Isabel lived and studied in Lisbon until 2007, the year she moved to The Netherlands. She completed her bachelor and masters degrees at the Conservatory of Amsterdam with Dmitry Ferschtman. During her studies she did two exchange semesters, one in Prague (HAMU) and the other one in New York (Manhattan School of Music).</p> 
-                            <Link href={`/about`}>
-                                <a>Read More</a>
-                            </Link>
-                        </div>
-                        <h1 className="text__background font-serif">About</h1>
-                        </div>
-                        <div className="flex__item flex__item--right"></div>
-                        <img className="isabel_img hidden md:block" src="https://isabelvaz.com/wp-content/uploads/2020/03/IMG_0481-682x1024.jpeg" />
-                    </div>
-
-                    <div className={`flex__container flex--red  ${activeSlide == 4 ? `flex--active` : 'animate--start' }`} data-slide="4">
-                        <div className="flex__item flex__item--left">
-                        <div className="flex__content">
-                            <p className="text--sub">Four</p>
-                            <h1 className="text--big font-serif">Videos</h1>
-                            <p className="text--normal">Watch a selection of my recorded performances.</p>  
-                            <Link href={`/videos`}>
-                                <a>View Videos</a>
-                            </Link>
-                        </div>
-                        <p className="text__background font-serif">Videos</p>
-                        </div>
-                        <div className="flex__item flex__item--right"></div>
-                        <img className="isabel_img hidden md:block" src="https://isabelvaz.com/wp-content/uploads/2020/03/isabel.png" />
-                    </div>
+                    {content.sliderMatrix.map((sl, i) => {
+                       
+                        const current = ++i;
+                        return(
+                            <div key={++i} className={`flex__container flex--${sl.slideColor.toLowerCase()} ${activeSlide == current ? `flex--active` : 'animate--start' }`} data-slide={current}>
+                                <div className="flex__item flex__item--left">
+                                <div className="flex__content">
+                                    <p className="text--sub">{sl.textSub}</p>
+                                    <h1 className="text--big font-serif">{sl.textHeading}</h1>
+                                    {/* <p className="text--normal"></p>  */}
+                                </div>
+                                <p className="text__background font-serif">{sl.textBackground}</p>
+                                </div>
+                                <div className="flex__item flex__item--right"></div>
+                                <img className="isabel_img hidden md:block" src="https://isabelvaz.com/wp-content/uploads/2020/03/2E8A9134-scaled.jpg" />
+                            </div>
+                        )
+                    })}
                     
-                    <div className={`flex__container flex--yellow ${activeSlide == 5 ? `flex--active` : 'animate--start' }`} data-slide="5">
+                    {/* <div className={`flex__container flex--yellow ${activeSlide == 5 ? `flex--active` : 'animate--start' }`} data-slide="5">
                         <div className="flex__item flex__item--left">
                         <div className="flex__content">
                             <p className="text--sub">Five</p>
@@ -165,14 +128,15 @@ export default function Slider() {
                         </div>
                         <div className="flex__item flex__item--right"></div>
                         <img className="isabel_img hidden md:block" src="https://isabelvaz.com/wp-content/uploads/2020/03/IMG_0874-scaled.jpeg" />
-                    </div>
+                    </div> */}
 
                     <div className="slider__navi">
-                        <a href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == 1 ? `active` : '' }`} data-slide="1">blue</a>
-                        <a href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == 2 ? `active` : '' }`} data-slide="2">yellow</a>
-                        <a href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == 3 ? `active` : '' }`} data-slide="3">red</a>
-                        <a href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == 4 ? `active` : '' }`} data-slide="4">darkblue</a>
-                        <a href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == 5 ? `active` : '' }`} data-slide="5">gray</a>
+                        {content.sliderMatrix.map((sl, i) => {
+                            const current = ++i;
+                            return(
+                                <a key={++i} href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == current ? `active` : '' }`} data-slide={current}>{sl.slideColor}</a>
+                            ) 
+                        })} 
                     </div>
                     
                 </div>
