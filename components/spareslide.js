@@ -11,9 +11,6 @@ let initialState = {
 export default function Slider({ content }) {
     
     
-
-
-
     const elementRef = useRef();
     const divElement = elementRef.current;
 
@@ -89,16 +86,16 @@ export default function Slider({ content }) {
     }, [activeSlide, isAutoPlay, transitionSlide]);
 
     const op = content.sliderMatrix.map((sl, i) => {
-        const current = ++i;
+        console.log(i);
         return(
-            <div key={++i} className={`flex__container flex--gray ${activeSlide == current ? `flex--active` : 'animate--start' }`} data-slide={current}>
+            <div key={i} className={`flex__container flex--gray ${activeSlide == i++ ? `flex--active` : 'animate--start' }`} data-slide="1">
                 <div className="flex__item flex__item--left">
                 <div className="flex__content">
-                    <p className="text--sub">{sl.textSub}</p>
+                    <p className="text--sub">{sl[1].textSub}</p>
                     <h1 className="text--big font-serif"></h1>
                     {/* <p className="text--normal"></p>  */}
                 </div>
-                <p className="text__background font-serif">{sl.textBackground}</p>
+                <p className="text__background font-serif">Trigger Media</p>
                 </div>
                 <div className="flex__item flex__item--right"></div>
                 <img className="isabel_img hidden md:block" src="https://isabelvaz.com/wp-content/uploads/2020/03/2E8A9134-scaled.jpg" />
@@ -106,16 +103,12 @@ export default function Slider({ content }) {
         )
     });
 
-    console.log(op);
-
     return(
         <>
             
             <div className="slider__wrapper" ref={elementRef}>
                    
-                 
-
-                    {op ? op : 'zip'}
+                    {op}
                     
                     {/* <div className={`flex__container flex--yellow ${activeSlide == 5 ? `flex--active` : 'animate--start' }`} data-slide="5">
                         <div className="flex__item flex__item--left">
@@ -137,9 +130,6 @@ export default function Slider({ content }) {
                     <div className="slider__navi">
                         <a href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == 1 ? `active` : '' }`} data-slide="1">blue</a>
                         <a href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == 2 ? `active` : '' }`} data-slide="2">yellow</a>
-                        <a href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == 3 ? `active` : '' }`} data-slide="3">red</a> 
-                        {/*<a href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == 4 ? `active` : '' }`} data-slide="4">darkblue</a>
-                        <a href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == 5 ? `active` : '' }`} data-slide="5">gray</a> */}
                     </div>
                     
                 </div>
