@@ -19,16 +19,8 @@ export default function Home({ allPosts, currentPage }) {
   const [currentPageNo, setCurrentPageNo] = useState(currentPage);
   const { data: session } = useSession();
 
-  // console.log(session);
-
   const leadPost = allPosts.slice(0, 1)
   const morePosts = allPosts.slice(1)
-
-//   const fetchMore = () => {
-//     alert('fuck that noise anyway. Pricks');
-//     setCurrentPageNo(currentPageNo++);
-//     console.log(currentPageNo);
-//   }
 
   const HeroText = {
     eyebrow: 'Ask my arse',
@@ -56,7 +48,7 @@ export default function Home({ allPosts, currentPage }) {
 
   return (
    
-    <div className={styles.container}>
+    <>
       <Layout>
         <Hero content={HeroText} />
         <Text content={leadPost} />
@@ -64,7 +56,7 @@ export default function Home({ allPosts, currentPage }) {
         <TextVisual content={textVisualContent} />
         <Tickets />
       </Layout>
-    </div>
+    </>
   	)
 }
 
