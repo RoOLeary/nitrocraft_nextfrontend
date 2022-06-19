@@ -10,7 +10,7 @@ let initialState = {
 
 export default function Slider({ content }) {
     
-    console.log(content);
+    // console.log(content);
     
     const length = content.sliderMatrix.length;
 

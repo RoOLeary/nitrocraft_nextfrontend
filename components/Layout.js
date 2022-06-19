@@ -27,8 +27,11 @@ const Layout = ({ children }) => {
                 transition={{ type: 'linear' }} // Set the transition to linear
                 className="blerp"
             >
-            {children}
+                
+                {children}
+                
             </motion.main>
+            
         
         </>
 

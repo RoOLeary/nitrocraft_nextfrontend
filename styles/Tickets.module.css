@@ -1,0 +1,33 @@
+.b-tickets {
+
+    .c-tickets{
+        .heading {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .scroller {
+           
+            /* @include screen-max(m) { */
+                display: flex;
+            /* } */
+            /* &::-webkit-scrollbar {
+                display: none;
+            } */
+        }
+
+        .list {
+            display: flex;
+            width: 250vw;
+
+            /* // @include screen-max(m) {
+            //     padding-left: 1.5rem;
+            //     padding-right: 0.75rem;
+            // } */
+
+            /* @include screen-min(m) {
+                width: auto;
+            } */
+        }
+    }
+}

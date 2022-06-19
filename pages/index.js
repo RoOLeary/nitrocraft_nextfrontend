@@ -8,6 +8,7 @@ import Layout from '../components/Layout';
 import Hero from '../components/Hero';
 import Text from '../components/Text'
 import TextVisual from '../components/TextVisual';
+import Tickets from '../components/Tickets';
 import Faq from '../components/Faq';
 // import Slider from '../components/Slider';
 import Related from '../components/Related';
@@ -61,6 +62,7 @@ export default function Home({ allPosts, currentPage }) {
         <Text content={leadPost} />
         <Related related={morePosts} />
         <TextVisual content={textVisualContent} />
+        <Tickets />
       </Layout>
     </div>
   	)

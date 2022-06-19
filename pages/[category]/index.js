@@ -27,8 +27,8 @@ export default function Category({ catPosts, currentPage }) {
             <Header headline={`Category: ${categoryPath.charAt(0).toUpperCase() + categoryPath.slice(1) } - Generic`} />
             <Related related={catPosts} currentslug={categoryPath} />
             <TextVisual content={textVisualContent} />
-            
-            <main className="o-wrapper">
+            <section className={'c-section category'}>
+            <div className="o-wrapper">
                 <ul>
                     {catPosts.map((post, index) => {
                         // console.log(post)
@@ -45,7 +45,8 @@ export default function Category({ catPosts, currentPage }) {
                 
                 
                 <Link href={`/`}><a>Home</a></Link>
-            </main>    
+            </div> 
+            </section>
         </Layout>
     )
 }

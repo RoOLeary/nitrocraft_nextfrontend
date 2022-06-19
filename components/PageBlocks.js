@@ -3,6 +3,7 @@ import TextBlock from './TextBlock';
 import Slider from './Slider';
 import Faq from './Faq';
 import Video from './Video';
+import Speakers from './Speakers';
 
 
 const PageBlocks = ({ content }) => {   
@@ -22,6 +23,8 @@ const PageBlocks = ({ content }) => {
                 return <Faq key={block.uid} content={block} />
             case 'pageBlocks_video_BlockType':
                     return <Video key={block.uid} content={block} />
+            case 'pageBlocks_speakers_BlockType':
+                return <Speakers key={block.uid} content={block} />
             default:
                 return(
                     <div key={i}>

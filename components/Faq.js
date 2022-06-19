@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
+import Link from 'next/link';
 
 const Faq = ({ content }) => { 
 
@@ -37,7 +38,7 @@ const Faq = ({ content }) => {
                                 {faqLeadtext ? faqLeadtext : 'We’re here to help you find the answers to your questions.'}
                             </div>
                             <div className="c-section__cta">
-                                <a className="c-button c-button--primary" href="#">CONTACT</a>
+                                <Link href={'/contact'}><a className="c-button c-button--primary">CONTACT</a></Link>
                             </div>
                         </div>
                     </div>

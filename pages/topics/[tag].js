@@ -14,7 +14,8 @@ export default function Tag({ entries }) {
         
         <Layout>
             <Header headline={slug.tag} />
-            <main className="o-wrapper">
+            <section className="c-section">
+            <div className="o-wrapper">
                 <h1>Tag: {slug.tag}</h1>
                 <p>Description of the tag</p>
                 <ul>
@@ -24,7 +25,8 @@ export default function Tag({ entries }) {
                     )
                 })}
                 </ul>
-            </main>
+            </div>
+            </section>
         </Layout>
     
     )

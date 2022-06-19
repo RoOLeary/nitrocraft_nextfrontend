@@ -31,8 +31,8 @@ export default function Tech({ slug, catPosts, currentPage }) {
             <Header headline={`Bespoke category: ${title.charAt(0).toUpperCase() + title.slice(1) } - Example Case`} />
             
             <Related related={catPosts} currentslug={`tech`} />
-            
-            <main className="o-wrapper">
+            <section className={'c-section tech'}>
+            <div className="o-wrapper">
                 <ul>
                     {catPosts.map((post, index) => {
                         console.log(post)
@@ -48,7 +48,8 @@ export default function Tech({ slug, catPosts, currentPage }) {
                 </ul>
                 <br /><br />
                 <Link href={`/`}><a>Home</a></Link>
-            </main>    
+            </div>  
+            </section>  
         </Layout>
     )
 }

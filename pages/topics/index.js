@@ -7,21 +7,23 @@ export default function Topic() {
    
     return(
         <Layout>
-            <main className="o-wrapper">
-                <h1>TOPICS INDEX</h1>
-                <p>Probably just a list</p>
-                <ul>
-                    
-                <li>
-                    <Link href={`/topics/tech`}>
-                        <a>TOPIC</a>
-                    </Link>
-                    
-                </li>
-            
-                </ul>
-                <Link href={`/`}><a>Home</a></Link>
-            </main>    
+            <section className="c-section">
+                <div className="o-wrapper">
+                    <h1>TOPICS INDEX</h1>
+                    <p>Probably just a list</p>
+                    <ul>
+                        
+                    <li>
+                        <Link href={`/topics/tech`}>
+                            <a>TOPIC</a>
+                        </Link>
+                        
+                    </li>
+                
+                    </ul>
+                    <Link href={`/`}><a>Home</a></Link>
+                </div>    
+            </section>
         </Layout>
     )
 }

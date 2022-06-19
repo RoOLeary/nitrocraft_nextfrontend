@@ -4084,3 +4084,46 @@ input[type=number] {
 	transform: translate3d(200px,0,0);
 	opacity: 0;
 }
+
+.c-modal {
+  align-items: center;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: rgba(0,0,0,.66);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  padding: 8px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+}
+
+.c-modal.is-visible{
+  display: flex; 
+}
+
+.modal-background{
+  -webkit-animation: modalWindow var(--duration-medium) both ease;
+  animation: modalWindow var(--duration-medium) both ease;
+  background-color: rgb(var(--color-bg));
+  border-radius: var(--border-radius);
+  box-shadow: 0 24px 48px rgb(0 0 0 / 25%);
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 16px);
+  max-width: 480px;
+  overflow: hidden;
+  width: 100%;
+  will-change: transform;
+}
+
+.c-modal-body{
+  
+  -webkit-overflow-scrolling: touch;
+  flex: 1;
+  overflow: auto;
+  padding: 24px 24px 32px;
+}
