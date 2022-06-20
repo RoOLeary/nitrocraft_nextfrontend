@@ -4127,3 +4127,7 @@ input[type=number] {
   overflow: auto;
   padding: 24px 24px 32px;
 }
+
+.has-modal{
+  overflow: hidden;
+}

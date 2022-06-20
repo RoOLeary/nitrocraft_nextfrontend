@@ -1,6 +1,6 @@
 const ModalContent = ({ modalInfo }) => {
 
-    console.log(modalInfo);
+    // console.log(modalInfo);
     
   let speakerBioString;
   let companyDescriptionString;
