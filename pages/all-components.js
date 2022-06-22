@@ -7,7 +7,7 @@ import { getPageBySlug } from './../lib/api';
 export default function AllComponents({ entry }) {
     return (
         <Layout>
-            <Header headline="All of the Motherfucking Components"/>
+            <Header headline="Component Manifest"/>
             <PageBlocks content={entry['pageBlocks']} />
             <Link href={`/`}><a>Home</a></Link><Link href={`/tech`}><a>Tech</a></Link>
         </Layout>

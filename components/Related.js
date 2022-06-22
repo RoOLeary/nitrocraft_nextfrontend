@@ -37,11 +37,8 @@ const Related = ( props ) => {
         <section className="b-blocks t-dark">
             <div className="o-grid">
                 
-                
                 {relPosts.slice(0,2)}
                 
-                
-               
             </div>
         </section>
     )
