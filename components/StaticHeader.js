@@ -1,4 +1,4 @@
-const Header = ({ content }) => {
+const StaticHeader = ({ content }) => {
 
     console.log(content);
 
@@ -16,11 +16,11 @@ const Header = ({ content }) => {
                 <div className="b-header__shape b-header__shape--3" id="lines">
                 </div>
                 <div className="b-header__content">
-                    <h1 className="b-header__title">{content.headline ? content.headline : 'Headline' }</h1>
+                    <h1 className="b-header__title">{content ? content : 'Headline' }</h1>
                 </div>
             </div>
         </header>
     )
 }
 
-export default Header;
+export default StaticHeader;

@@ -4,6 +4,7 @@ import styles from './../../styles/Inner.module.css'
 import Layout from '../../components/Layout'
 import Header from '../../components/Header'
 import { getTags } from './../../lib/api'
+import StaticHeader from '../../components/StaticHeader'
 
 export default function Tag({ entries }) {
     const router = useRouter()
@@ -13,7 +14,7 @@ export default function Tag({ entries }) {
     return (
         
         <Layout>
-            <Header headline={slug.tag} />
+            <StaticHeader content={slug.tag} />
             <section className="c-section">
             <div className="o-wrapper">
                 <h1>Tag: {slug.tag}</h1>

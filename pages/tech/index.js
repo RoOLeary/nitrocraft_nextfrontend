@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import styles from './../../styles/Inner.module.css';
 import Layout from '../../components/Layout';
-import Header from '../../components/Header';
+import StaticHeader from '../../components/StaticHeader';
 import Hero from '../../components/Hero';
 import Text from '../../components/Text'
 import TextVisual from '../../components/TextVisual';
@@ -28,7 +28,7 @@ export default function Tech({ slug, catPosts, currentPage }) {
 
     return(
         <Layout>
-            <Header headline={`Bespoke category: ${title.charAt(0).toUpperCase() + title.slice(1) } - Example Case`} />
+            <StaticHeader content={`Bespoke category: ${title.charAt(0).toUpperCase() + title.slice(1) } - Example Case`} />
             
             <Related related={catPosts} currentslug={`tech`} />
             <section className={'c-section tech'}>

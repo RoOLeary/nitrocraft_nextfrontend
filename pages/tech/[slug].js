@@ -3,7 +3,7 @@ import Link from 'next/link'
 import styles from './../../styles/Inner.module.css'
 import { getPostAndMorePosts } from '../../lib/api'
 import Layout from '../../components/Layout'
-import Header from '../../components/Header'
+import StaticHeader from '../../components/StaticHeader'
 import Related from '../../components/Related'
 import Slider from '../../components/Slider'
 
@@ -12,7 +12,7 @@ export default function Post({ entry }) {
     const router = useRouter()
     return (
         <Layout>
-            <Header headline={entry.headline} />
+            <StaticHeader content={entry.headline} />
             <section className="b-text  c-section" id="learn-more">
                 <div className="o-wrapper">
                     <div className="o-grid o-grid--gap-xxl">

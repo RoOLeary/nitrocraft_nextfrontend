@@ -6,6 +6,7 @@ import TextVisual from './../../components/TextVisual';
 import Related from './../../components/Related';
 import Link from 'next/link';
 import { getAllPostsByCategory } from './../../lib/api'
+import StaticHeader from '../../components/StaticHeader';
 
 
 export default function Category({ catPosts, currentPage }) {
@@ -24,7 +25,7 @@ export default function Category({ catPosts, currentPage }) {
 
     return(
         <Layout>
-            <Header headline={`Category: ${categoryPath.charAt(0).toUpperCase() + categoryPath.slice(1) } - Generic`} />
+            <StaticHeader content={`Category: ${categoryPath.charAt(0).toUpperCase() + categoryPath.slice(1) } - Generic`} />
             <Related related={catPosts} currentslug={categoryPath} />
             <TextVisual content={textVisualContent} />
             <section className={'c-section category'}>
