@@ -1,4 +1,4 @@
-const Header = (props) => {
+const Header = ({ content }) => {
     return(
         <header className="b-header js-equinoxNode t-dark">
             <div className="b-header__backdrop">
@@ -13,7 +13,7 @@ const Header = (props) => {
                 <div className="b-header__shape b-header__shape--3" id="lines">
                 </div>
                 <div className="b-header__content">
-                    <h1 className="b-header__title">{props.headline ? props.headline : 'Headline' }</h1>
+                    <h1 className="b-header__title">{content.headline ? content.headline : 'Headline' }</h1>
                 </div>
             </div>
         </header>

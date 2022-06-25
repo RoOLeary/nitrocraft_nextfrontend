@@ -1,3 +1,4 @@
+import Header from './Header';
 import Hero from './Hero';
 import TextBlock from './TextBlock';
 import Slider from './Slider';
@@ -11,6 +12,8 @@ const PageBlocks = ({ content }) => {
     const pageBlocks = Array.from(content);
     const pageBlocksList = pageBlocks.map((block, i) => {
         switch(block.__typename) {
+            case 'pageBlocks_header_BlockType':
+                return <Header key={block.uid} content={block} />
             case 'pageBlocks_hero_BlockType':
                 return <Hero key={block.uid} content={block} />
             case 'pageBlocks_text_BlockType':

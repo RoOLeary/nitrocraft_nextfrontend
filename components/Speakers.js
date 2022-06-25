@@ -12,6 +12,7 @@ const Speakers = ({ content }) => {
                 {introText.replace(/<\/?p[^>]*>/g, '')}
                 <br />
                 <div>
+                <br />
                 <ul className={'b-speakers__list o-grid o-grid--gap-m'}>
                     {speakers.length >= 0 && speakers.map((speaker, i) => {
                         return <Speaker key={i} speaker={speaker} />
