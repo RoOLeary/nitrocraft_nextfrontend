@@ -5,15 +5,20 @@ import StaticHeader from '../components/StaticHeader';
 
 
 export default function Retest({ data }) {
-    const { title, homeIntro } = data.data[0]
-    console.log(data.data[0].title);
+    const { title, homeIntro, blocks } = data.data[0]
+    console.log(blocks);
 
     return (
         <Layout>
             <StaticHeader content={title} />
             <section className={'c-section fetchTest'}>
                 <div className="o-wrapper">
-                    <p>{homeIntro}</p>
+                    {homeIntro}
+                    <div>
+                    {blocks.map((block, i) => {
+                        return <p key={i}>{block.title}</p> 
+                    })}
+                    </div>
                 </div>
             </section>
             <Link href={`/`}><a>Home</a></Link><Link href={`/tech`}><a>Tech</a></Link>
