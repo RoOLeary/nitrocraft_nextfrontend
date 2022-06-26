@@ -11,7 +11,11 @@ export default function Retest({ data }) {
     return (
         <Layout>
             <StaticHeader content={title} />
-            <p>{homeIntro}</p>
+            <section className={'c-section fetchTest'}>
+                <div className="o-wrapper">
+                    <p>{homeIntro}</p>
+                </div>
+            </section>
             <Link href={`/`}><a>Home</a></Link><Link href={`/tech`}><a>Tech</a></Link>
         </Layout>
     )
@@ -29,11 +33,12 @@ export const getStaticProps = async () => {
                 "Access-Control-Allow-Credentials" : true
             },
         });
-    let post = await res.json();
+    
+    let homeEntry = await res.json();
     // Sending fetched data to the page component via props.
     return {
         props: {
-            data: post
+            data: homeEntry
         }
     }
 }
