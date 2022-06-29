@@ -17,10 +17,12 @@ export default function About({ entry }) {
 
 export async function getServerSideProps(context) {
     const slug = context?.query?.slug || "about";
-    const data = await getPageBySlug(slug);
+    const res = await fetch(`http://nitroblog.nitro/api/pages/${slug}.json`);
+    let abt = await res.json();
+    // Sending fetched data to the page component via props.
     return {
-        props: { 
-            entry: data.entry 
+        props: {
+            entry: abt
         }
-    };
+    }
 }

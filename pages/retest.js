@@ -6,7 +6,7 @@ import StaticHeader from '../components/StaticHeader';
 
 export default function Retest({ data }) {
     const { title, homeIntro, blocks } = data.data[0]
-    console.log(blocks);
+    // console.log(blocks);
 
     return (
         <Layout>
@@ -47,16 +47,3 @@ export const getStaticProps = async () => {
         }
     }
 }
-
-
-
-//   export async function getStaticProps() {
-//     const res = await fetch('https://servd-test-staging.cl-eu-west-3.servd.dev/api/homepage.json');
-//     const post = await JSON.parse(JSON.stringify(res));
-  
-//     return {
-//       props: {
-//         post
-//       } // will be passed to the page component as props
-//     }
-//   }

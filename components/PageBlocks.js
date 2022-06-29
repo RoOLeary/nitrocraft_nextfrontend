@@ -1,6 +1,7 @@
 import Header from './Header';
 import Hero from './Hero';
 import TextBlock from './TextBlock';
+import TextVisual from './TextVisual';
 import Slider from './Slider';
 import Faq from './Faq';
 import Video from './Video';
@@ -11,26 +12,30 @@ const PageBlocks = ({ content }) => {
 
     const pageBlocks = Array.from(content);
     const pageBlocksList = pageBlocks.map((block, i) => {
-        switch(block.__typename) {
-            case 'pageBlocks_header_BlockType':
+        switch(block.blockType) {
+            case 'header':
                 return <Header key={block.uid} content={block} />
-            case 'pageBlocks_hero_BlockType':
+            case 'hero':
                 return <Hero key={block.uid} content={block} />
-            case 'pageBlocks_text_BlockType':
+            case 'text':
                 return <TextBlock key={block.uid} content={block} />
-            case 'pageBlocks_textVisual_BlockType':
+            case 'textVisual':
                     return <TextVisual key={block.uid} content={block} />
-            case 'pageBlocks_imageSlider_BlockType':
+            case 'imageSlider':
                 return <Slider key={block.uid} content={block} />
-            case 'pageBlocks_faq_BlockType':
+            case 'faq':
                 return <Faq key={block.uid} content={block} />
-            case 'pageBlocks_video_BlockType':
-                    return <Video key={block.uid} content={block} />
-            case 'pageBlocks_speakers_BlockType':
+            case 'video':
+                return <Video key={block.uid} content={block} />
+            case 'speakers':
                 return <Speakers key={block.uid} content={block} />
+            case 'text':
+                return <TextBlock key={block.uid} content={block} />
+            case 'textVisual':
+                return <TextVisual key={block.uid} content={block} />
             default:
                 return(
-                    <div key={i}>
+                    <div key={id}>
                         <h3>{block.__typename}</h3>
                         <pre>{JSON.stringify(block, null, 2)}</pre>
                     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Layout from '../components/Layout';
-import Header from '../components/Header';
+import StaticHeader from '../components/StaticHeader';
 
 const Contact = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -22,7 +22,7 @@ const Contact = () => {
 
   return (
     <Layout>
-    <Header headline="Contact"/>    
+    <StaticHeader content="Contact"/>    
         <section className={'c-section contact'}>
         <div className="o-wrapper">
             <form onSubmit={handleSubmit(handleRegistration, handleError)}>
