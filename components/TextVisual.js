@@ -16,7 +16,7 @@ const TextVisual = ({ content }) => {
             <div className="o-wrapper">
                 <div className="b-textImage__text">
                     <h2 className="b-textImage__heading">{title}</h2>
-                    <p  dangerouslySetInnerHTML={{__html: articleBody }} />
+                    <p>{articleBody}</p>
                     <div className="b-blocks__ctas">
                     {buttons && buttons.length > 0 ?
                         Object.entries(buttons).map((btn, i) => {
