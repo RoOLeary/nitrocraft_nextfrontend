@@ -11,11 +11,12 @@ import Link from 'next/link';
 import { getAllPostsByCategory } from '../../lib/api'
 
 
-export default function Tech({ slug, catPosts, currentPage }) {
+export default function Tech({ slug, catPosts }) {
     const router = useRouter()
     const { category } = router.query
     const title = slug;
-    console.log(category);
+    console.log(catPosts);
+
 
     const textVisualContent = {
         title: 'Smoke Potent Weed',
@@ -30,7 +31,6 @@ export default function Tech({ slug, catPosts, currentPage }) {
         <Layout>
             <StaticHeader content={`Bespoke category: ${title.charAt(0).toUpperCase() + title.slice(1) } - Example Case`} />
             
-            <Related related={catPosts} currentslug={`tech`} />
             <section className={'c-section tech'}>
             <div className="o-wrapper">
                 <ul>
@@ -55,15 +55,19 @@ export default function Tech({ slug, catPosts, currentPage }) {
 }
 
 
-export async function getServerSideProps(context) {
-    const slug = 'tech';
-    const data = await getAllPostsByCategory(slug);
 
+export async function getServerSideProps() {
+    const slug = 'tech';
+    const res = await fetch(`https://servd-test-staging.cl-eu-west-3.servd.dev/api/category/${slug}.json`);
+    let data = await res.json();
     return {
         props: { 
+            catPosts: data.data,
             slug: 'tech',
-            catPosts: data.entries,
             currentPage: "1",
         }
     };
 }
+
+
+

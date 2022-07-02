@@ -17,7 +17,7 @@ export default function About({ entry }) {
 
 export const getStaticProps = async (context) => {
     const slug = context?.params?.slug || "about";
-    const res = await fetch(`https://127.0.0.1:51448/api/pages/${slug}.json`);
+    const res = await fetch(`https://servd-test-staging.cl-eu-west-3.servd.dev/api/pages/${slug}.json`);
     let entry = await res.json();
 
     return {

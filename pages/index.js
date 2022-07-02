@@ -60,10 +60,10 @@ export default function Home({ entry }) {
 
 
 export const getStaticProps = async () => {
-  const res = await fetch('https://127.0.0.1:51448/api/homepage.json',{
+  const res = await fetch('https://servd-test-staging.cl-eu-west-3.servd.dev/api/homepage.json',{
       credentials: "include",
       headers: {
-          // "Access-Control-Allow-Origin" : "*", 
+          "Access-Control-Allow-Origin" : "*", 
           "Access-Control-Allow-Credentials" : true
       },
   });

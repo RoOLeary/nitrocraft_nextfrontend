@@ -9,10 +9,12 @@ import { getAllPostsByCategory } from './../../lib/api'
 import StaticHeader from '../../components/StaticHeader';
 
 
-export default function Category({ catPosts, currentPage }) {
+export default function Category({ catPosts, slug, currentPage }) {
     const router = useRouter()
     const categoryPath = router.query.category
-    console.log(currentPage); 
+    console.log(catPosts); 
+    console.log(categoryPath); 
+    console.log('slug is: ' + slug); 
 
     const textVisualContent = {
         title: 'Go to Work',
@@ -43,8 +45,7 @@ export default function Category({ catPosts, currentPage }) {
                         )
                     })}
                 </ul>
-                
-                
+            
                 <Link href={`/`}><a>Home</a></Link>
             </div> 
             </section>
@@ -52,14 +53,14 @@ export default function Category({ catPosts, currentPage }) {
     )
 }
 
-
 export async function getServerSideProps(context) {
     const slug = context.query.category
-    const data = await getAllPostsByCategory(slug);
-
+    const res = await fetch(`https://servd-test-staging.cl-eu-west-3.servd.dev/api/category/${slug}.json`);
+    let data = await res.json();
     return {
         props: { 
-            catPosts: data.entries,
+            catPosts: data.data,
+            slug: slug,
             currentPage: "1",
         }
     };

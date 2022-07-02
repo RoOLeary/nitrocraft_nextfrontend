@@ -18,6 +18,7 @@ const Hero = ({ content }) => {
     const y3 = useTransform(scrollY, [0, 300], [0, -50]);
     const { eyebrow, heading, subHeadline } = content;
     
+   
     return(
         <section className={"b-hero js-equinoxNode t-dark"}>
             <div className={"b-hero__grid"}>
