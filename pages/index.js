@@ -16,13 +16,13 @@ import { useSession, signIn, signOut } from "next-auth/react"
 
 export default function Home({ entry }) {
 
-  
+  const homeHeader = entry.data[0].blocks[0];
   // const [currentPageNo, setCurrentPageNo] = useState(currentPage);
   // const { data: session } = useSession();
 
   const HeroText = {
     eyebrow: 'Ask my arse',
-    heading: 'Snappy Title Goes Here',
+    heading: 'Your Buddy is now your Guy',
     subHeading: 'Go on ta fuck ye',
   }
 
@@ -48,10 +48,10 @@ export default function Home({ entry }) {
    
     <>
       <Layout>
-        <Hero content={HeroText} />
+        <Hero content={homeHeader} />
         {/* <Text content={leadPost} /> */}
         {/* <Related related={morePosts} /> */}
-        <TextVisual content={textVisualContent} />
+        {/* <TextVisual content={textVisualContent} /> */}
         <Tickets />
       </Layout>
     </>
@@ -60,10 +60,13 @@ export default function Home({ entry }) {
 
 
 export const getStaticProps = async () => {
-  // const slug = context?.params.slug || "all-components";
-  // console.log(context);
-  // Fetching data from jsonplaceholder.
-  const res = await fetch('https://nitroblog.ddev.site:3306/api/homepage.json');
+  const res = await fetch('https://127.0.0.1:51448/api/homepage.json',{
+      credentials: "include",
+      headers: {
+          // "Access-Control-Allow-Origin" : "*", 
+          "Access-Control-Allow-Credentials" : true
+      },
+  });
   let entry = await res.json();
 
   return {

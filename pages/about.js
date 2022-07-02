@@ -3,7 +3,7 @@ import styles from '../styles/Inner.module.css';
 import Layout from '../components/Layout';
 import Header from '../components/Header';
 import PageBlocks from '../components/PageBlocks'
-import { getPageBySlug } from './../lib/api';
+import { getPageBySlug } from '../lib/api';
 
 export default function About({ entry }) {
     return (
@@ -15,14 +15,14 @@ export default function About({ entry }) {
     )
 }
 
-export async function getServerSideProps(context) {
-    const slug = context?.query?.slug || "about";
-    const res = await fetch(`http://nitroblog.nitro/api/pages/${slug}.json`);
-    let abt = await res.json();
-    // Sending fetched data to the page component via props.
+export const getStaticProps = async (context) => {
+    const slug = context?.params?.slug || "about";
+    const res = await fetch(`https://127.0.0.1:51448/api/pages/${slug}.json`);
+    let entry = await res.json();
+
     return {
         props: {
-            entry: abt
+            entry: entry
         }
     }
 }
