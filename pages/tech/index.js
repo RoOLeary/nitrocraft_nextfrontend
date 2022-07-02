@@ -38,10 +38,13 @@ export default function Tech({ slug, catPosts }) {
                         console.log(post)
                         return(
                             <li key={index}>
+                                
                                 <Link href={`/${slug}/${post.slug}`}>
-                                    <a>{post.title}</a>
+                                    <a><h2 className={'b-text__heading'}>{post.title}</h2></a>
                                 </Link>
+                                <br />
                                 <p>{post.subHeadline}</p>
+                                <br />
                             </li>
                         )
                     })}

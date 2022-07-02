@@ -9,16 +9,17 @@ import PageBlocks from '../../components/PageBlocks'
 
 export default function Post({ entry }) {
 
-    const pageBlocks = entry['pageBlocks'];
+    console.log(entry);
+    const pageBlocks = entry['blocks'];
 
     const router = useRouter()
     const slug = router.query
-    const tags = entry.tags;
-    const tagList = Object.entries(tags).map((tag, i) => {
-        return(
-            <li key={i}><Link href={`/topics/${tag[1].slug}`} key={i}><a>{tag[1].title}</a></Link></li>
-        )
-    })
+    // const tags = entry.tags;
+    // const tagList = Object.entries(tags).map((tag, i) => {
+    //     return(
+    //         <li key={i}><Link href={`/topics/${tag[1].slug}`} key={i}><a>{tag[1].title}</a></Link></li>
+    //     )
+    // })
     
     return (
         <Layout>
@@ -30,31 +31,33 @@ export default function Post({ entry }) {
                             <h2 className="b-text__heading">{entry.subHeadline}</h2>
                         </div>
                         <div className="o-grid__col l:o-grid__col--span-8">
-                            <div className={"c-formatted"} dangerouslySetInnerHTML={{__html: entry.articleBody}} />        
+                            <div className={"c-formatted"} dangerouslySetInnerHTML={{__html: entry.body }} />        
                         </div>
                     </div>
                 </div>
-                <div>
+                {/* <div>
                     {tagList}
-                </div>
+                </div> */}
             </section>
             
             <PageBlocks content={pageBlocks} />
 
-            <Related related={entry.manualRelatedArticles} currentslug={entry.slug} />
+            {/* <Related related={entry.manualRelatedArticles} currentslug={entry.slug} /> */}
         
         </Layout>
     )
   }
   
 // This also gets called at build time
+
 export async function getServerSideProps(context) {
     const { slug } = context.query
-    const data = await getPostAndMorePosts(slug);
-
+    const res = await fetch(`https://servd-test-staging.cl-eu-west-3.servd.dev/api/articles/${slug}.json`);
+    let data = await res.json();
+    console.log(data);
     return {
         props: { 
-           entry: data.entries[0]
+            entry: data
         }
     };
 }
