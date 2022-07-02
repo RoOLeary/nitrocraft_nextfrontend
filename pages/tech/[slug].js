@@ -4,11 +4,10 @@ import styles from './../../styles/Inner.module.css'
 import Layout from '../../components/Layout'
 import StaticHeader from '../../components/StaticHeader'
 import Related from '../../components/Related'
-import Slider from '../../components/Slider'
 import PageBlocks from '../../components/PageBlocks'
 
 export default function Post({ entry }) {
-    console.log(entry);
+    // console.log(entry);
     const router = useRouter()
     return (
         <Layout>

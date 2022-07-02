@@ -47,7 +47,7 @@ const Nav = () => {
                     <li className="c-nav__menuItem"><Link href={"/about"}><a className="c-nav__menuLink">About</a></Link></li>
                     <li className="c-nav__menuItem"><Link href={"/tech"}><a className="c-nav__menuLink">Tech</a></Link></li>
                     <li className="c-nav__menuItem"><Link href={"/test"}><a className="c-nav__menuLink">Test</a></Link></li>
-                    <li className="c-nav__menuItem"><Link href={"/retest"}><a className="c-nav__menuLink">Retest</a></Link></li>
+                    <li className="c-nav__menuItem"><Link href={"/contact"}><a className="c-nav__menuLink">Contact</a></Link></li>
                     {session ? <li className="c-nav__menuItem"><Link href={"/members"}><a className="c-nav__menuLink">Members</a></Link></li> : ''}
                     <li className="c-nav__menuItem">
                         {!session ? <>
