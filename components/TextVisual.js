@@ -2,7 +2,7 @@ import Link from 'next/link'
 import styles from '../styles/TextVisual.module.css';
 
 const TextVisual = ({ content }) => {
-   
+    // console.log(content.content);
     const { title, articleBody, image, buttons} = content;
    
     return(
@@ -16,7 +16,7 @@ const TextVisual = ({ content }) => {
             <div className="o-wrapper">
                 <div className="b-textImage__text">
                     <h2 className="b-textImage__heading">{title}</h2>
-                    <p>{articleBody}</p>
+                    <p>{content.content}</p>
                     <div className="b-blocks__ctas">
                     {buttons && buttons.length > 0 ?
                         Object.entries(buttons).map((btn, i) => {

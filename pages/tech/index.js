@@ -12,10 +12,11 @@ import Link from 'next/link';
 
 export default function Tech({ slug, catPosts }) {
     const router = useRouter()
-    const { category } = router.query
+    const categoryPath = router.query.category
     const title = slug;
     console.log(catPosts);
 
+  
 
     const textVisualContent = {
         title: 'Smoke Potent Weed',
@@ -34,7 +35,7 @@ export default function Tech({ slug, catPosts }) {
             <div className="o-wrapper">
                 <ul>
                     {catPosts.map((post, index) => {
-                        console.log(post)
+                        // console.log(post)
                         return(
                             <li key={index}>
                                 
@@ -52,13 +53,15 @@ export default function Tech({ slug, catPosts }) {
                 <Link href={`/`}><a>Home</a></Link>
             </div>  
             </section>  
+            <TextVisual content={textVisualContent} />
+            <Related related={catPosts} currentslug={categoryPath} />
         </Layout>
     )
 }
 
 
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
     const slug = 'tech';
     const res = await fetch(`https://servd-test-staging.cl-eu-west-3.servd.dev/api/category/${slug}.json`);
     let data = await res.json();

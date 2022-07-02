@@ -37,7 +37,6 @@ export async function getServerSideProps(context) {
     const { slug } = context.query
     const res = await fetch(`https://servd-test-staging.cl-eu-west-3.servd.dev/api/articles/${slug}.json`);
     let data = await res.json();
-    console.log(data);
     return {
         props: { 
             entry: data

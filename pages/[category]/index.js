@@ -5,16 +5,16 @@ import Header from './../../components/Header';
 import TextVisual from './../../components/TextVisual';
 import Related from './../../components/Related';
 import Link from 'next/link';
+
 import StaticHeader from '../../components/StaticHeader';
 
 
 export default function Category({ catPosts, slug, currentPage }) {
     const router = useRouter()
     const categoryPath = router.query.category
-
     const textVisualContent = {
         title: 'Go to Work',
-        content: 'Something something something shemales. Here goes...',
+        content: 'Something something something blort. Here goes...',
         image: '/assets/img/conf.jpg',
         link: '#',
         linkText: 'Learn More'
