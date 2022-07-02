@@ -8,7 +8,7 @@ import PageBlocks from '../../components/PageBlocks'
 
 export default function Post({ entry }) {
 
-    console.log(entry);
+    // console.log(entry);
     const pageBlocks = entry['blocks'];
 
     const router = useRouter()
