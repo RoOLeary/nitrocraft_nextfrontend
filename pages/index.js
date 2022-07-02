@@ -14,18 +14,16 @@ import Faq from '../components/Faq';
 import Related from '../components/Related';
 import { useSession, signIn, signOut } from "next-auth/react"
 
-export default function Home({ allPosts, currentPage }) {
+export default function Home({ entry }) {
 
-  const [currentPageNo, setCurrentPageNo] = useState(currentPage);
-  const { data: session } = useSession();
-
-  const leadPost = allPosts.slice(0, 1)
-  const morePosts = allPosts.slice(1)
+  
+  // const [currentPageNo, setCurrentPageNo] = useState(currentPage);
+  // const { data: session } = useSession();
 
   const HeroText = {
     eyebrow: 'Ask my arse',
     heading: 'Snappy Title Goes Here',
-    subHeadline: leadPost[0].subHeadline,
+    subHeading: 'Go on ta fuck ye',
   }
 
   const textVisualContent = {
@@ -51,8 +49,8 @@ export default function Home({ allPosts, currentPage }) {
     <>
       <Layout>
         <Hero content={HeroText} />
-        <Text content={leadPost} />
-        <Related related={morePosts} />
+        {/* <Text content={leadPost} /> */}
+        {/* <Related related={morePosts} /> */}
         <TextVisual content={textVisualContent} />
         <Tickets />
       </Layout>
@@ -61,40 +59,16 @@ export default function Home({ allPosts, currentPage }) {
 }
 
 
-export async function getServerSideProps() {
-  const { data } = await client.query({
-    query: gql`
-    query getArticles {
-      entries(section: "articles") {
-        id
-        title
-        slug
-        status
-        ... on articles_default_Entry {
-          headline
-          subHeadline
-          excerpt
-          publishDate
-          articleFormat
-          category {
-            id
-            title
-          }
-          tags {
-            id
-            title
-          }
-          publishDate
-          articleBody
-        }
-      }
-    }
-    `,
-  });
+export const getStaticProps = async () => {
+  // const slug = context?.params.slug || "all-components";
+  // console.log(context);
+  // Fetching data from jsonplaceholder.
+  const res = await fetch('https://nitroblog.ddev.site:3306/api/homepage.json');
+  let entry = await res.json();
+
   return {
-    props: {
-      allPosts: data.entries,
-      currentPage: "1",
-    },
- };
+      props: {
+          entry: entry
+      }
+  }
 }
