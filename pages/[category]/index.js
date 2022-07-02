@@ -12,9 +12,9 @@ import StaticHeader from '../../components/StaticHeader';
 export default function Category({ catPosts, slug, currentPage }) {
     const router = useRouter()
     const categoryPath = router.query.category
-    console.log(catPosts); 
-    console.log(categoryPath); 
-    console.log('slug is: ' + slug); 
+    // console.log(catPosts); 
+    // console.log(categoryPath); 
+    // console.log('slug is: ' + slug); 
 
     const textVisualContent = {
         title: 'Go to Work',
