@@ -5,7 +5,6 @@ import Header from './../../components/Header';
 import TextVisual from './../../components/TextVisual';
 import Related from './../../components/Related';
 import Link from 'next/link';
-import { getAllPostsByCategory } from './../../lib/api'
 import StaticHeader from '../../components/StaticHeader';
 
 

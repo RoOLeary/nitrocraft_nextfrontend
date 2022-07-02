@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import styles from './../../styles/Inner.module.css'
-import { getPostAndMorePosts } from '../../lib/api'
 import Layout from '../../components/Layout'
 import StaticHeader from '../../components/StaticHeader'
 import Related from '../../components/Related'
