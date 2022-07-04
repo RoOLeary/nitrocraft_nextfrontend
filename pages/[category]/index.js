@@ -9,11 +9,10 @@ import Link from 'next/link';
 import StaticHeader from '../../components/StaticHeader';
 
 
-export default function Category({ catPosts, slug, currentPage }) {
+export default function Category({ catPosts }) {
     const router = useRouter()
     const categoryPath = router.query.category
-
-    console.log(catPosts)
+    
     const textVisualContent = {
         title: 'Go to Work',
         content: 'Something something something blort. Here goes...',
@@ -53,14 +52,13 @@ export default function Category({ catPosts, slug, currentPage }) {
 
 export async function getServerSideProps(context) {
     const slug = context.query.category
+    console.log(slug);
     const res = await fetch(`https://servd-test-staging.cl-eu-west-3.servd.dev/api/category/${slug}.json`);
     let data = await res.json();
     
     return {
         props: { 
             catPosts: data.data,
-            slug: slug,
-            currentPage: "1",
         }
     };
 }

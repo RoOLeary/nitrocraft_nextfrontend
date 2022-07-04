@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Faq = ({ content }) => { 
 
     const { faqHeading, faqLeadtext, faqs } = content;
-    console.log(content);
+    // console.log(content);
 
     let classNameIsExpanded = 'is-expanded';
     let selectorAnswerInner = '.js-faqAnswerInner';
