@@ -1,17 +1,18 @@
 const ModalContent = ({ modalInfo }) => {
 
-    // console.log(modalInfo);
+  console.log(modalInfo);
     
   let speakerBioString;
   let companyDescriptionString;
+  let projectDescriptionString;
   if (modalInfo.speakerBio) {
     if (modalInfo.speakerBio?.includes('<p>')) {
       speakerBioString = modalInfo.speakerBio.replace(/<\/?p[^>]*>/g, '');
     } else speakerBioString = modalInfo.speakerBio;
   }
-  if (modalInfo.description) {
-    if (modalInfo.description?.includes('<p>')) {
-      companyDescriptionString = modalInfo.description.replace(/<\/?p[^>]*>/g, '');
+  if (modalInfo.projectDescription) {
+    if (modalInfo.projectDescription?.includes('<p>')) {
+      projectDescriptionString = modalInfo.projectDescription.replace(/<\/?p[^>]*>/g, '');
     } else companyDescriptionString = modalInfo.description;
   }
   return (
@@ -100,15 +101,15 @@ const ModalContent = ({ modalInfo }) => {
             )
             : (
             <>
-              <h3>{modalInfo.speakerName}</h3>
+              <h3>{modalInfo.projectName}</h3>
               <br />  
               <p
                 className="modal-bio"
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{
                   __html:
-                    speakerBioString
-                        ? (speakerBioString.length > 700 ? `${speakerBioString.slice(0, 700)}...` : speakerBioString)
+                    modalInfo.projectDescription
+                        ? (modalInfo.projectDescription.length > 700 ? `${modalInfo.projectDescription.slice(0, 700)}...` : modalInfo.projectDescription)
                         : 'Speaker biography to follow...stay tuned',
                 }}
               />

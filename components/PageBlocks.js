@@ -6,13 +6,15 @@ import Slider from './Slider';
 import Faq from './Faq';
 import Video from './Video';
 import Speakers from './Speakers';
+import Projects from './Projects';
 
 
 const PageBlocks = ({ content }) => {   
 
     const pageBlocks = Array.from(content);
+    
     const pageBlocksList = pageBlocks.map((block, id) => {
-        
+        // console.log(block);    
         switch(block.blockType) {
             case 'header':
                 return <Header key={block.uid} content={block} />
@@ -30,6 +32,8 @@ const PageBlocks = ({ content }) => {
                 return <Video key={block.uid} content={block} />
             case 'speakers':
                 return <Speakers key={block.uid} content={block} />
+            case 'projects':
+                return <Projects key={block.uid} content={block} />
             default:
                 return(
                     <div key={id}>
