@@ -52,7 +52,7 @@ export default function Category({ catPosts }) {
 
 export async function getServerSideProps(context) {
     const slug = context.query.category
-    console.log(slug);
+    // console.log(slug);
     const res = await fetch(`https://servd-test-staging.cl-eu-west-3.servd.dev/api/category/${slug}.json`);
     let data = await res.json();
     

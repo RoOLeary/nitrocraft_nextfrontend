@@ -3,10 +3,9 @@ import Layout from '../components/Layout';
 import PageBlocks from '../components/PageBlocks'
 
 export default function AllComponents({ entry }) {
-    // console.log(entry['pageBlocks']);
     return (
         <Layout>
-            <PageBlocks content={entry['pageBlocks']} />
+            <PageBlocks content={entry.data[0]['pageBlocks']} />
             <Link href={`/`}><a>Home</a></Link><Link href={`/tech`}><a>Tech</a></Link>
         </Layout>
     )
@@ -16,8 +15,7 @@ export default function AllComponents({ entry }) {
 export const getStaticProps = async (context) => {
     const slug = context?.params?.slug || "all-components";
     // console.log(context.params);
-    // Fetching data from jsonplaceholder.
-    const res = await fetch(`https://servd-test-staging.cl-eu-west-3.servd.dev/api/pages/${slug}.json`,
+    const res = await fetch(`https://cities.thenextweb.com/api/pages/${slug}.json`,
         {
             credentials: "include",
             headers: {
@@ -26,8 +24,9 @@ export const getStaticProps = async (context) => {
             },
         }
     );
+    
     let entry = await res.json();
-
+    // console.log(entry);
     return {
         props: {
             entry: entry

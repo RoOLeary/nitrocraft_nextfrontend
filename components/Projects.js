@@ -9,7 +9,9 @@ const Projects = ({ content }) => {
             <div className="o-wrapper">
                 <h1>{projectsHeading ? projectsHeading : 'Projects' }</h1>
                 <br />
-                {projectsLeadText ? projectsLeadText : introText.replace(/<\/?p[^>]*>/g, '')}
+                <div className={'o-grid__col l:o-grid__col--span-8'}>
+                    <p dangerouslySetInnerHTML={{ __html: projectsLeadText ? projectsLeadText : introText.replace(/<\/?p[^>]*>/g, '')}} />
+                </div>
                 <br />
                 <div>
                 <br />
