@@ -12,7 +12,7 @@ const Faq = ({ content }) => {
     let selectorQuestion = '.js-faqQuestion';
 
     const onQuestionClick = useCallback((e) => {
-        // console.log(e.currentTarget);
+        console.log(e.currentTarget);
         const question = e.currentTarget;
         question.parentNode.classList.toggle(classNameIsExpanded);
     }, [classNameIsExpanded]);
