@@ -14,10 +14,10 @@ const Faq = ({ content }) => {
         const question = e.target;
         console.log(question.parentElement);
         const classNameIsExpanded = 'is-expanded';
-        if(question.parentElement.classList.contains(classNameIsExpanded)){
-            question.parentElement.classList.remove(classNameIsExpanded);
-        } else{
+        if(!question.parentElement.classList.contains(classNameIsExpanded)){
             question.parentElement.classList.add(classNameIsExpanded);
+        } else{
+           question.parentElement.classList.remove(classNameIsExpanded);
         }
     };
 
