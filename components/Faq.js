@@ -7,9 +7,9 @@ const Faq = ({ content }) => {
     const { faqHeading, faqLeadtext, faqs } = content;
     // console.log(content);
 
-    let classNameIsExpanded = 'is-expanded';
-    let selectorAnswerInner = '.js-faqAnswerInner';
-    let selectorQuestion = '.js-faqQuestion';
+    const classNameIsExpanded = 'is-expanded';
+    const selectorAnswerInner = '.js-faqAnswerInner';
+    const selectorQuestion = '.js-faqQuestion';
 
     const onQuestionClick = useCallback((e) => {
         const question = e.currentTarget;
