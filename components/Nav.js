@@ -32,7 +32,7 @@ const Nav = () => {
             <div className={'c-nav__left'}>
                 <Link href={`/`}>
                     <a className={"c-nav__logoLink"}>
-                        <img alt="TNW Dublin" className="c-nav__logo" src="/assets/img/ft-tnw-dublin.svg" />
+                        {/* <img alt="TNW Dublin" className="c-nav__logo" src="/assets/img/ft-tnw-dublin.svg" /> */}
                     </a>
                 </Link>
             </div>
