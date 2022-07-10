@@ -11,7 +11,7 @@ const Faq = ({ content }) => {
 
     const onQuestionClick = (e) => {
         
-        const question = e.currentTarget;
+        const question = e.target;
         const classNameIsExpanded = 'is-expanded';
         if(question.parentNode.classList.contains(classNameIsExpanded)){
             question.parentNode.classList.remove(classNameIsExpanded);
@@ -53,7 +53,7 @@ const Faq = ({ content }) => {
                             {faqs.map((faq, i) => {
                                 return(
                                     <li key={i} className="b-faq__listItem">
-                                        <a className="b-faq__question js-faqQuestion" onClick={(e) => onQuestionClick(e)}>{faq.question}</a>
+                                        <div className="b-faq__question js-faqQuestion" onClick={(e) => onQuestionClick(e)}>{faq.question}</div>
                                         <div className="b-faq__answer">
                                             <div className="b-faq__answerInner c-formatted js-faqAnswerInner" dangerouslySetInnerHTML={{ __html: faq.answer }} />
                                             
