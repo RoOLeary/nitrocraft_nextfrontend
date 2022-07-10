@@ -12,13 +12,13 @@ const Faq = ({ content }) => {
     const onQuestionClick = (e) => {
         
         const question = e.target;
+        console.log(question.parentElement);
         const classNameIsExpanded = 'is-expanded';
-        if(question.parentNode.classList.contains(classNameIsExpanded)){
-            question.parentNode.classList.remove(classNameIsExpanded);
+        if(question.parentElement.classList.contains(classNameIsExpanded)){
+            question.parentElement.classList.remove(classNameIsExpanded);
+        } else{
+            question.parentElement.classList.add(classNameIsExpanded);
         }
-            else{
-                question.parentNode.classList.add(classNameIsExpanded);
-            }
     };
 
     useEffect(() => {
