@@ -1,9 +1,8 @@
 import React from 'react';
-import { useEffect, useCallback, useRef } from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 
 const Faq = ({ content }) => { 
-    let questionRef = useRef();
 
     const { faqHeading, faqLeadtext, faqs } = content;
     // console.log(content);
@@ -54,7 +53,7 @@ const Faq = ({ content }) => {
                             {faqs.map((faq, i) => {
                                 return(
                                     <li key={i} className="b-faq__listItem">
-                                        <div className="b-faq__question js-faqQuestion" onClick={(e) => onQuestionClick(e)}>{faq.question}</div>
+                                        <a className="b-faq__question js-faqQuestion" onClick={(e) => onQuestionClick(e)}>{faq.question}</a>
                                         <div className="b-faq__answer">
                                             <div className="b-faq__answerInner c-formatted js-faqAnswerInner" dangerouslySetInnerHTML={{ __html: faq.answer }} />
                                             
