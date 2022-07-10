@@ -7,18 +7,13 @@ const Faq = ({ content }) => {
     const { faqHeading, faqLeadtext, faqs } = content;
     // console.log(content);
     const selectorAnswerInner = '.js-faqAnswerInner';
-    const selectorQuestion = '.js-faqQuestion';
-
+    
     const onQuestionClick = (e) => {
         
         const question = e.target;
-        console.log(question.parentElement);
         const classNameIsExpanded = 'is-expanded';
-        if(!question.parentElement.classList.contains(classNameIsExpanded)){
-            question.parentElement.classList.add(classNameIsExpanded);
-        } else{
-           question.parentElement.classList.remove(classNameIsExpanded);
-        }
+        question.parentElement.classList.toggle(classNameIsExpanded);
+        
     };
 
     useEffect(() => {
