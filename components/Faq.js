@@ -13,10 +13,12 @@ const Faq = ({ content }) => {
 
     const onQuestionClick = useCallback((e) => {
         const question = e.currentTarget;
+        console.log(question.parentNode)
         question.parentNode.classList.toggle(classNameIsExpanded);
     }, [classNameIsExpanded]);
 
     useEffect(() => {
+        console.log('faqs');
         let answerInners = document.querySelectorAll(selectorAnswerInner);
         let questions = document.querySelectorAll(selectorQuestion)
 
@@ -25,7 +27,7 @@ const Faq = ({ content }) => {
         })
 
         questions.forEach(question => question.addEventListener('click', (e) => onQuestionClick(e)))
-    },[]);
+    });
 
     return(
         <section className="b-faq c-section js-faq">
