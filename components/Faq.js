@@ -22,15 +22,9 @@ const Faq = ({ content }) => {
     };
 
     useEffect(() => {
-        // console.log('faqs');
-        const answerInners = document.querySelectorAll(selectorAnswerInner);
-        const questions = document.querySelectorAll(selectorQuestion)
-
-        answerInners.forEach(answerInner => {
+        document.querySelectorAll(selectorAnswerInner).forEach(answerInner => {
             answerInner.parentElement.style.setProperty('--height', answerInner.offsetHeight + 'px')
         })
-
-        questions.forEach(question => question.addEventListener('click', (e) => onQuestionClick(e)))
     },[]);
 
     return(
