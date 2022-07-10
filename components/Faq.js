@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import Link from 'next/link';
 
 const Faq = ({ content }) => { 
@@ -11,10 +11,11 @@ const Faq = ({ content }) => {
     let selectorAnswerInner = '.js-faqAnswerInner';
     let selectorQuestion = '.js-faqQuestion';
 
-    const onQuestionClick = (e) => {
-        const question = e.currentTarget
+    const onQuestionClick = useCallback((e) => {
+        // console.log(e.currentTarget);
+        const question = e.currentTarget;
         question.parentNode.classList.toggle(classNameIsExpanded);
-    }
+    }, []);
 
     useEffect(() => {
         let answerInners = document.querySelectorAll(selectorAnswerInner);
