@@ -1,33 +1,38 @@
 import React from 'react';
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 
 const Faq = ({ content }) => { 
+    let questionRef = useRef();
 
     const { faqHeading, faqLeadtext, faqs } = content;
     // console.log(content);
-
-    const classNameIsExpanded = 'is-expanded';
     const selectorAnswerInner = '.js-faqAnswerInner';
     const selectorQuestion = '.js-faqQuestion';
 
-    const onQuestionClick = useCallback((e) => {
+    const onQuestionClick = (e) => {
+        
         const question = e.currentTarget;
-        console.log(question.parentNode)
-        question.parentNode.classList.toggle(classNameIsExpanded);
-    }, [classNameIsExpanded]);
+        const classNameIsExpanded = 'is-expanded';
+        if(question.parentNode.classList.contains(classNameIsExpanded)){
+            question.parentNode.classList.remove(classNameIsExpanded);
+        }
+            else{
+                question.parentNode.classList.add(classNameIsExpanded);
+            }
+    };
 
     useEffect(() => {
-        console.log('faqs');
-        let answerInners = document.querySelectorAll(selectorAnswerInner);
-        let questions = document.querySelectorAll(selectorQuestion)
+        // console.log('faqs');
+        const answerInners = document.querySelectorAll(selectorAnswerInner);
+        const questions = document.querySelectorAll(selectorQuestion)
 
         answerInners.forEach(answerInner => {
             answerInner.parentElement.style.setProperty('--height', answerInner.offsetHeight + 'px')
         })
 
         questions.forEach(question => question.addEventListener('click', (e) => onQuestionClick(e)))
-    });
+    },[]);
 
     return(
         <section className="b-faq c-section js-faq">
