@@ -12,7 +12,6 @@ const Faq = ({ content }) => {
     let selectorQuestion = '.js-faqQuestion';
 
     const onQuestionClick = (e) => {
-        console.log('question:' + e)
         const question = e.currentTarget
         question.parentNode.classList.toggle(classNameIsExpanded);
     }
@@ -26,7 +25,7 @@ const Faq = ({ content }) => {
         })
 
         questions.forEach(question => question.addEventListener('click', (e) => onQuestionClick(e)))
-    },[]);
+    },[onQuestionClick, selectorAnswerInner, selectorQuestion]);
 
     return(
         <section className="b-faq c-section js-faq">

@@ -23,7 +23,7 @@ const PageBlocks = ({ content }) => {
             case 'text':
                 return <TextBlock key={block.uid} content={block} />
             case 'textVisual':
-                    return <TextVisual key={block.uid} content={block} />
+                return <TextVisual key={block.uid} content={block} />
             case 'imageSlider':
                 return <Slider key={block.uid} content={block} />
             case 'faq':
