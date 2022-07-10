@@ -15,7 +15,7 @@ const Faq = ({ content }) => {
         // console.log(e.currentTarget);
         const question = e.currentTarget;
         question.parentNode.classList.toggle(classNameIsExpanded);
-    }, []);
+    }, [classNameIsExpanded]);
 
     useEffect(() => {
         let answerInners = document.querySelectorAll(selectorAnswerInner);
