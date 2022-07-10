@@ -12,6 +12,7 @@ const Faq = ({ content }) => {
     let selectorQuestion = '.js-faqQuestion';
 
     const onQuestionClick = (e) => {
+        console.log('question:' + e)
         const question = e.currentTarget
         question.parentNode.classList.toggle(classNameIsExpanded);
     }
