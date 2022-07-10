@@ -1,7 +1,6 @@
 const ModalContent = ({ modalInfo }) => {
 
-  console.log(modalInfo);
-    
+
   let speakerBioString;
   let companyDescriptionString;
   let projectDescriptionString;
@@ -101,15 +100,15 @@ const ModalContent = ({ modalInfo }) => {
             )
             : (
             <>
-              <h3>{modalInfo.projectName}</h3>
+              <h3>{modalInfo.speakerName}</h3>
               <br />  
               <p
                 className="modal-bio"
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{
                   __html:
-                    modalInfo.projectDescription
-                        ? (modalInfo.projectDescription.length > 700 ? `${modalInfo.projectDescription.slice(0, 700)}...` : modalInfo.projectDescription)
+                  modalInfo.speakerBio
+                        ? (modalInfo.speakerBio.length > 700 ? `${modalInfo.speakerBio.slice(0, 700)}...` : modalInfo.speakerBio)
                         : 'Speaker biography to follow...stay tuned',
                 }}
               />

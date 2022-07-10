@@ -10,6 +10,10 @@ import StaticHeader from '../../components/StaticHeader';
 
 
 export default function Category({ catPosts }) {
+    
+    console.log(catPosts)
+    
+    
     const router = useRouter()
     const categoryPath = router.query.category
     

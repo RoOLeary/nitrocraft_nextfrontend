@@ -86,7 +86,7 @@ export default function Slider({ content }) {
                 clearInterval(interval);
             };
         }
-    }, [activeSlide, isAutoPlay, transitionSlide]);
+    }, [activeSlide, isAutoPlay, transitionSlide, length]);
 
     return(
         <>

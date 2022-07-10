@@ -25,7 +25,7 @@ const Faq = ({ content }) => {
         })
 
         questions.forEach(question => question.addEventListener('click', (e) => onQuestionClick(e)))
-    },[]);
+    });
 
     return(
         <section className="b-faq c-section js-faq">
