@@ -8,18 +8,21 @@ const Nav = () => {
     const { data: session } = useSession();
 
     // console.log(session);
-    let menuRef = useRef();
-    let unitRef = useRef();
+    const menuRef = useRef();
+    const unitRef = useRef();
+    const mobTogglRef = useRef(); 
 
     const toggleMobileMenu = (e) => {
-        e.currentTarget.classList.toggle('mobile-menu-active');
+        mobTogglRef.current.classList.toggle('mobile-menu-active');
         menuRef.current.classList.toggle('show');
     }
 
     const closeOnChange = (e) => {
-        setTimeout(() => {
+        // console.log(mobTogglRef.current);
+        setTimeout((e) => {
+            mobTogglRef.current.classList.toggle('mobile-menu-active');
             menuRef.current.classList.toggle("show");
-        }, 300)
+        }, 500)
     }
 
     const update = (height) => {
@@ -42,7 +45,7 @@ const Nav = () => {
                     </a>
                 </Link>
             </div>
-            <label className={'c-nav__mobileMenuToggle'} htmlFor="navMobileMenuToggle" onClick={toggleMobileMenu}>
+            <label className={'c-nav__mobileMenuToggle'} htmlFor="navMobileMenuToggle" ref={mobTogglRef} onClick={toggleMobileMenu}>
                 <div></div>
                 <div></div>
                 <div></div>
