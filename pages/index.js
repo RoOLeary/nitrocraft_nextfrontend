@@ -17,13 +17,14 @@ import { useSession, signIn, signOut } from "next-auth/react"
 export default function Home({ entry }) {
 
   const homeHeader = entry.data[0].blocks[0];
+  console.log(homeHeader);
   // const [currentPageNo, setCurrentPageNo] = useState(currentPage);
   // const { data: session } = useSession();
 
   const HeroText = {
-    eyebrow: 'Ask my arse',
-    heading: 'Your Buddy is now your Guy',
-    subHeading: 'Go on ta fuck ye',
+    eyebrow: 'Hello there!',
+    heading: 'My name is Ronan, and I build websites.',
+    subHeading: 'I make websites',
   }
 
   const textVisualContent = {
@@ -48,7 +49,7 @@ export default function Home({ entry }) {
    
     <>
       <Layout>
-        <Hero content={homeHeader} />
+        <Hero content={HeroText} />
         {/* <Text content={leadPost} /> */}
         {/* <Related related={morePosts} /> */}
         {/* <TextVisual content={textVisualContent} /> */}
