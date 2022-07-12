@@ -6,20 +6,49 @@ import PageBlocks from '../components/PageBlocks'
 import { getPageBySlug } from '../lib/api';
 
 export default function About({ entry }) {
+
+    let aboutHeader = {
+        headline: 'About Page'    
+    }
+
     return (
         <Layout>
-            {/* <Header headline="About"/> */}
-            <PageBlocks content={entry['pageBlocks']} />
+            <Header content={aboutHeader} />
+            <PageBlocks content={entry.data[0]['pageBlocks']} />
             <Link href={`/`}><a>Home</a></Link><Link href={`/tech`}><a>Tech</a></Link>
         </Layout>
     )
 }
 
+// export const getStaticProps = async (context) => {
+//     const slug = context?.params?.slug || "about";
+//     const res = await fetch(`https://servd-test-staging.cl-eu-west-3.servd.dev/api/pages/${slug}.json`);
+//     let entry = await res.json();
+
+//     return {
+//         props: {
+//             entry: entry
+//         }
+//     }
+// }
+
+
+
 export const getStaticProps = async (context) => {
     const slug = context?.params?.slug || "about";
-    const res = await fetch(`https://servd-test-staging.cl-eu-west-3.servd.dev/api/pages/${slug}.json`);
+    // console.log(context.params);
+    const res = await fetch(`https://cities.thenextweb.com/api/pages/${slug}.json`,
+        {
+            credentials: "include",
+            headers: {
+                "Access-Control-Allow-Origin" : "*", 
+                "Access-Control-Allow-Credentials" : true
+            },
+        }
+    );
+    
     let entry = await res.json();
-
+    // console.log(entry);
     return {
         props: {
             entry: entry

@@ -1,6 +1,6 @@
 const Text = ({ content }) => {
-    console.log(content);
-    const { heading, column1 } = content[0];
+    // console.log(content);
+    const { heading, column1 } = content;
    
     return(
         <section className="b-text  c-section" id="learn-more">

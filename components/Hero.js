@@ -11,35 +11,39 @@ const variants = {
     }
   };
 
+  
 const Hero = ({ content }) => {
+
     const { scrollY } = useViewportScroll();
     const y1 = useTransform(scrollY, [0, 300], [0, 200]);
     const y2 = useTransform(scrollY, [0, 300], [0, -100]);
     const y3 = useTransform(scrollY, [0, 300], [0, -50]);
     const { eyebrow, heading, subHeadline } = content;
     
-   
     return(
         <section className={"b-hero js-equinoxNode t-dark"}>
             <div className={"b-hero__grid"}>
+
                 <motion.figure
                     className="b-hero__photo b-hero__photo--1"
                     style={{ y: y2, x: 50 }}
                 >
-                    <img alt="photo1 - Audience member photo" src="/assets/img/audience-member-photo.jpeg" />
+                    <img alt="photo1 - Audience member photo" src="https://source.unsplash.com/1600x900/?tech" />
                 </motion.figure>
                 <motion.figure
                     className="b-hero__photo b-hero__photo--2"
                     style={{ y: y3, x: 50 }}
                 >
                 
-                <img alt="photo2 - Speaker" src="/assets/img/speaker.jpeg" />
+                <img alt="photo2 - Speaker" src="https://source.unsplash.com/1600x900/?code" />
                 </motion.figure>
+               
+               
                 <figure className={"b-hero__photo b-hero__photo--3"}>
-                    <img alt="photo1 - Audience member photo" src="/assets/img/dj.jpeg" />
+                    <img alt="photo1 - Audience member photo" src="https://placedog.net/550/550" />
                 </figure>
                 <figure className={"b-hero__photo b-hero__photo--4"}>
-                    <img alt="photo1 - Audience member photo" src="/assets/img/stage.jpeg" />
+                    <img alt="photo1 - Audience member photo" src="https://placedog.net/550/550" />
                 </figure>
                 <figure className={"b-hero__shape b-hero__shape--1"} id="dots"></figure>
                 <figure className={"b-hero__shape b-hero__shape--2"} id="donut"></figure>
@@ -64,5 +68,3 @@ const Hero = ({ content }) => {
 }
 
 export default Hero;
-
-
