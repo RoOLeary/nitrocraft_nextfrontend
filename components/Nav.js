@@ -7,7 +7,6 @@ import { useSession, signIn, signOut } from "next-auth/react"
 const Nav = () => {
     const { data: session } = useSession();
 
-    // console.log(session);
     const menuRef = useRef();
     const unitRef = useRef();
     const mobTogglRef = useRef(); 
