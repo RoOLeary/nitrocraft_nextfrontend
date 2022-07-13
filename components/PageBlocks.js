@@ -2,6 +2,7 @@ import Header from './Header';
 import Hero from './Hero';
 import TextBlock from './TextBlock';
 import TextVisual from './TextVisual';
+import Signup from './Signup'
 import Slider from './Slider';
 import Faq from './Faq';
 import Video from './Video';
@@ -34,6 +35,8 @@ const PageBlocks = ({ content }) => {
                 return <Speakers key={block.uid} content={block} />
             case 'projects':
                 return <Projects key={block.uid} content={block} />
+            case 'signup':
+                return <Signup key={block.uid} content={block} />
             default:
                 return(
                     <div key={id}>
