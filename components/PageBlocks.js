@@ -13,9 +13,7 @@ import Projects from './Projects';
 const PageBlocks = ({ content }) => {   
 
     const pageBlocks = Array.from(content);
-    
     const pageBlocksList = pageBlocks.map((block, id) => {
-        // console.log(block.blockType);    
         switch(block.blockType) {
             case 'header':
                 return <Header key={block.uid} content={block} />
