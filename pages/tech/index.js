@@ -42,7 +42,7 @@ export default function Tech() {
     const isEmpty = data?.[0]?.length === 0;
     const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
 
-    console.log(posts)
+    // console.log(posts)
 
     return(
         <Layout>
@@ -51,7 +51,8 @@ export default function Tech() {
             <section className={'c-section tech'}>
             <div className="o-wrapper">
                 <ul>
-                    {posts.map((post, index) => {
+                {!posts ? <h1>LOADING...</h1> : 
+                    posts.map((post, index) => {
                         // console.log(post)
                         return(
                             <li key={index}>

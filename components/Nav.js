@@ -54,7 +54,7 @@ const Nav = () => {
                     <li className="c-nav__menuItem"><Link href={"/"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>Home</a></Link></li>
                     <li className="c-nav__menuItem"><Link href={"/about"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>About</a></Link></li>
                     <li className="c-nav__menuItem"><Link href={"/tech"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>Tech</a></Link></li>
-                    <li className="c-nav__menuItem"><Link href={"/test"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>Test</a></Link></li>
+                    {/* <li className="c-nav__menuItem"><Link href={"/test"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>Test</a></Link></li> */}
                     <li className="c-nav__menuItem"><Link href={"/contact"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>Contact</a></Link></li>
                     {session ? <li className="c-nav__menuItem"><Link href={"/members"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>Members</a></Link></li> : ''}
                     <li className="c-nav__menuItem">
