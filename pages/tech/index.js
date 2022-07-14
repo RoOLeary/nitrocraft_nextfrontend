@@ -51,7 +51,9 @@ export default function Tech() {
             <section className={'c-section tech'}>
             <div className="o-wrapper">
                 <ul>
-                {!posts ? <h1>LOADING...</h1> : 
+
+                {!data ? <h1 className={'b-text__heading'}>Loading posts...</h1> :
+               
                     posts.map((post, index) => {
                         // console.log(post)
                         return(
