@@ -43,7 +43,7 @@ export default function Tech({ slug, catPosts }) {
                                     <a><h2 className={'b-text__heading'}>{post.title.rendered}</h2></a>
                                 </Link>
                                 <br />
-                                <p>{post.subHeadline}</p>
+                                <p dangerouslySetInnerHTML={{ __html: post.excerpt.rendered}} />
                                 <br />
                             </li>
                         )
