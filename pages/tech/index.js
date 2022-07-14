@@ -40,7 +40,7 @@ export default function Tech({ slug, catPosts }) {
                             <li key={index}>
                                 
                                 <Link href={`/${slug}/${post.slug}`}>
-                                    <a><h2 className={'b-text__heading'}>{post.title}</h2></a>
+                                    <a><h2 className={'b-text__heading'}>{post.title.rendered}</h2></a>
                                 </Link>
                                 <br />
                                 <p>{post.subHeadline}</p>
@@ -63,11 +63,12 @@ export default function Tech({ slug, catPosts }) {
 
 export async function getServerSideProps(context) {
     const slug = 'tech';
-    const res = await fetch(`https://servd-test-staging.cl-eu-west-3.servd.dev/api/category/${slug}.json`);
+    const res = await fetch(`https://ronan-oleary.com/wp-json/wp/v2/posts`);
     let data = await res.json();
+    // console.log(data);
     return {
         props: { 
-            catPosts: data.data,
+            catPosts: data,
             slug: 'tech',
             currentPage: "1",
         }
