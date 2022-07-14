@@ -18,16 +18,6 @@ export default function Tech() {
     const categoryPath = router.query.category
     const title = 'Tech';
     // console.log(catPosts);
-
-  
-
-    const textVisualContent = {
-        title: 'Smoke Potent Weed',
-        content: 'Casually arise and get Molly ready for her stroll. Here goes...',
-        image: '/assets/img/conf.jpg',
-        link: '#',
-        linkText: 'Learn More'
-      }
       
     const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
     (index) =>
@@ -43,6 +33,14 @@ export default function Tech() {
     const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
 
     // console.log(posts)
+    
+    const textVisualContent = {
+        textVisualHeading: 'Pack the bags',
+        textVisualContent: 'Casually arise and get Molly ready for her stroll. Here goes...',
+        textVisualImage: '/assets/img/conf.jpg',
+        link: 'articles/test-article-3',
+        linkText: 'Learn More'
+      }
 
     return(
         <Layout>
