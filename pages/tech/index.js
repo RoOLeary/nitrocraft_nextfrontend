@@ -8,13 +8,16 @@ import TextVisual from '../../components/TextVisual';
 import Faq from '../../components/Faq';
 import Related from '../../components/Related';
 import Link from 'next/link';
+import useSWRInfinite from "swr/infinite";
 
+const fetcher = url => fetch(url).then(res => res.json())
+const PAGE_SIZE = 10;
 
-export default function Tech({ slug, catPosts }) {
+export default function Tech() {
     const router = useRouter()
     const categoryPath = router.query.category
-    const title = slug;
-    console.log(catPosts);
+    const title = 'Tech';
+    // console.log(catPosts);
 
   
 
@@ -25,7 +28,21 @@ export default function Tech({ slug, catPosts }) {
         link: '#',
         linkText: 'Learn More'
       }
-     
+      
+    const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
+    (index) =>
+        `https://ronan-oleary.com/wp-json/wp/v2/posts?page=${index +
+        1}&limit=${PAGE_SIZE}`,
+    fetcher,
+    );
+        
+    const posts = data ? [].concat(...data) : [];
+    const isLoadingInitialData = !data && !error;
+    const isLoadingMore = isLoadingInitialData || (size > 0 && data && typeof data[size - 1] === "undefined");
+    const isEmpty = data?.[0]?.length === 0;
+    const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
+
+    console.log(posts)
 
     return(
         <Layout>
@@ -34,12 +51,12 @@ export default function Tech({ slug, catPosts }) {
             <section className={'c-section tech'}>
             <div className="o-wrapper">
                 <ul>
-                    {catPosts.map((post, index) => {
+                    {posts.map((post, index) => {
                         // console.log(post)
                         return(
                             <li key={index}>
                                 
-                                <Link href={`/${slug}/${post.slug}`}>
+                                <Link href={`/tech/${post.slug}`}>
                                     <a><h2 className={'b-text__heading'}>{post.title.rendered}</h2></a>
                                 </Link>
                                 <br />
@@ -50,30 +67,39 @@ export default function Tech({ slug, catPosts }) {
                     })}
                 </ul>
                 <br /><br />
-                <Link href={`/`}><a>Home</a></Link>
+                <button
+                    className={'c-button'}
+                    disabled={isLoadingMore || isReachingEnd}
+                    onClick={() => setSize(size + 1)}>
+                    {isLoadingMore
+                        ? 'Loading...'
+                        : isReachingEnd
+                            ? 'No More Posts'
+                            : 'Load More'}
+                </button>
             </div>  
             </section>  
             <TextVisual content={textVisualContent} />
-            <Related related={catPosts} currentslug={categoryPath} />
+            {/* <Related related={catPosts} currentslug={categoryPath} /> */}
         </Layout>
     )
 }
 
 
 
-export async function getServerSideProps(context) {
-    const slug = 'tech';
-    const res = await fetch(`https://ronan-oleary.com/wp-json/wp/v2/posts`);
-    let data = await res.json();
-    // console.log(data);
-    return {
-        props: { 
-            catPosts: data,
-            slug: 'tech',
-            currentPage: "1",
-        }
-    };
-}
+// export async function getServerSideProps(context) {
+//     const slug = 'tech';
+//     const res = await fetch(`https://ronan-oleary.com/wp-json/wp/v2/posts`);
+//     let data = await res.json();
+//     // console.log(data);
+//     return {
+//         props: { 
+//             catPosts: data,
+//             slug: 'tech',
+//             currentPage: "1",
+//         }
+//     };
+// }
 
 
 
