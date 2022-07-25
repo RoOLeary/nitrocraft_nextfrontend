@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useViewportScroll, useTransform, motion } from 'framer-motion';
+import { useTypingText } from '../hooks/useTypingTest';
 
 const variants = {
     visible: { opacity: 1, scale: 1, y: 0 },
@@ -14,12 +15,15 @@ const variants = {
   
 const Hero = ({ content }) => {
 
+    const { word } = useTypingText(['websites', 'applications', 'teams'], 250, 20);
     const { scrollY } = useViewportScroll();
     const y1 = useTransform(scrollY, [0, 300], [0, 200]);
     const y2 = useTransform(scrollY, [0, 300], [0, -100]);
     const y3 = useTransform(scrollY, [0, 300], [0, -50]);
     const y4 = useTransform(scrollY, [0, 750], [0, -250]);
     const y5 = useTransform(scrollY, [0, 400], [0, -250]);
+    const x1 = useTransform(scrollY, [500, 0], [-250, 0]);
+    const x2 = useTransform(scrollY, [750, 0], [150, 0]);
     const { eyebrow, heading, subHeadline } = content;
     
     return(
@@ -41,7 +45,7 @@ const Hero = ({ content }) => {
                 </motion.figure>
                
                
-                <motion.figure className="b-hero__photo b-hero__photo--3" style={{ y: y4, x: 0 }}>
+                <motion.figure className="b-hero__photo b-hero__photo--3" style={{ y: y4, x: x2 }}>
                     <img alt="photo1 - Audience member photo" src="https://placedog.net/550/550" />
                 </motion.figure>
                 <motion.figure className={"b-hero__photo b-hero__photo--4"} style={{ y: y5, x: 0 }}>
@@ -54,7 +58,7 @@ const Hero = ({ content }) => {
 
                 <div className={"b-hero__content"}>
                     <div className={"b-hero__contentInner"}>
-                        <h4 className={"b-hero__eyebrow"}>{eyebrow ? eyebrow : ''}</h4>
+                        <h4 className={"b-hero__eyebrow"}>{word ? word : ''}</h4>
                         <h1 className={"b-hero__heading"}>{heading}</h1>
                         <div className={"b-hero__intro"}>
                            <p>{subHeadline}</p>
