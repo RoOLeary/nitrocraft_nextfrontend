@@ -9,6 +9,32 @@ import Faq from '../../components/Faq';
 import Related from '../../components/Related';
 import Link from 'next/link';
 import useSWRInfinite from "swr/infinite";
+import styled from 'styled-components';
+
+const ArticleGrid = styled.ul`
+  margin-top: 2em;
+`;
+
+const ArticleCard = styled.li`
+    display: grid; 
+    margin: 2em 0;
+    grid-gap: 1em;
+    @media screen and (max-width: 768px){
+    grid-template-columns: 1fr; 
+    }
+    grid-template-columns: 1fr 3fr; 
+`;
+
+const RespImg = styled.img`
+  width: 100%;
+  @media screen and (max-width: 768px){
+    margin: 2em 0; 
+  }
+`;
+
+const Excerpt = styled.p`
+  padding: 1em 0;
+`;
 
 const fetcher = url => fetch(url).then(res => res.json())
 const PAGE_SIZE = 10;
@@ -48,25 +74,25 @@ export default function Tech() {
             
             <section className={'c-section tech'}>
             <div className="o-wrapper">
-                <ul>
+                <ArticleGrid>
 
                 {!data ? <h1 className={'b-text__heading'}>Loading posts...</h1> :
                
                     posts.map((post, index) => {
-                        // console.log(post)
+                        // console.log(post.jetpack_featured_media_url)
                         return(
-                            <li key={index}>
-                                
-                                <Link href={`/tech/${post.slug}`}>
-                                    <a><h2 className={'b-text__heading'}>{post.title.rendered}</h2></a>
-                                </Link>
-                                <br />
-                                <p dangerouslySetInnerHTML={{ __html: post.excerpt.rendered}} />
-                                <br />
-                            </li>
+                            <ArticleCard key={index}>
+                                <Link href={`/tech/${post.slug}`}><RespImg src={post.jetpack_featured_media_url} width={250} height={300} /></Link>
+                                <div>
+                                    <Link href={`/tech/${post.slug}`}>
+                                        <a><h2 className={'b-text__heading'}>{post.title.rendered}</h2></a>
+                                    </Link>
+                                    <Excerpt dangerouslySetInnerHTML={{ __html: post.excerpt.rendered}} />
+                                </div>
+                            </ArticleCard>
                         )
                     })}
-                </ul>
+                </ArticleGrid>
                 <br /><br />
                 <button
                     className={'c-button'}

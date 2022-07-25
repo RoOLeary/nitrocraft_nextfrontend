@@ -5,6 +5,12 @@ import Header from './../../components/Header';
 import TextVisual from './../../components/TextVisual';
 import Related from './../../components/Related';
 import Link from 'next/link';
+import styled from 'styled-components';
+
+const ArticleGrid = styled.ul`
+  margin-top: 2em;
+`;
+
 
 import StaticHeader from '../../components/StaticHeader';
 
@@ -33,7 +39,7 @@ export default function Category({ catPosts }) {
             <TextVisual content={textVisualContent} />
             <section className={'c-section category'}>
             <div className="o-wrapper">
-                <ul>
+                <ArticleGrid>
                     {catPosts.map((post, index) => {
                         // console.log(post)
                         return(
@@ -45,7 +51,7 @@ export default function Category({ catPosts }) {
                             </li>
                         )
                     })}
-                </ul>
+                </ArticleGrid>
             
                 <Link href={`/`}><a>Home</a></Link>
             </div> 
