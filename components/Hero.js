@@ -15,7 +15,7 @@ const variants = {
   
 const Hero = ({ content }) => {
 
-    const { word } = useTypingText(['websites', 'applications', 'online brands', 'teams'], 250, 20);
+    const { word } = useTypingText(['dia dhuit', 'hello there', 'begroeting'], 250, 20);
     const { scrollY } = useViewportScroll();
     const y1 = useTransform(scrollY, [0, 300], [0, 200]);
     const y2 = useTransform(scrollY, [0, 300], [0, -100]);
