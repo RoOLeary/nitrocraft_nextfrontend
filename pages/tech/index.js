@@ -85,7 +85,7 @@ export default function Tech() {
                                 <Link href={`/tech/${post.slug}`}><RespImg src={post.jetpack_featured_media_url} width={250} height={300} /></Link>
                                 <div>
                                     <Link href={`/tech/${post.slug}`}>
-                                        <a><h2 className={'b-text__heading'}>{post.title.rendered}</h2></a>
+                                        <a className={`no-underline`}><h2 className={'b-text__heading'}>{post.title.rendered}</h2></a>
                                     </Link>
                                     <Excerpt dangerouslySetInnerHTML={{ __html: post.excerpt.rendered}} />
                                 </div>

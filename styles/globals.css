@@ -4181,3 +4181,10 @@ input[type=number] {
   visibility: visible;
   right: 0;
 }
+
+.no-underline{
+  text-decoration: none; 
+}
+.no-underline:hover{
+  color: red;
+}
