@@ -38,7 +38,7 @@ const Hero = ({ content }) => {
                 </motion.figure>
                 <motion.figure
                     className="b-hero__photo b-hero__photo--2"
-                    style={{ y: y3, x: 50 }}
+                    style={{ y: y3, x: x1 }}
                 >
                 
                 <img alt="photo2 - Speaker" src="https://source.unsplash.com/1600x900/?code" />
