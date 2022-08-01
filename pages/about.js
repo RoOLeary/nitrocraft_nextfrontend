@@ -4,18 +4,35 @@ import Layout from '../components/Layout';
 import Header from '../components/Header';
 import PageBlocks from '../components/PageBlocks'
 import { getPageBySlug } from '../lib/api';
-
+import useIntersection from "./../hooks/useIntersection";
+import { useRef, useEffect } from "react";
 export default function About({ entry }) {
+    
+    const ioRef = useRef(); 
 
     let aboutHeader = {
         headline: 'About Page'    
     }
+
+    const inViewport = useIntersection(ioRef, "25px");
+
+    useEffect(() => {
+        if (inViewport) {
+                console.log("in viewport:", ioRef.current.innerHTML);
+        } else{
+            if(ioRef.current != '' || undefined ){
+                console.log("not in viewport:", ioRef.current.innerHTML);
+            }
+        }
+    }, [inViewport])
+    
 
     return (
         <Layout>
             <Header content={aboutHeader} />
             <PageBlocks content={entry.data[0]['pageBlocks']} />
             <Link href={`/`}><a>Home</a></Link><Link href={`/tech`}><a>Tech</a></Link>
+            <div ref={ioRef}>View</div>
         </Layout>
     )
 }
