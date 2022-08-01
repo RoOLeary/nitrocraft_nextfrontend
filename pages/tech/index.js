@@ -30,6 +30,10 @@ const RespImg = styled.img`
   @media screen and (max-width: 768px){
     margin: 2em 0; 
   }
+
+  &:hover{
+    opacity: 0.8;
+  }
 `;
 
 const Excerpt = styled.p`
