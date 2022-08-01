@@ -82,7 +82,7 @@ export default function Tech() {
                         // console.log(post.jetpack_featured_media_url)
                         return(
                             <ArticleCard key={index}>
-                                <Link href={`/tech/${post.slug}`}><RespImg src={post.jetpack_featured_media_url} width={250} height={300} /></Link>
+                                <Link href={`/tech/${post.slug}`}><a><RespImg src={post.jetpack_featured_media_url} width={250} height={300} /></a></Link>
                                 <div>
                                     <Link href={`/tech/${post.slug}`}>
                                         <a className={`no-underline`}><h2 className={'b-text__heading'}>{post.title.rendered}</h2></a>
