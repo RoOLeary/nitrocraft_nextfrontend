@@ -3,15 +3,16 @@ import { useRouter } from 'next/router'
 import { useRef, useEffect } from 'react'
 import styles from './../styles/Nav.module.css'
 import { useSession, signIn, signOut } from "next-auth/react"
+import React from 'react'
 
 const Nav = (): JSX.Element => {
     const { data: session } = useSession();
 
     // console.log(session);
 
-    const menuRef = useRef();
-    const unitRef = useRef();
-    const mobTogglRef = useRef(); 
+    const menuRef = useRef(null);
+    const unitRef = useRef(null);
+    const mobTogglRef = useRef(null); 
 
     const toggleMobileMenu = (e) => {
         // @ts-ignore
