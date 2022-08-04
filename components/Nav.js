@@ -65,11 +65,11 @@ const Nav = () => {
                         :
                         <>
                         <a className="c-button c-button--primary" onClick={signOut}>Sign Out</a>
-                        Signed in as {session.user.name} <br />
                         </>}
                     </li>
                     {/* <li className="c-nav__menuItem"><a className="c-button c-button--primary">Login</a></li> */}
                 </ul>
+                {session ? <div>Signed in as {session.user.name}</div> : '' }
             </div>
         </nav>
     )
