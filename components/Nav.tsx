@@ -14,14 +14,14 @@ const Nav = (): JSX.Element => {
     const unitRef = useRef(null);
     const mobTogglRef = useRef(null); 
 
-    const toggleMobileMenu = (e: MouseEvent<HTMLElement>): void => {
+    const toggleMobileMenu = (e: React.MouseEvent<HTMLInputElement>): void => {
         // @ts-ignore
         mobTogglRef.current.classList.toggle('mobile-menu-active');
         // @ts-ignore
         menuRef.current.classList.toggle('show');
     }
-
-    const closeOnChange = (e: MouseEvent<HTMLElement>): void => {
+    
+    const closeOnChange = (e: React.MouseEvent<HTMLInputElement>): void => {
         // console.log(mobTogglRef.current);
         setTimeout((e) => {
             // @ts-ignore
