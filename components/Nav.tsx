@@ -4,10 +4,10 @@ import { useRef, useEffect } from 'react'
 import styles from './../styles/Nav.module.css'
 import { useSession, signIn, signOut } from "next-auth/react"
 
-const Nav = () => {
+const Nav = (): JSX.Element => {
     const { data: session } = useSession();
 
-    console.log(session);
+    // console.log(session);
 
     const menuRef = useRef();
     const unitRef = useRef();
