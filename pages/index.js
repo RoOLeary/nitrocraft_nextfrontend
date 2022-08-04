@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import { gql } from "@apollo/client";
 import client from "../apollo-client";
 import Layout from '../components/Layout';
+import Blocks from '../components/Blocks';
 import Columns from '../components/Columns';
 import Hero from '../components/Hero';
 import Text from '../components/Text'
@@ -67,6 +68,7 @@ export default function Home({ entry }) {
         <TextVisual content={textVisualContent} />
         <Tickets />
         <Columns />
+        <Blocks />
       </Layout>
     </>
   	)
