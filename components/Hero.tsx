@@ -12,8 +12,12 @@ const variants = {
     }
   };
 
+
+interface Hero {   
+    content: any
+}
   
-const Hero = ({ content }) => {
+const Hero = ({ content }: Hero): JSX.Element => {
 
     const { word } = useTypingText(['websites', 'applications', 'online brands', 'teams'], 250, 20);
     const { scrollY } = useViewportScroll();
