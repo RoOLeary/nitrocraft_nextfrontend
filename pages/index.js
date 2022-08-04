@@ -29,7 +29,7 @@ export default function Home({ entry }) {
 
   const HeroText = {
     eyebrow: 'Hello there!',
-    heading: 'My name is Ronan, and I build websites.',
+    heading: 'Hi there! My name is Ronan, and I build websites.',
     subHeading: 'I make websites',
   }
 
