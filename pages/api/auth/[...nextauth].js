@@ -18,7 +18,18 @@ const options = {
         colorScheme: "auto", // "auto" | "dark" | "light"
         brandColor: "#ffffff", // Hex color code
         logo: "" // Absolute URL to image
-    } 
+    },
+    callbacks: {
+        async session({ session, token, user }) {
+          session.user.username = session.user.name
+            .split(" ")
+            .join("")
+            .toLocaleLowerCase();
+    
+          session.user.uid = token.sub;
+          return session;
+        }
+    },
 }
 
 export default (req, res) => NextAuth(req, res, options)
