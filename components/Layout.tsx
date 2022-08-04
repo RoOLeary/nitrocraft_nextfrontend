@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react'
 import Head from 'next/head';
 import SEO from './SEO';
 import Nav from './Nav';
@@ -14,7 +14,6 @@ const variants = {
 type Props = {
     children: ReactNode
 }
-
 
 const Layout = ({ children }: Props): JSX.Element => (
 
