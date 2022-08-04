@@ -4,15 +4,15 @@ import { useRef, useEffect } from 'react'
 import styles from './../styles/Nav.module.css'
 import { useSession, signIn, signOut } from "next-auth/react"
 
-const Nav = () => {
+const Nav = (): JSX.Element => {
     const { data: session } = useSession();
-    const menuRef = useRef();
-    const unitRef = useRef();
-    const mobTogglRef = useRef(); 
+    const menuRef = useRef<null | HTMLDivElement>(null);
+    const unitRef = useRef<null | string>(null);
+    const mobTogglRef = useRef<null | HTMLDivElement>(null); 
 
     const toggleMobileMenu = (e) => {
-        mobTogglRef.current.classList.toggle('mobile-menu-active');
-        menuRef.current.classList.toggle('show');
+        mobTogglRef.current?.classList.toggle('mobile-menu-active');
+        menuRef.current?.classList.toggle('show');
     }
 
     const closeOnChange = (e) => {
