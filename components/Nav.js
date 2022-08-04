@@ -7,6 +7,8 @@ import { useSession, signIn, signOut } from "next-auth/react"
 const Nav = () => {
     const { data: session } = useSession();
 
+    console.log(session);
+
     const menuRef = useRef();
     const unitRef = useRef();
     const mobTogglRef = useRef(); 
@@ -63,6 +65,7 @@ const Nav = () => {
                         :
                         <>
                         <a className="c-button c-button--primary" onClick={signOut}>Sign Out</a>
+                        Signed in as {session.user.name} <br />
                         </>}
                     </li>
                     {/* <li className="c-nav__menuItem"><a className="c-button c-button--primary">Login</a></li> */}
