@@ -3,30 +3,22 @@ import { useRouter } from 'next/router'
 import { useRef, useEffect } from 'react'
 import styles from './../styles/Nav.module.css'
 import { useSession, signIn, signOut } from "next-auth/react"
-import React from 'react'
 
-const Nav = (): JSX.Element => {
+const Nav = () => {
     const { data: session } = useSession();
+    const menuRef = useRef();
+    const unitRef = useRef();
+    const mobTogglRef = useRef(); 
 
-    // console.log(session);
-
-    const menuRef = useRef(null);
-    const unitRef = useRef(null);
-    const mobTogglRef = useRef(null); 
-
-    const toggleMobileMenu = (e: React.MouseEvent<HTMLInputElement>): void => {
-        // @ts-ignore
+    const toggleMobileMenu = (e) => {
         mobTogglRef.current.classList.toggle('mobile-menu-active');
-        // @ts-ignore
         menuRef.current.classList.toggle('show');
     }
-    
-    const closeOnChange = (e: React.MouseEvent<HTMLInputElement>): void => {
+
+    const closeOnChange = (e) => {
         // console.log(mobTogglRef.current);
         setTimeout((e) => {
-            // @ts-ignore
             mobTogglRef.current.classList.toggle('mobile-menu-active');
-            // @ts-ignore
             menuRef.current.classList.toggle("show");
         }, 500)
     }
@@ -34,12 +26,10 @@ const Nav = (): JSX.Element => {
     const update = (height) => {
         const num = window.scrollY / height
         const multiplier = Math.min(Math.max(num, 0), 1)
-        // @ts-ignore
         unitRef.current.style.setProperty('--multiplier', multiplier)
     }
 
     useEffect(() => {
-        // @ts-ignore
         let height = unitRef.current.offsetHeight;
         window.addEventListener('scroll', () => update(height)); 
     }, []);
