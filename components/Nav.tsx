@@ -6,9 +6,9 @@ import { useSession, signIn, signOut } from "next-auth/react"
 
 const Nav = (): JSX.Element => {
     const { data: session } = useSession();
-    const menuRef = useRef<null | HTMLDivElement>(null);
+    const menuRef = useRef<any | HTMLDivElement>(null);
     const unitRef = useRef<any | HTMLAnchorElement>(null);
-    const mobTogglRef = useRef<null | HTMLDivElement>(null); 
+    const mobTogglRef = useRef<any | HTMLLabelElement>(null); 
 
     const toggleMobileMenu = (e) => {
         mobTogglRef.current?.classList.toggle('mobile-menu-active');
