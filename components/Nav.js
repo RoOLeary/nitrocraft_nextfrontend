@@ -4,34 +4,33 @@ import { useRef, useEffect } from 'react'
 import styles from './../styles/Nav.module.css'
 import { useSession, signIn, signOut } from "next-auth/react"
 
-const Nav = (): JSX.Element => {
+const Nav = () => {
     const { data: session } = useSession();
-    const menuRef = useRef<any | HTMLDivElement>(null);
-    const unitRef = useRef<any | HTMLAnchorElement>(null);
-    const mobTogglRef = useRef<any | HTMLLabelElement>(null); 
+    const menuRef = useRef<null | string>(null);
+    const unitRef = useRef<null | string>(null);
+    const mobTogglRef = useRef<null | string>(null); 
 
     const toggleMobileMenu = (e) => {
-        mobTogglRef.current?.classList.toggle('mobile-menu-active');
-        menuRef.current?.classList.toggle('show');
+        mobTogglRef.current.classList.toggle('mobile-menu-active');
+        menuRef.current.classList.toggle('show');
     }
 
     const closeOnChange = (e) => {
         // console.log(mobTogglRef.current);
         setTimeout((e) => {
-            mobTogglRef.current?.classList.toggle('mobile-menu-active');
-            menuRef.current?.classList.toggle("show");
+            mobTogglRef.current.classList.toggle('mobile-menu-active');
+            menuRef.current.classList.toggle("show");
         }, 500)
     }
 
     const update = (height) => {
         const num = window.scrollY / height
         const multiplier = Math.min(Math.max(num, 0), 1)
-         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        unitRef.current?.style.setProperty('--multiplier', multiplier)
+        unitRef.current.style.setProperty('--multiplier', multiplier)
     }
 
     useEffect(() => {
-        let height = unitRef.current?.offsetHeight;
+        let height = unitRef.current.offsetHeight;
         window.addEventListener('scroll', () => update(height)); 
     }, []);
 
