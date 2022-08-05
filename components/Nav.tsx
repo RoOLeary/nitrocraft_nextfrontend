@@ -7,7 +7,7 @@ import { useSession, signIn, signOut } from "next-auth/react"
 const Nav = (): JSX.Element => {
     const { data: session } = useSession();
     const menuRef = useRef<null | HTMLDivElement>(null);
-    const unitRef = useRef<null | HTMLDivElement>(null);
+    const unitRef = useRef<null | HTMLAnchorElement>(null);
     const mobTogglRef = useRef<null | HTMLDivElement>(null); 
 
     const toggleMobileMenu = (e) => {
@@ -26,6 +26,7 @@ const Nav = (): JSX.Element => {
     const update = (height) => {
         const num = window.scrollY / height
         const multiplier = Math.min(Math.max(num, 0), 1)
+         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         unitRef.current?.style.setProperty('--multiplier', multiplier)
     }
 
