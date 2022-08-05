@@ -1,7 +1,5 @@
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { useRef, useEffect } from 'react'
-import styles from './../styles/Nav.module.css'
 import { useSession, signIn, signOut } from "next-auth/react"
 
 const Nav = () => {
