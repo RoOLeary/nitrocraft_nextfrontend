@@ -41,7 +41,6 @@ export default function Category({ catPosts }) {
             <div className="o-wrapper">
                 <ArticleGrid>
                     {catPosts.map((post, index) => {
-                        // console.log(post)
                         return(
                             <li key={index}>
                                 <Link href={`/${categoryPath}/${post.slug}`}>

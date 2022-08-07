@@ -27,9 +27,15 @@ const renderContent = ( content: PropsWithChildren ) => {
             case 'hero':
                 return <Hero key={block[1]['uid']} eyebrow={blockContent['eyebrow']} heading={blockContent['heading']} subHeading={blockContent['subHeading']} />
             case 'text':
-                return <Text key={block[1]['uid']} heading={blockContent.heading} column1={blockContent.column1} />
+                return <Text key={block[1]['uid']} heading={blockContent['heading']} column1={blockContent['column1']} />
             case 'textVisual':
-                return <TextVisual key={block[1]['uid']} content={blockContent} />
+                return (
+                    <TextVisual key={block[1]['uid']} 
+                        textVisualHeading={blockContent['textVisualHeading']}
+                        textVisualContent={blockContent['textVisualContent']}
+                        textVisualImage={blockContent['textVisualImage']}
+                    />
+                );
             case 'imageSlider':
                 return <Slider key={block[1]['uid']} content={blockContent} />
             case 'faq':

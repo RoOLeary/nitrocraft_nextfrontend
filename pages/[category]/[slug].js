@@ -8,11 +8,10 @@ import PageBlocks from '../../components/PageBlocks'
 
 export default function Post({ entry }) {
 
-    // console.log(entry);
-    const pageBlocks = entry['blocks'];
-
+    
     const router = useRouter()
     const slug = router.query
+    console.log(slug);
     // const tags = entry.tags;
     // const tagList = Object.entries(tags).map((tag, i) => {
     //     return(
@@ -39,7 +38,7 @@ export default function Post({ entry }) {
                 </div> */}
             </section>
             
-            <PageBlocks content={pageBlocks} />
+            {/* <PageBlocks content={pageBlocks} /> */}
 
             {/* <Related related={entry.manualRelatedArticles} currentslug={entry.slug} /> */}
         
@@ -50,7 +49,7 @@ export default function Post({ entry }) {
 // This also gets called at build time
 
 export async function getServerSideProps(context) {
-    const { slug } = context.query
+    const { slug } = context.query ? context.query : 'test-article-three'
     const res = await fetch(`https://servd-test-staging.cl-eu-west-3.servd.dev/api/articles/${slug}.json`);
     let data = await res.json();
     return {

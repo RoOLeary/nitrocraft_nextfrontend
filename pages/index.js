@@ -65,7 +65,13 @@ export default function Home({ entry }) {
         <Hero eyebrow={HeroText.eyebrow} heading={HeroText.heading} subHeading={HeroText.subHeading} />
         <Text heading={leadPost.heading} column1={leadPost.column1} />
         {/* <Related related={morePosts} /> */}
-        <TextVisual content={textVisualContent} />
+        <TextVisual 
+          textVisualHeading={textVisualContent.textVisualHeading}
+          textVisualContent={textVisualContent.textVisualContent}
+          textVisualImage={textVisualContent.textVisualImage}
+          link={textVisualContent.link}
+          linkText={textVisualContent.linkText}
+        />
         <Tickets />
         <Columns />
         <Blocks />
