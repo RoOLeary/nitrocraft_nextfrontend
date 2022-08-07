@@ -8,7 +8,6 @@ import Footer from "../components/Footer";
 // pages/_app.js
 import { SessionProvider } from "next-auth/react";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare const window: any
 
 function NitroBlogFrontend({ Component, pageProps, router }: AppProps): JSX.Element {
