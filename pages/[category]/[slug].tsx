@@ -8,7 +8,7 @@ import { GetServerSideProps } from 'next'
 
 export default function Post({ entry }) {
 
-    
+
     const router = useRouter()
     const slug = router.query
     // console.log(slug);

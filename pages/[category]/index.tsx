@@ -1,17 +1,17 @@
 import { useRouter } from 'next/router'
-import Layout from './../../components/Layout';
+import Layout from '../../components/Layout';
 import StaticHeader from '../../components/StaticHeader';
-import TextVisual from './../../components/TextVisual';
-import Related from './../../components/Related';
+import TextVisual from '../../components/TextVisual';
+import Related from '../../components/Related';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { GetServerSideProps } from 'next'
 
 const ArticleGrid = styled.ul`
   margin-top: 2em;
 `;
 
 export default function Category({ catPosts }) {
-    
     const router = useRouter()
     const categoryPath = router.query.category    
     const textVisualContent = {
@@ -55,9 +55,8 @@ export default function Category({ catPosts }) {
     )
 }
 
-export async function getServerSideProps(context) {
-    const slug = context.query ? context.query.category : 'tech'
-    // console.log(slug);
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const slug = context.query.category ? context.query.category : 'tech'
     const res = await fetch(`https://servd-test-staging.cl-eu-west-3.servd.dev/api/category/tech.json`);
     let data = await res.json();
     
