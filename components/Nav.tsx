@@ -95,15 +95,15 @@ const Nav = (): JSX.Element => {
                     ))}
                    
                    
-                    {/* {session ? <li className="c-nav__menuItem"><Link href={"/members"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>Members</a></Link></li> : ''}
+                    {session ? <li className="c-nav__menuItem"><Link href={"/members"}><a className="c-nav__menuLink" onClick={(e) => closeOnChange(e)}>Members</a></Link></li> : ''}
                     <li className="c-nav__menuItem">
                         {!session ? <>
-                        <a className="c-button c-button--primary" onClick={signIn}>Sign In</a></>
+                        <a className="c-button c-button--primary" onClick={() => signIn()}>Sign In</a></>
                         :
                         <>
-                        <a className="c-button c-button--primary" onClick={signOut}>Sign Out</a>
+                        <a className="c-button c-button--primary" onClick={() => signOut()}>Sign Out</a>
                         </>}
-                    </li> */}
+                    </li>
                     {/* <li className="c-nav__menuItem"><a className="c-button c-button--primary">Login</a></li> */}
                 </ul>
                 </AnimateSharedLayout>
