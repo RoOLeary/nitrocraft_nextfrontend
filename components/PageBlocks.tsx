@@ -18,7 +18,7 @@ interface IProps {
 
 
 
-function renderContent(content: IProps) {
+function renderContent(content: IBlocks[]) {
     const pageBlocksList = Object.entries(content).map((block: any, id: number) => {
         const blockContent = block[1];
 
@@ -32,7 +32,8 @@ function renderContent(content: IProps) {
                 return <Text key={block[1]['uid']} heading={blockContent['heading']} column1={blockContent['column1']} />;
             case 'textVisual':
                 return (
-                    <TextVisual key={block[1]['uid']}
+                    <TextVisual 
+                        key={block[1]['uid']}
                         textVisualHeading={blockContent['textVisualHeading']}
                         textVisualContent={blockContent['textVisualContent']}
                         textVisualImage={blockContent['textVisualImage']} />
@@ -68,7 +69,7 @@ function renderContent(content: IProps) {
 
 
 
-const PageBlocks = ({ content }) => {
+const PageBlocks = ({ content }: IProps) => {
     return(
         <>
             {renderContent(content)}

@@ -13,13 +13,9 @@ interface ISlider{
     sliderMatrix?: Array<any>
 }
 
-export default function Slider({ sliderTitle, sliderMatrix }: ISlider) {
-    
-    console.log(sliderTitle);
-
+export default function Slider({ sliderMatrix }: ISlider) {
     
     const length = sliderMatrix.length;
-
     const elementRef = useRef();
     const divElement: any = elementRef.current;
 
