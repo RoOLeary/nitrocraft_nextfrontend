@@ -1,10 +1,12 @@
 interface IHeader {
-    headline?: string 
+    content: any 
 }
 
 const StaticHeader = ( content: IHeader ): JSX.Element => {
     
     const headline = content['content'];
+
+    // console.log(content);
 
     return(
         <header className="b-header js-equinoxNode t-dark">

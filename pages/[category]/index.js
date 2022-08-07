@@ -17,7 +17,7 @@ import StaticHeader from '../../components/StaticHeader';
 
 export default function Category({ catPosts }) {
     
-    console.log(catPosts)
+    // console.log(catPosts)
     
     
     const router = useRouter()
@@ -46,9 +46,9 @@ export default function Category({ catPosts }) {
             <section className={'c-section category'}>
             <div className="o-wrapper">
                 <ArticleGrid>
-                    {catPosts.map(({ title, slug, subHeadline, index }) => {
+                    {catPosts.map(({ title, slug, subHeadline }) => {
                         return(
-                            <li key={index}>
+                            <li key={title}>
                                 <Link href={`/${categoryPath}/${slug}`}>
                                     <a>{title}</a>
                                 </Link>

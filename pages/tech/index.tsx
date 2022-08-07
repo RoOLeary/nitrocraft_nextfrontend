@@ -43,7 +43,7 @@ const Excerpt = styled.p`
 const fetcher = url => fetch(url).then(res => res.json())
 const PAGE_SIZE = 10;
 
-export default function Tech() {
+export default function Tech(): JSX.Element {
     const router = useRouter()
     const categoryPath = router.query.category
     const title = 'Tech';
@@ -82,16 +82,15 @@ export default function Tech() {
 
                 {!data ? <h1 className={'b-text__heading'}>Loading posts...</h1> :
                
-                    posts.map((post, index) => {
-                        // console.log(post.jetpack_featured_media_url)
+                    posts.map(({ title, slug, index, jetpack_featured_media_url, excerpt }) => {
                         return(
                             <ArticleCard key={index}>
-                                <Link href={`/tech/${post.slug}`}><a><RespImg src={post.jetpack_featured_media_url} width={250} height={300} /></a></Link>
+                                <Link href={`/tech/${slug}`}><a><RespImg src={jetpack_featured_media_url} width={250} height={300} /></a></Link>
                                 <div>
-                                    <Link href={`/tech/${post.slug}`}>
-                                        <a className={`no-underline`}><h2 className={'b-text__heading'}>{post.title.rendered}</h2></a>
+                                    <Link href={`/tech/${slug}`}>
+                                        <a className={`no-underline`}><h2 className={'b-text__heading'}>{title.rendered}</h2></a>
                                     </Link>
-                                    <Excerpt dangerouslySetInnerHTML={{ __html: post.excerpt.rendered}} />
+                                    <Excerpt dangerouslySetInnerHTML={{ __html: excerpt.rendered }} />
                                 </div>
                             </ArticleCard>
                         )
