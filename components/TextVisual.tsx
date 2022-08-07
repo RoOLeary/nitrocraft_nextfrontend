@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link'
+import Image from 'next/image';
+import imageLoader from './../imageLoader'
 // import styles from '../styles/TextVisual.module.css';
 
 type ITextVisual = {
@@ -17,7 +19,7 @@ const TextVisual = ({ textVisualHeading, textVisualContent, textVisualImage, lin
     <section className="b-textImage b-textImage--tint b-textVisual js-equinoxNode t-dark is-visible">
         <div className="b-textImage__imageContainer">
             <figure className="b-textImage__image">
-                <img alt={textVisualHeading} className="b-textImage__imageImg b-textImage__imageImg--background" src={textVisualImage} />
+                <Image alt={textVisualHeading} className="b-textImage__imageImg b-textImage__imageImg--background" src={textVisualImage} loader={imageLoader} layout="fill" />
             </figure>
         </div>
 

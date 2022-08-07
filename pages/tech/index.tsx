@@ -10,6 +10,8 @@ import Related from '../../components/Related';
 import Link from 'next/link';
 import useSWRInfinite from "swr/infinite";
 import styled from 'styled-components';
+import imageLoader from './../../imageLoader';
+import Image from 'next/image';
 
 const ArticleGrid = styled.ul`
   margin-top: 2em;
@@ -85,7 +87,7 @@ export default function Tech(): JSX.Element {
                     posts.map(({ title, slug, jetpack_featured_media_url, excerpt }, index) => {
                         return(
                             <ArticleCard key={index}>
-                                <Link href={`/tech/${slug}`}><a><RespImg src={jetpack_featured_media_url} width={250} height={300} /></a></Link>
+                                <Link href={`/tech/${slug}`}><a><Image loader={imageLoader} src={jetpack_featured_media_url} width="250" height="300" /></a></Link>
                                 <div>
                                     <Link href={`/tech/${slug}`}>
                                         <a className={`no-underline`}><h2 className={'b-text__heading'}>{title.rendered}</h2></a>
