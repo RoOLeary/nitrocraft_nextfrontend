@@ -31,7 +31,7 @@ const Blocks = () => {
                         </div>
                         <div className="o-grid__col m:o-grid__col--span-6">
                             <div className="b-blocks__content">
-                                <h3 className="b-blocks__heading">Cup The Balls 2022</h3>
+                                <h3 className="b-blocks__heading">Mmmmm....coffee</h3>
                                 <div className="b-blocks__text c-formatted">
                                     <p>Dec 5–7, 2022</p>
                                 </div>

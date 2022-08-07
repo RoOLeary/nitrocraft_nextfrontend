@@ -13,13 +13,18 @@ const variants = {
   };
 
 
-interface Hero {   
-    content: any
+interface IHero {   
+    eyebrow?: string
+    heading: string
+    subHeading: string
 }
   
-const Hero = ({ content }: Hero): JSX.Element => {
 
-    const { word } = useTypingText(['websites', 'applications', 'online brands', 'teams'], 250, 20);
+const Hero = ( content: IHero ): JSX.Element => {
+
+    const { eyebrow, heading, subHeading } = content['content'];
+    
+    const { word } = useTypingText([`${eyebrow}`, 'balls', 'snort'], 250, 20);
     const { scrollY } = useViewportScroll();
     const y1 = useTransform(scrollY, [0, 300], [0, 200]);
     const y2 = useTransform(scrollY, [0, 300], [0, -100]);
@@ -28,9 +33,8 @@ const Hero = ({ content }: Hero): JSX.Element => {
     const y5 = useTransform(scrollY, [0, 400], [0, -250]);
     const x1 = useTransform(scrollY, [500, 0], [-250, 0]);
     const x2 = useTransform(scrollY, [750, 0], [150, 0]);
-    const { eyebrow, heading, subHeadline } = content;
-    
-    return(
+
+    return (
         <section className={"b-hero js-equinoxNode t-dark"}>
             <div className={"b-hero__grid"}>
 
@@ -62,10 +66,11 @@ const Hero = ({ content }: Hero): JSX.Element => {
 
                 <div className={"b-hero__content"}>
                     <div className={"b-hero__contentInner"}>
-                        <h4 className={"b-hero__eyebrow"}>{word ? word : ''}</h4>
+                    
+                        <h4 className={"b-hero__eyebrow"}>{word ? word : eyebrow}</h4>
                         <h1 className={"b-hero__heading"}>{heading}</h1>
                         <div className={"b-hero__intro"}>
-                           <p>{subHeadline}</p>
+                           <p>{subHeading}</p>
                         </div>
                         <div className={"b-hero__cta"}>
                             <Link href={"/all-components"}><a className={"c-button c-button--primary"}>All Components</a></Link>

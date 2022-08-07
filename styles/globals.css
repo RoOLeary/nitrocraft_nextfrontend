@@ -4188,3 +4188,9 @@ input[type=number] {
 .no-underline:hover{
   color: red;
 }
+
+@media screen and (min-width: 960px) {
+  .navigation-underline{
+    border-top: 1px solid white;
+  }
+}

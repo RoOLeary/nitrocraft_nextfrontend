@@ -5,12 +5,28 @@ import Layout from '../../components/Layout'
 import StaticHeader from '../../components/StaticHeader'
 import Related from '../../components/Related'
 import PageBlocks from '../../components/PageBlocks'
+import { motion } from 'framer-motion'
+
+
+const variants = {
+    hidden: { opacity: 0, x: 0, y: 0 },
+    enter: { opacity: 1, x: 0, y: 0 },
+    exit: { opacity: 0, x: 0, y: 0 },
+}
 
 export default function Post({ entry }) {
     const postEntry = entry[0];
     const router = useRouter()
     return (
         <Layout>
+            <motion.main
+                variants={variants} // Pass the variant object into Framer Motion 
+                initial="hidden" // Set the initial state to variants.hidden
+                animate="enter" // Animated state to variants.enter
+                exit="exit" // Exit state (used later) to variants.exit
+                transition={{ type: 'linear' }} // Set the transition to linear
+                className="body__content"
+            >
             <StaticHeader content={postEntry.title.rendered} />
             <section className="b-text  c-section" id="learn-more">
                 <div className="o-wrapper">
@@ -28,6 +44,7 @@ export default function Post({ entry }) {
             </section> 
             {/* <PageBlocks content={entry['blocks']} />    */}
             {/* <Related related={entry.manualRelatedArticles} currentslug='tech' /> */}
+            </motion.main>
         </Layout>
     )
   }

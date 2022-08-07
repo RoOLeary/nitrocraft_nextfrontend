@@ -1,6 +1,10 @@
-const StaticHeader = ({ content }) => {
+interface IHeader {
+    headline?: string 
+}
 
-    // console.log(content);
+const StaticHeader = ( content: IHeader ): JSX.Element => {
+    
+    const headline = content['content'];
 
     return(
         <header className="b-header js-equinoxNode t-dark">
@@ -16,11 +20,12 @@ const StaticHeader = ({ content }) => {
                 <div className="b-header__shape b-header__shape--3" id="lines">
                 </div>
                 <div className="b-header__content">
-                    <h1 className="b-header__title">{content ? content : 'Headline' }</h1>
+                    <h1 className="b-header__title">{headline ? headline : 'Static Headline' }</h1>
                 </div>
             </div>
         </header>
     )
 }
+
 
 export default StaticHeader;
