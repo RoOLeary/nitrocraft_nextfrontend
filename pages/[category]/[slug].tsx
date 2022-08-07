@@ -4,6 +4,7 @@ import Layout from '../../components/Layout'
 import StaticHeader from '../../components/StaticHeader'
 import Related from '../../components/Related'
 import PageBlocks from '../../components/PageBlocks'
+import { GetServerSideProps } from 'next'
 
 export default function Post({ entry }) {
 
@@ -47,8 +48,8 @@ export default function Post({ entry }) {
   
 // This also gets called at build time
 
-export async function getServerSideProps(context) {
-    const { slug } = context.query ? context.query : 'test-article-three'
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const slug = context.query.slug ? context.query.slug : 'test-article-three'
     const res = await fetch(`https://servd-test-staging.cl-eu-west-3.servd.dev/api/articles/${slug}.json`);
     let data = await res.json();
     return {
