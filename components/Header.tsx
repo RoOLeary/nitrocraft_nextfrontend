@@ -1,5 +1,5 @@
 
-interface IHeader {
+export interface IHeader {
     headline?: string 
 }
 

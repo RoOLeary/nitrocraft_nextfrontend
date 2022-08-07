@@ -23,7 +23,7 @@ interface IHero {
 const Hero = ({ eyebrow, heading, subHeading }: IHero ): JSX.Element => {
 
     
-    const { word } = useTypingText([`${eyebrow}`, 'Web Developer', 'CTO', 'Nerd', 'LFC Fan'], 250, 20);
+    const { word } = useTypingText([`${eyebrow}`, 'Web Developer', 'CTO','Nerd', 'LFC Fan'], 250, 20);
     const { scrollY } = useViewportScroll();
     const y1 = useTransform(scrollY, [0, 300], [0, 200]);
     const y2 = useTransform(scrollY, [0, 300], [0, -100]);
