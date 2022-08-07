@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
-import styles from './../../styles/Inner.module.css';
 import Layout from './../../components/Layout';
-import Header from './../../components/Header';
+import StaticHeader from '../../components/StaticHeader';
 import TextVisual from './../../components/TextVisual';
 import Related from './../../components/Related';
 import Link from 'next/link';
@@ -11,27 +10,18 @@ const ArticleGrid = styled.ul`
   margin-top: 2em;
 `;
 
-
-import StaticHeader from '../../components/StaticHeader';
-
-
 export default function Category({ catPosts }) {
     
-    // console.log(catPosts)
-    
-    
     const router = useRouter()
-    const categoryPath = router.query.category
-    
+    const categoryPath = router.query.category    
     const textVisualContent = {
         title: 'Go to Work',
         content: 'Something something something blort. Here goes...',
         image: '/assets/img/conf.jpg',
         link: '#',
         linkText: 'Learn More'
-      }
+    }
      
-
     return(
         <Layout>
             <StaticHeader content={`Category: ${categoryPath.charAt(0).toUpperCase() + categoryPath.slice(1) } - Generic`} />

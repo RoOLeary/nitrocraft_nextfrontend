@@ -1,12 +1,7 @@
 import { useRouter } from 'next/router'
-import Link from 'next/link'
-import styles from './../../styles/Inner.module.css'
 import Layout from '../../components/Layout'
 import StaticHeader from '../../components/StaticHeader'
-import Related from '../../components/Related'
-import PageBlocks from '../../components/PageBlocks'
 import { motion } from 'framer-motion'
-
 
 const variants = {
     hidden: { opacity: 0, x: 0, y: 0 },
@@ -16,7 +11,6 @@ const variants = {
 
 export default function Post({ entry }) {
     const postEntry = entry[0];
-    const router = useRouter()
     return (
         <Layout>
             <motion.main
