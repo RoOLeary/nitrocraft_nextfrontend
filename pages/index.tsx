@@ -31,7 +31,7 @@ export default function Home({ entry }) {
   const HeroText = {
     eyebrow: 'Hello there!',
     heading: 'My name is Ronan, and I build websites.',
-    subHeading: 'I make websites',
+    subHeading: entry['data'][0]['homeIntro'].replace(/(<([^>]+)>)/gi, ""),
   }
 
   const textVisualContent = {

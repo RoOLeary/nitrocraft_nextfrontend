@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
-import Link from 'next/link';
+import Image from 'next/image';
+import imageLoader from './../imageLoader';
 
 let initialState = {
     activeSlide: 1,
@@ -106,7 +107,7 @@ export default function Slider({ sliderMatrix }: ISlider) {
                             <p className="text__background font-serif">{sl.textBackground}</p>
                             </div>
                             <div className="flex__item flex__item--right"></div>
-                            <img className="isabel_img hidden md:block" src={sl.slideImage} />
+                            <img className="isabel_img hidden md:block" src={sl.slideImage}  />
                         </div>
                     )
                 })}

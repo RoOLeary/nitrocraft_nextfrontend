@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { useViewportScroll, useTransform, motion } from 'framer-motion';
 import { useTypingText } from '../hooks/useTypingTest';
+import imageLoader from './../imageLoader';
+import Image from 'next/image';
 
 const variants = {
     visible: { opacity: 1, scale: 1, y: 0 },
@@ -41,19 +43,19 @@ const Hero = ({ eyebrow, heading, subHeading }: IHero ): JSX.Element => {
                     className="b-hero__photo b-hero__photo--1"
                     style={{ y: y2, x: 50 }}
                 >
-                    <img alt="photo1 - Audience member photo" src="https://source.unsplash.com/1600x900/?tech" />
+                    <Image alt="photo1 - Audience member photo" loader={imageLoader} src={"https://source.unsplash.com/1600x900/?tech"} layout="fill" />
                 </motion.figure>
                 <motion.figure
                     className="b-hero__photo b-hero__photo--2"
                     style={{ y: y3, x: x1 }}
                 >
                 
-                <img alt="photo2 - Speaker" src="https://source.unsplash.com/1600x900/?code" />
+                <Image alt="photo2 - Speaker" loader={imageLoader} src={"https://source.unsplash.com/1600x900/?code"} layout="fill" />
                 </motion.figure>
                
                
                 <motion.figure className="b-hero__photo b-hero__photo--3" style={{ y: y4, x: x2 }}>
-                    <img alt="photo1 - Audience member photo" src="https://placedog.net/550/550" />
+                    <Image alt="photo1 - Audience member photo" loader={imageLoader} src={"https://placedog.net/550/550"} layout="fill" />
                 </motion.figure>
                 <motion.figure className={"b-hero__photo b-hero__photo--4"} style={{ y: y5, x: 0 }}>
                     <img alt="photo1 - Audience member photo" src="https://placedog.net/850/550" />
