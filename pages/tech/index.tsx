@@ -82,7 +82,7 @@ export default function Tech(): JSX.Element {
 
                 {!data ? <h1 className={'b-text__heading'}>Loading posts...</h1> :
                
-                    posts.map(({ title, slug, index, jetpack_featured_media_url, excerpt }) => {
+                    posts.map(({ title, slug, jetpack_featured_media_url, excerpt }, index) => {
                         return(
                             <ArticleCard key={index}>
                                 <Link href={`/tech/${slug}`}><a><RespImg src={jetpack_featured_media_url} width={250} height={300} /></a></Link>

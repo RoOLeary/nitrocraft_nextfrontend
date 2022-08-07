@@ -37,7 +37,7 @@ export default function Home({ entry }) {
     textVisualHeading: 'Pack the bags',
     textVisualContent: 'Casually arise and get Molly ready for her stroll. Here goes...',
     textVisualImage: '/assets/img/conf.jpg',
-    link: 'articles/test-article-three',
+    link: '/articles/test-article-three',
     linkText: 'Learn More'
   }
   
