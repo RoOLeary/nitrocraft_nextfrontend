@@ -19,8 +19,6 @@ import { useSession, signIn, signOut } from "next-auth/react"
 export default function Home({ entry }) {
 
   const homeHeader = {
-      blockType: 'hero', 
-      uid: 'a508d88a-c650-4f74-8cb5-74023b95bc7b', 
       eyebrow: 'Eyebrow Now', 
       heading: 'Check between versions. Hello am homepage.', 
       subHeading: "Why isn't this working?"
@@ -39,13 +37,13 @@ export default function Home({ entry }) {
     textVisualHeading: 'Pack the bags',
     textVisualContent: 'Casually arise and get Molly ready for her stroll. Here goes...',
     textVisualImage: '/assets/img/conf.jpg',
-    link: 'articles/test-article-3',
+    link: 'articles/test-article-three',
     linkText: 'Learn More'
   }
   
   const leadPost = {
     heading: 'Lead Post',
-    column1: ':orem ipsum dolor sit amet, consectetur adipiscing elit. Fusce viverra nisi eu eros rhoncus rutrum. Proin sollicitudin gravida faucibus.'
+    column1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce viverra nisi eu eros rhoncus rutrum. Proin sollicitudin gravida faucibus.'
   }
 
   const handleSignin = (e) => {
