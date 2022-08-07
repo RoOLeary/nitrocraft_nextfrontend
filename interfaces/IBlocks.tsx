@@ -1,7 +1,7 @@
 interface IBlocks {
     blockType: Element,
     content: any,
-    pageBlocks: []
+    pageBlocks: any[]
 }
 
 export default IBlocks;

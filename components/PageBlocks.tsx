@@ -10,56 +10,57 @@ import Signup from './Signup';
 import Speakers from './Speakers';
 // import Projects from './Projects';
 
+import IBlocks from './../interfaces/IBlocks'
+
 interface IProps {
-    content: PropsWithChildren
+    content: IBlocks[];
   }
 
 
-const renderContent = ( content: PropsWithChildren ) => {
-   
+
+function renderContent(content: IProps) {
     const pageBlocksList = Object.entries(content).map((block: any, id: number) => {
-    const blockContent = block[1];
-        
-        switch(block[1]['blockType']) {
-            
+        const blockContent = block[1];
+
+        switch (block[1]['blockType']) {
+
             case 'header':
-                return <Header key={block[1]['uid']} headline={blockContent['headline']} />
+                return <Header key={block[1]['uid']} headline={blockContent['headline']} />;
             case 'hero':
-                return <Hero key={block[1]['uid']} eyebrow={blockContent['eyebrow']} heading={blockContent['heading']} subHeading={blockContent['subHeading']} />
+                return <Hero key={block[1]['uid']} eyebrow={blockContent['eyebrow']} heading={blockContent['heading']} subHeading={blockContent['subHeading']} />;
             case 'text':
-                return <Text key={block[1]['uid']} heading={blockContent['heading']} column1={blockContent['column1']} />
+                return <Text key={block[1]['uid']} heading={blockContent['heading']} column1={blockContent['column1']} />;
             case 'textVisual':
                 return (
-                    <TextVisual key={block[1]['uid']} 
+                    <TextVisual key={block[1]['uid']}
                         textVisualHeading={blockContent['textVisualHeading']}
                         textVisualContent={blockContent['textVisualContent']}
-                        textVisualImage={blockContent['textVisualImage']}
-                    />
+                        textVisualImage={blockContent['textVisualImage']} />
                 );
             case 'imageSlider':
-                return <Slider key={block[1]['uid']} content={blockContent} />
+                return <Slider key={block[1]['uid']} sliderTitle={blockContent['sliderTitle']} sliderMatrix={blockContent['sliderMatrix']} />;
             case 'faq':
-                return <Faq key={block[1]['uid']} content={blockContent} />
+                return <Faq key={block[1]['uid']} content={blockContent} />;
             case 'video':
-                return <Video key={block[1]['uid']} content={blockContent} />
+                return <Video key={block[1]['uid']} content={blockContent} />;
             case 'speakers':
-                return <Speakers key={block[1]['uid']} content={blockContent} />
+                return <Speakers key={block[1]['uid']} content={blockContent} />;
             case 'signup':
-                return <Signup key={block[1]['uid']} content={blockContent} />
+                return <Signup key={block[1]['uid']} content={blockContent} />;
             // case 'tickets':
             //     return <Tickets key={block[1]['uid']} content={blockContent} />
             default:
-                return(
+                return (
                     <>
                         <div key={id}>
                             <h3>{block[1]['blockType']}</h3>
                             <pre>{JSON.stringify(block, null, 2)}</pre>
                         </div>
                     </>
-                )
+                );
         }
-        
-    })
+
+    });
 
     return pageBlocksList;
 }

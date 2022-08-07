@@ -8,14 +8,20 @@ let initialState = {
     defaultActive: 1,
 }
 
-export default function Slider({ content }) {
+interface ISlider{
+    sliderTitle?: string
+    sliderMatrix?: Array<any>
+}
+
+export default function Slider({ sliderTitle, sliderMatrix }: ISlider) {
     
-    // console.log(content);
+    console.log(sliderTitle);
+
     
-    const length = content.sliderMatrix.length;
+    const length = sliderMatrix.length;
 
     const elementRef = useRef();
-    const divElement = elementRef.current;
+    const divElement: any = elementRef.current;
 
     const [activeSlide, setActiveSlide] = useState(initialState.activeSlide);
     const [isAutoPlay, setAutoPlay] = useState(initialState.isAutoPlay);
@@ -59,10 +65,10 @@ export default function Slider({ content }) {
     }
 
     useEffect(() => {
-        const divElement = elementRef.current;
+        const activeElement: any = elementRef.current;
         const current = document.querySelector('.flex--active') ? document.querySelector('.flex--active').getAttribute('data-slide') : initialState.defaultActive;    
-        const autoFadeSl = divElement.querySelector('.flex__container[data-slide="' + activeSlide + '"]'); 
-        const oldActive = divElement.querySelector('.flex__container[data-slide="' + current + '"]');
+        const autoFadeSl = activeElement.querySelector('.flex__container[data-slide="' + activeSlide + '"]'); 
+        const oldActive = activeElement.querySelector('.flex__container[data-slide="' + current + '"]');
         let nextSlide = activeSlide;
             
         if(isAutoPlay){
@@ -91,7 +97,7 @@ export default function Slider({ content }) {
     return(
         <>
             <div className="slider__wrapper" ref={elementRef}>
-                    {content.sliderMatrix.map((sl, i) => {
+                    {sliderMatrix.map((sl, i) => {
                         const current = ++i;
                         return(
                             <div key={++i} className={`flex__container flex--${sl.sliderColor.replace(/\s/g, '')} ${activeSlide == current ? `flex--active` : 'animate--start' }`} data-slide={current}>
@@ -110,7 +116,7 @@ export default function Slider({ content }) {
                     })}
                     
                     <div className="slider__navi">
-                        {content.sliderMatrix.map((sl, i) => {
+                        {sliderMatrix.map((sl, i) => {
                             const current = ++i;
                             return(
                                 <a key={++i} href="#" onClick={(e) => transitionSlide(e)} className={`slide-nav ${activeSlide == current ? `active` : '' }`} data-slide={current}>{sl.slideColor}</a>
@@ -119,8 +125,6 @@ export default function Slider({ content }) {
                     </div>
                     
                 </div>
-
-                
             </>
         ); 
 }; 
