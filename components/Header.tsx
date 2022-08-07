@@ -4,9 +4,8 @@ interface IHeader {
 }
 
 
-const Header = ( content: IHeader ): JSX.Element => {
-   const { headline } = content['content'];
-  
+const Header = ( props: IHeader ): JSX.Element => {
+
    return(
     <header className="b-header js-equinoxNode t-dark">
         <div className="b-header__backdrop">
@@ -21,7 +20,7 @@ const Header = ( content: IHeader ): JSX.Element => {
             <div className="b-header__shape b-header__shape--3" id="lines">
             </div>
             <div className="b-header__content">
-                <h2 className="b-header__title" dangerouslySetInnerHTML={{__html: headline ? headline : 'Header Component' }}/>
+                <h2 className="b-header__title">{props.headline ? props.headline : 'Header Component'}</h2>
             </div>
         </div>
     </header>

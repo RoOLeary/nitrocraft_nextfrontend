@@ -36,17 +36,23 @@ export default function Category({ catPosts }) {
         <Layout>
             <StaticHeader content={`Category: ${categoryPath.charAt(0).toUpperCase() + categoryPath.slice(1) } - Generic`} />
             <Related related={catPosts} currentslug={categoryPath} />
-            <TextVisual content={textVisualContent} />
+            <TextVisual 
+                textVisualHeading={textVisualContent.title}
+                textVisualContent={textVisualContent.content}
+                textVisualImage={textVisualContent.image}
+                link={textVisualContent.link}
+                linkText={textVisualContent.linkText}
+            />
             <section className={'c-section category'}>
             <div className="o-wrapper">
                 <ArticleGrid>
-                    {catPosts.map((post, index) => {
+                    {catPosts.map(({ title, slug, subHeadline, index }) => {
                         return(
                             <li key={index}>
-                                <Link href={`/${categoryPath}/${post.slug}`}>
-                                    <a>{post.title}</a>
+                                <Link href={`/${categoryPath}/${slug}`}>
+                                    <a>{title}</a>
                                 </Link>
-                                <p>{post.subHeadline}</p>
+                                <p>{subHeadline}</p>
                             </li>
                         )
                     })}
@@ -60,9 +66,9 @@ export default function Category({ catPosts }) {
 }
 
 export async function getServerSideProps(context) {
-    const slug = context.query.category
+    const slug = context.query ? context.query.category : 'tech'
     // console.log(slug);
-    const res = await fetch(`https://servd-test-staging.cl-eu-west-3.servd.dev/api/category/${slug}.json`);
+    const res = await fetch(`https://servd-test-staging.cl-eu-west-3.servd.dev/api/category/tech.json`);
     let data = await res.json();
     
     return {

@@ -9,10 +9,8 @@ import { useRef, useEffect } from "react";
 export default function About({ entry }) {
     
     const ioRef = useRef(); 
-
-    let aboutHeader = {
-        headline: 'About Page'    
-    }
+   
+    let aboutHeader = 'About Page';
 
     // const inViewport = useIntersection(ioRef, "25px");
 
@@ -29,7 +27,7 @@ export default function About({ entry }) {
 
     return (
         <Layout>
-            <Header content={aboutHeader} />
+            <Header headline={aboutHeader} />
             <PageBlocks content={entry.data[0]['pageBlocks']} />
             <Link href={`/`}><a>Home</a></Link><Link href={`/tech`}><a>Tech</a></Link>
             {/* <div ref={ioRef}>View</div> */}
