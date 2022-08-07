@@ -1,9 +1,10 @@
-import { useState } from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-import styles from '../styles/Home.module.css'
-import { gql } from "@apollo/client";
-import client from "../apollo-client";
+// import { useState } from 'react'
+// import Head from 'next/head'
+// import Link from 'next/link'
+// import styles from '../styles/Home.module.css'
+// import { gql } from "@apollo/client";
+// import client from "../apollo-client";
+import { GetStaticProps } from 'next'
 import Layout from '../components/Layout';
 import Blocks from '../components/Blocks';
 import Columns from '../components/Columns';
@@ -13,7 +14,7 @@ import TextVisual from '../components/TextVisual';
 import Tickets from '../components/Tickets';
 import Faq from '../components/Faq';
 // import Slider from '../components/Slider';
-import Related from '../components/Related';
+// import Related from '../components/Related';
 import { useSession, signIn, signOut } from "next-auth/react"
 
 export default function Home({ entry }) {
@@ -79,12 +80,12 @@ export default function Home({ entry }) {
 }
 
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch('https://servd-test-staging.cl-eu-west-3.servd.dev/api/homepage.json',{
       credentials: "include",
       headers: {
           "Access-Control-Allow-Origin" : "*", 
-          "Access-Control-Allow-Credentials" : true
+          "Access-Control-Allow-Credentials" : "true"
       },
   });
   let entry = await res.json();

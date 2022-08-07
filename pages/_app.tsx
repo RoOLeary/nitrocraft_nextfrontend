@@ -10,7 +10,7 @@ import { SessionProvider } from "next-auth/react";
 
 declare const window: any
 
-function NitroBlogFrontend({ Component, pageProps, router }: AppProps): JSX.Element {
+function NitroBlogFrontend({ Component, pageProps }: AppProps): JSX.Element {
 
   return (
     <SessionProvider session={pageProps.session}>  
