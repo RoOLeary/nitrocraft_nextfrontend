@@ -65,11 +65,11 @@ export default function Tech() {
     // console.log(posts)
     
     const textVisualContent = {
-        textVisualHeading: 'Pack the bags',
-        textVisualContent: 'Casually arise and get Molly ready for her stroll. Here goes...',
+        textVisualHeading: 'Roll a number?',
+        textVisualContent: 'You are running low on shrubbery',
         textVisualImage: '/assets/img/conf.jpg',
-        link: 'articles/test-article-3',
-        linkText: 'Learn More'
+        link: 'tech/testing',
+        linkText: 'Buy Shrub'
       }
 
     return(
@@ -110,7 +110,13 @@ export default function Tech() {
                 </button>
             </div>  
             </section>  
-            <TextVisual content={textVisualContent} />
+            <TextVisual 
+                textVisualHeading={textVisualContent.textVisualHeading}
+                textVisualContent={textVisualContent.textVisualContent}
+                textVisualImage={textVisualContent.textVisualImage}
+                link={textVisualContent.link}
+                linkText={textVisualContent.linkText}
+                />
             {/* <Related related={catPosts} currentslug={categoryPath} /> */}
         </Layout>
     )
