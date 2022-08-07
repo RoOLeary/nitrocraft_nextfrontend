@@ -20,9 +20,8 @@ interface IHero {
 }
   
 
-const Hero = ( content: IHero ): JSX.Element => {
+const Hero = ({ eyebrow, heading, subHeading}: IHero ): JSX.Element => {
 
-    const { eyebrow, heading, subHeading } = content['content'];
     
     const { word } = useTypingText([`${eyebrow}`, 'balls', 'snort'], 250, 20);
     const { scrollY } = useViewportScroll();

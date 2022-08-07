@@ -1,3 +1,4 @@
+import type { AppProps } from 'next/app';
 import '../styles/globals.css'
 // import { ApolloProvider } from "@apollo/client";
 // import client from "../apollo-client";
@@ -7,8 +8,11 @@ import Footer from "../components/Footer";
 // pages/_app.js
 import { SessionProvider } from "next-auth/react";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+declare const window: any
 
-function NitroBlogFrontend({ Component, pageProps }) {
+function NitroBlogFrontend({ Component, pageProps, router }: AppProps): JSX.Element {
+
   return (
     <SessionProvider session={pageProps.session}>  
         <Nav />

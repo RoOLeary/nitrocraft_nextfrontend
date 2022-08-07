@@ -23,11 +23,11 @@ const renderContent = ( content: PropsWithChildren ) => {
         switch(block[1]['blockType']) {
             
             case 'header':
-                return <Header key={block[1]['uid']} content={blockContent} />
+                return <Header key={block[1]['uid']} headline={blockContent['headline']} />
             case 'hero':
-                return <Hero key={block[1]['uid']} content={blockContent} />
+                return <Hero key={block[1]['uid']} eyebrow={blockContent['eyebrow']} heading={blockContent['heading']} subHeading={blockContent['subHeading']} />
             case 'text':
-                return <Text key={block[1]['uid']} content={blockContent} />
+                return <Text key={block[1]['uid']} heading={blockContent.heading} column1={blockContent.column1} />
             case 'textVisual':
                 return <TextVisual key={block[1]['uid']} content={blockContent} />
             case 'imageSlider':

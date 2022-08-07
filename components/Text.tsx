@@ -1,6 +1,9 @@
-const Text = ({ content }) => {
-    // console.log(content);
-    const { heading, column1 } = content;
+interface IText {
+    heading?: string
+    column1: string
+}
+
+const Text = ({ heading, column1 }: IText ): JSX.Element => {
    
     return(
         <section className="b-text  c-section" id="learn-more">
