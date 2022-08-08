@@ -9,15 +9,10 @@ interface ISpeaker {
     speakerCompany?: string
 }
 
-  
 const Speaker = ({ speaker }: ISpeaker ) => {
     
     const { speakerName, speakerBio, speakerCompany } = speaker;
     const { show, toggleVisibility } = useModal();
-    
-    console.log(speaker);
-
-
     return(
         <li className="o-grid__col xs:o-grid__col--span-6 m:o-grid__col--span-3 l:o-grid__col--span-2">
             <article className="b-speaker" itemType="http://schema.org/Person" itemProp="performer">
