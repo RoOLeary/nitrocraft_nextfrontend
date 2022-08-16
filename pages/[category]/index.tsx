@@ -24,7 +24,7 @@ export default function Category({ catPosts }) {
      
     return(
         <Layout>
-            <StaticHeader content={`Category: ${categoryPath.charAt(0).toUpperCase() + categoryPath.slice(1) } - Generic`} />
+            <StaticHeader content={`Category - Generic`} />
             <Related related={catPosts} currentslug={categoryPath} />
             <TextVisual 
                 textVisualHeading={textVisualContent.title}
