@@ -1,10 +1,12 @@
 interface IText {
     heading?: string
-    column1: string
+    content?: any
 }
 
-const Text = ({ heading, column1 }: IText ): JSX.Element => {
-   
+const Text = ({ heading, content }: IText ): JSX.Element => {
+
+    let { column1 } = content; 
+
     return(
         <section className="b-text  c-section" id="learn-more">
             <div className="o-wrapper">

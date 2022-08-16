@@ -1,5 +1,6 @@
 
 export interface IHeader {
+    key?: any,
     headline?: string 
 }
 
