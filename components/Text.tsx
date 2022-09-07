@@ -1,10 +1,11 @@
-interface IText {
+interface IProps {
     heading?: string
-    column1: string
+    column1?: string
+    column2?: string
 }
 
-const Text = ({ heading, column1 }: IText ): JSX.Element => {
-   
+const Text = ({ heading, column1, column2 }: IProps) => {
+    
     return(
         <section className="b-text  c-section" id="learn-more">
             <div className="o-wrapper">

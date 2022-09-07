@@ -29,7 +29,7 @@ function renderContent(content: IBlocks[]) {
             case 'hero':
                 return <Hero key={block[1]['uid']} eyebrow={blockContent['eyebrow']} heading={blockContent['heading']} subHeading={blockContent['subHeading']} />;
             case 'text':
-                return <Text key={block[1]['uid']} heading={blockContent['heading']} column1={blockContent['column1']} />;
+                return <Text key={block[1]['uid']} heading={blockContent['heading']} column1={blockContent['column1']} column2={blockContent['column2']}/>;
             case 'textVisual':
                 return (
                     <TextVisual 
