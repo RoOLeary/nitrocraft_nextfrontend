@@ -1,6 +1,12 @@
-const TextBlock = ({ content }) => {
+interface ITextBlock{
+    heading?: string,
+    column1?: string
+}
 
-    const { heading, column1 } = content;
+
+const TextBlock = ({ heading, column1 }: ITextBlock): JSX.Element => {
+
+    // const { heading, column1 } = content;
     
     return(
         <section className="b-text  c-section" id="learn-more">

@@ -13,7 +13,7 @@ const ArticleGrid = styled.ul`
 
 export default function Category({ catPosts }) {
     const router = useRouter()
-    const categoryPath = router.query.category    
+    const categoryPath: any = router.query.category 
     const textVisualContent = {
         title: 'Go to Work',
         content: 'Something something something blort. Here goes...',
@@ -24,7 +24,7 @@ export default function Category({ catPosts }) {
      
     return(
         <Layout>
-            <StaticHeader content={`Category: ${categoryPath.charAt(0).toUpperCase() + categoryPath.slice(1) } - Generic`} />
+            <StaticHeader content={`Category: ${categoryPath ? categoryPath.charAt(0).toUpperCase() + categoryPath.slice(1) : '' } - Generic`} />
             <Related related={catPosts} currentslug={categoryPath} />
             <TextVisual 
                 textVisualHeading={textVisualContent.title}
