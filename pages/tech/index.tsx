@@ -5,7 +5,7 @@ import StaticHeader from '../../components/StaticHeader';
 import Hero from '../../components/Hero';
 import Text from '../../components/Text'
 import TextVisual from '../../components/TextVisual';
-import Faq from '../../components/Faq';
+import Faq from '../../components/Faq/Faq';
 import Related from '../../components/Related';
 import Link from 'next/link';
 import useSWRInfinite from "swr/infinite";

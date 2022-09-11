@@ -1,19 +1,18 @@
 import React from 'react';
 import { useEffect } from 'react';
 import Link from 'next/link';
+import FaqItem from './FaqItem'; 
+import { IFaqs } from '../../interfaces/IFaq'
 
-const Faq = ({ content }) => { 
+const Faq = ({ content }: IFaqs ) => {
 
     const { faqHeading, faqLeadtext, faqs } = content;
-    // console.log(content);
-    const selectorAnswerInner = '.js-faqAnswerInner';
+    const selectorAnswerInner: any = '.js-faqAnswerInner';
     
-    const onQuestionClick = (e) => {
-        
+    const onQuestionClick = (e: any) => {
         const question = e.target;
         const classNameIsExpanded = 'is-expanded';
         question.parentElement.classList.toggle(classNameIsExpanded);
-        
     };
 
     useEffect(() => {
@@ -21,7 +20,6 @@ const Faq = ({ content }) => {
             answerInner.parentElement.style.setProperty('--height', answerInner.offsetHeight + 'px')
         })
     },[]);
-
     return(
         <section className="b-faq c-section js-faq">
             <div className="o-wrapper">
@@ -41,16 +39,9 @@ const Faq = ({ content }) => {
                         <ul className="b-faq__list">
                             {faqs.map((faq, i) => {
                                 return(
-                                    <li key={i} className="b-faq__listItem">
-                                        <div className="b-faq__question js-faqQuestion" onClick={(e) => onQuestionClick(e)}>{faq.question}</div>
-                                        <div className="b-faq__answer">
-                                            <div className="b-faq__answerInner c-formatted js-faqAnswerInner" dangerouslySetInnerHTML={{ __html: faq.answer }} />
-                                            
-                                        </div>
-                                    </li>
-                                );
-                            }
-                        )}
+                                    <FaqItem key={i} faq={faq} onClick={(e: any) => onQuestionClick(e)} />
+                                )
+                            })}
                         </ul>
                     </div>
                 </div>

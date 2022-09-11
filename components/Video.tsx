@@ -1,6 +1,16 @@
-const Video = ({ content }) => {
-    // console.log(content);
-    const videoEmbedCode = content.videoEmbedCode;
+
+
+interface IVideo {
+    heading?: string,
+    text?: string, 
+    hasCta?: boolean,
+    ctaLabel?: string,
+    ctaLink?: string,
+    videoEmbedCode?: string,
+}
+
+const Video = ({ heading, text, hasCta, ctaLabel, ctaLink, videoEmbedCode }: IVideo ) => {
+    
     return(
         <section className="b-video">
             <div className="o-wrapper">

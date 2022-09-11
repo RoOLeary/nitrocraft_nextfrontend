@@ -12,7 +12,7 @@ import Hero from '../components/Hero';
 import Text from '../components/Text'
 import TextVisual from '../components/TextVisual';
 import Tickets from '../components/Tickets';
-import Faq from '../components/Faq';
+import Faq from '../components/Faq/Faq';
 // import Slider from '../components/Slider';
 // import Related from '../components/Related';
 import { useSession, signIn, signOut } from "next-auth/react"
