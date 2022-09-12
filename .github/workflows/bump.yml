@@ -13,7 +13,7 @@ jobs:
     - name: Bump version and push tag
       uses: anothrNick/github-tag-action@1.40.0
       env:
-        GITHUB_TOKEN: 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
+        GITHUB_TOKEN: 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
         REPO_OWNER: RoOLeary
         WITH_V: false
         RELEASE_BRANCHES: main
