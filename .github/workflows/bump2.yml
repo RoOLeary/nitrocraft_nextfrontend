@@ -1,0 +1,20 @@
+name: Bump version
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: '0'
+    - name: Bump version and push tag
+      uses: anothrNick/github-tag-action@1.40.0
+      env:
+        GITHUB_TOKEN: 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
+        DEFAULT_BUMP: patch
+        REPO_OWNER: RoOLeary
+        WITH_V: true
+        RELEASE_BRANCHES: main
