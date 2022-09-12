@@ -47,11 +47,11 @@ export default function Home({ entry }) {
     column1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce viverra nisi eu eros rhoncus rutrum. Proin sollicitudin gravida faucibus.'
   }
 
-  // const handleSignin = (e) => {
-  //   console.log(e);
-  //   e.preventDefault()
-  //   signIn()
-  // }    
+  const handleSignin = (e) => {
+    console.log(e);
+    e.preventDefault()
+    signIn()
+  }    
   const handleSignout = (e) => {
     e.preventDefault()
     signOut()
