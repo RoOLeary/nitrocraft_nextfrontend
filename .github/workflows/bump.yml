@@ -16,3 +16,4 @@ jobs:
         GITHUB_TOKEN: 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
         REPO_OWNER: RoOLeary
         WITH_V: false
+        RELEASE_BRANCHES: main
