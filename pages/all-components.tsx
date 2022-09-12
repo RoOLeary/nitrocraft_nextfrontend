@@ -18,7 +18,6 @@ export default function AllComponents({ entry }: IPage): JSX.Element {
     )
 }
 
-
 export const getStaticProps: GetStaticProps = async (context) => {
     const slug = context?.params?.slug || "all-components";
     // console.log(context.params);
