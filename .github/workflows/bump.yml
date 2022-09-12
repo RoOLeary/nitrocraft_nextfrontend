@@ -17,5 +17,4 @@ jobs:
         DEFAULT_BUMP: major
         REPO_OWNER: RoOLeary
         WITH_V: true
-        INITIAL_VERSION: v1.0.0
         RELEASE_BRANCHES: main
