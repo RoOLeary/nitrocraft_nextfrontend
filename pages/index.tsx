@@ -44,7 +44,7 @@ export default function Home({ entry }) {
   
   const leadPost = {
     heading: 'Lead Post',
-    column1: 'dddLorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce viverra nisi eu eros rhoncus rutrum. Proin sollicitudin gravida faucibus.'
+    column1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce viverra nisi eu eros rhoncus rutrum. Proin sollicitudin gravida faucibus.'
   }
 
   const handleSignin = (e) => {
