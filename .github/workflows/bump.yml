@@ -23,5 +23,3 @@ jobs:
         REPO_OWNER: RoOLeary
         WITH_V: true
         RELEASE_BRANCHES: main
-
-      
