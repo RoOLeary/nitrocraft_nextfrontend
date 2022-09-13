@@ -10,10 +10,11 @@ import { SessionProvider } from "next-auth/react";
 
 declare const window: any
 
-function NitroBlogFrontend({ Component, pageProps }: AppProps): JSX.Element {
+
+function NitroBlogFrontend({ Component, pageProps:  { session, ...pageProps }}: AppProps): JSX.Element {
 
   return (
-    <SessionProvider session={pageProps.session}>  
+    <SessionProvider session={session}>  
         <Nav />
         <AnimatePresence
             exitBeforeEnter
