@@ -47,6 +47,28 @@ export default function Home({ entry }) {
     column1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce viverra nisi eu eros rhoncus rutrum. Proin sollicitudin gravida faucibus.'
   }
 
+  const confBlockContent:any = {
+
+    blockType: 'blocks',
+    uid: 123456789,
+    image1: 'https://placedog.net/500/300', 
+    heading1: 'Conf Heading 1', 
+    text1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    ctas1: [{
+      link: '#',
+      label: 'Learn More',
+      isBlank: false
+    }],
+    image2: 'https://placedog.net/501/301', 
+    heading2: 'Conf Heading 2', 
+    text2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    ctas2: [{
+      link: '#',
+      label: 'Testing',
+      isBlank: false
+    }]
+  }
+
   const handleSignin = (e) => {
     console.log(e);
     e.preventDefault()
@@ -73,7 +95,17 @@ export default function Home({ entry }) {
         />
         <Tickets />
         <Columns />
-        <Blocks />
+        <Blocks 
+          // uid={confBlockContent['uid']} 
+          text1={confBlockContent['text1']}
+          text2={confBlockContent['text2']}
+          heading1={confBlockContent['heading1']}
+          heading2={confBlockContent['heading2']}
+          ctas1={confBlockContent['ctas1']}
+          ctas2={confBlockContent['ctas2']}
+          image1={confBlockContent['image1']}
+          image2={confBlockContent['image2']}
+        />
       </Layout>
     </>
   	)
