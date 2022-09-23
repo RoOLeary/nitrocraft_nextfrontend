@@ -52,15 +52,15 @@ export default function About({ entry }) {
 export const getStaticProps = async (context) => {
     const slug = context?.params?.slug || "about";
     // console.log(context.params);
-    const res = await fetch(`https://cities.thenextweb.com/api/pages/${slug}.json`,
-        {
-            credentials: "include",
-            headers: {
-                "Access-Control-Allow-Origin" : "*", 
-                "Access-Control-Allow-Credentials" : true
-            },
-        }
-    );
+    const res = await fetch(`https://cities.thenextweb.com/api/pages/${slug}.json`);
+    //     {
+    //         credentials: "include",
+    //         headers: {
+    //             "Access-Control-Allow-Origin" : "*", 
+    //             "Access-Control-Allow-Credentials" : true
+    //         },
+    //     }
+    // );
     
     let entry = await res.json();
     // console.log(entry);

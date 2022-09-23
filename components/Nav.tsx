@@ -1,9 +1,23 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import imageLoader from './../imageLoader'
 import { useRef, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useSession, signIn, signOut } from "next-auth/react"
 import { AnimateSharedLayout, motion } from 'framer-motion'
 import { isActiveLink } from '../lib/utils'
+import styled from 'styled-components';
+
+const UserInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+`;
+
+const UserImage = styled.img`
+    border-radius: 50%;
+`;
+
 
 const links: { name: string; href: string }[] = [
     {
@@ -65,7 +79,7 @@ const Nav = (): JSX.Element => {
             <div className={'c-nav__left'}>
                 <Link href={`/`}>
                     <a className={"c-nav__logoLink"}>
-                        {/* <img alt="TNW Dublin" className="c-nav__logo" src="/assets/img/ft-tnw-dublin.svg" /> */}
+                        <Image src={'/assets/img/logo.png'} width={100} height={75} loader={imageLoader} />
                     </a>
                 </Link>
             </div>
@@ -109,6 +123,12 @@ const Nav = (): JSX.Element => {
                 </AnimateSharedLayout>
                 {session ? <div>Signed in as {session.user.name}</div> : '' }
             </div>
+            {session && 
+                <UserInfo>
+                    <UserImage loader={imageLoader} src={session.user.image} width="44px" height="44px" className={''} />
+                    <p>Signed in as {session.user.name}</p>
+                </UserInfo>
+            }
         </nav>
        
     )
