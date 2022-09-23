@@ -56,14 +56,14 @@ function NitroBlogFrontend({ Component, pageProps:  { session, ...pageProps }}: 
   return (
     <SessionProvider session={session}>  
         <Nav />
-        <AnimatePresence
+        {/* <AnimatePresence
             exitBeforeEnter
             initial={false}
             onExitComplete={() => window.scrollTo(0, 0)}
-        >
+        > */}
           {isLoading && <Loader /> } 
          <Component {...pageProps} />
-        </AnimatePresence>
+        {/* </AnimatePresence> */}
     </SessionProvider>
   );
 }
