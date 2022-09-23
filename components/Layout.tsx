@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react'
 import Head from 'next/head';
 import SEO from './SEO';
+import Footer from "./Footer";
+
 import { motion } from 'framer-motion';
 
 const variants = {
@@ -23,6 +25,7 @@ const Layout = ({ children }: Props): JSX.Element => (
         </Head>
        
             {children}
+        <Footer />
     </>
 
 )
