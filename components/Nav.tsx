@@ -79,7 +79,7 @@ const Nav = (): JSX.Element => {
             <div className={'c-nav__left'}>
                 <Link href={`/`}>
                     <a className={"c-nav__logoLink"}>
-                        <Image src={'/assets/img/logo.png'} width={50} height={50} loader={imageLoader} />
+                        <Image alt={'Ro Ro Lo Go'} src={'/assets/img/logo.png'} width={50} height={50} loader={imageLoader} />
                     </a>
                 </Link>
             </div>
@@ -121,7 +121,6 @@ const Nav = (): JSX.Element => {
                     {/* <li className="c-nav__menuItem"><a className="c-button c-button--primary">Login</a></li> */}
                 </ul>
                 </AnimateSharedLayout>
-                {session ? <div>Signed in as {session.user.name}</div> : '' }
             </div>
             {session && 
                 <UserInfo>
