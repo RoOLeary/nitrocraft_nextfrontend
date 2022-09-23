@@ -12,7 +12,7 @@ module.exports = withPWA({
   images: {
     loader: 'custom',
     path: '/',
-    domains: ['localhost:4000', 'placedog.net', 'cdn0.tnwcdn.com', 'nitrocraft-nextfrontend.vercel.app', 'cities.tnwcdn.com'],
+    domains: ['localhost://4000', 'placedog.net', 'cdn0.tnwcdn.com', 'nitrocraft-nextfrontend.vercel.app', 'cities.tnwcdn.com'],
   },
   pwa: {
     dest: 'public',

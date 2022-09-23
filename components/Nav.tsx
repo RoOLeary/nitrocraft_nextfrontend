@@ -79,7 +79,7 @@ const Nav = (): JSX.Element => {
             <div className={'c-nav__left'}>
                 <Link href={`/`}>
                     <a className={"c-nav__logoLink"}>
-                        <Image src={'/assets/img/logo.png'} width={100} height={75} loader={imageLoader} />
+                        <Image src={'/assets/img/logo.png'} width={50} height={50} loader={imageLoader} />
                     </a>
                 </Link>
             </div>
