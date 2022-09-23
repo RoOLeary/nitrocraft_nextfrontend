@@ -11,7 +11,6 @@ import NProgress from "nprogress"
 
 declare const window: any
 
-
 function NitroBlogFrontend({ Component, pageProps:  { session, ...pageProps }}: AppProps): JSX.Element {
   const [isLoading, setIsLoading] = useState(false);
   const router = Router;
