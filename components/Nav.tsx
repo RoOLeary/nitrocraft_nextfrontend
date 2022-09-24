@@ -40,6 +40,10 @@ const links: { name: string; href: string }[] = [
         name: 'Contact',
         href: '/contact',
     },
+    {
+        name: 'Inf Posts (SSR)',
+        href: '/posts',
+    },
 ]
 
 const Nav = (): JSX.Element => {
