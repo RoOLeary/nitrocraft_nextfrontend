@@ -3,12 +3,12 @@ import styled from 'styled-components';
 
 import Head from 'next/head';
 import Image from 'next/image';
-import Layout from '../components/Layout';
-import Signup from '../components/Signup';
-import PostSingle from '../components/PostSingle';
-import imageLoader from './../imageLoader'
+import Layout from '../../components/Layout';
+import Signup from '../../components/Signup';
+import PostSingle from '../../components/PostSingle';
+import imageLoader from '../../imageLoader'
 
-import { useElementWhenOnScreen } from '../hooks/useElementWhenOnScreen'
+import { useElementWhenOnScreen } from '../../hooks/useElementWhenOnScreen'
 
 const Grid = styled.div`
   margin-top: 2em;
@@ -29,7 +29,7 @@ const LatestHeader = styled.h1`
   margin-top: 1em; 
 `
 
-export default function Home(props:any) {
+export default function Posts(props:any) {
   const allData = {
     data: props.data,
     page: 1
