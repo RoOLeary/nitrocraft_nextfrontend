@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from 'styled-components';
-
 import Head from 'next/head';
 import Image from 'next/image';
 import Layout from '../components/Layout';
@@ -29,7 +28,7 @@ const LatestHeader = styled.h1`
   margin-top: 1em; 
 `
 
-export default function Index(props:any) {
+export default function WithClick(props:any) {
     const allData = {
         data: props.data.slice(0, 10),
         page: 1
