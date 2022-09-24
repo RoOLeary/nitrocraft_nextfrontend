@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from 'styled-components';
+
 import Head from 'next/head';
 import Image from 'next/image';
 import Layout from '../components/Layout';
 import Signup from '../components/Signup';
 import PostSingle from '../components/PostSingle';
-import imageLoader from './../imageLoader'
+import imageLoader from '../imageLoader'
+
+import { useElementWhenOnScreen } from '../hooks/useElementWhenOnScreen'
 
 const Grid = styled.div`
   margin-top: 2em;
@@ -26,43 +29,44 @@ const LatestHeader = styled.h1`
   margin-top: 1em; 
 `
 
-export default function Click(props:any) {
-  const allData = {
-    data: props.data.slice(0, 10),
-    page: 1
-  }
-  const [postsData, setPostsData ] = useState({ page: 1, data: [] });
-  const [title, setPageTitle ] = useState('Latest Posts');
-  const [isLoading, setIsLoading ] = useState(false);
-
-  useEffect(() => {
-    setPostsData({ ...allData })
-  }, [])
-
-  const HandleLoadMoreClick = () => {
-    console.log('clicked')
-    setIsLoading(true);
-    const currentPage = postsData.page + 1
-    const arr = {
-      data: postsData.data,
-      page: currentPage
+export default function Index(props:any) {
+    const allData = {
+        data: props.data.slice(0, 10),
+        page: 1
     }
-    props.data.slice(postsData.data.length, postsData.data.length + 10).map((post:any) => arr.data.push(post))
-    setPostsData({ ...arr})
-    setIsLoading(false);
-  }
+    const [postsData, setPostsData ] = useState({ page: 1, data: [] });
+    const [title, setPageTitle ] = useState('Latest Posts');
+    const [isLoading, setIsLoading ] = useState(false);
 
-  const posts = postsData.data ? [].concat(...postsData.data) : [];
-  // const isLoadingInitialData = !postsData.data;
-  // const isLoadingMore = isLoadingInitialData || (postsData?.size > 0 && postsData.data && typeof postsData.data[postsData?.size - 1] === "undefined");
-  const isEmpty = postsData.data?.[0]?.length === 0;
-  const isReachingEnd = isEmpty || (postsData.data && postsData.data.length === props.data.length);
+    useEffect(() => {
+        setPostsData({ ...allData })
+    }, [])
+
+    const HandleLoadMoreClick = () => {
+        console.log('clicked');
+        setIsLoading(true);
+        const currentPage = postsData.page + 1
+        const arr = {
+            data: postsData.data,
+            page: currentPage
+        }
+        props.data.slice(postsData.data.length, postsData.data.length + 10).map((post:any) => arr.data.push(post))
+        setPostsData({ ...arr})
+        setIsLoading(false);
+    }
+
+    const posts = postsData.data ? [].concat(...postsData.data) : [];
+    // const isLoadingInitialData = !postsData.data;
+    // const isLoadingMore = isLoadingInitialData || (postsData?.size > 0 && postsData.data && typeof postsData.data[postsData?.size - 1] === "undefined");
+    const isEmpty = postsData.data?.[0]?.length === 0;
+    const isReachingEnd = isEmpty || (postsData.data && postsData.data.length === props.data.length);
 
   return (
     <Layout>
       <Head>
         <title>Next JS Prototype {title && `- ${title}`}</title>
       </Head>
+      
       <section className="b-text  c-section" id="learn-more">
         <div className="o-wrapper">
           {!posts ? <h1 className={'b-text__heading'}>Loading...</h1> :
@@ -93,7 +97,7 @@ export default function Click(props:any) {
               // ? 'Loading...'
               // : 
               isLoading
-                  ? 'Loading Posts...'
+                  ? 'Loading Posts...s'
                   : 
                   'Load More'
               }  

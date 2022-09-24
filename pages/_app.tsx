@@ -1,6 +1,5 @@
 import type { AppProps } from 'next/app';
 import '../styles/globals.css'
-import { AnimatePresence } from 'framer-motion'
 import Nav from "../components/Nav";
 import Loader from "../components/Loader";
 // pages/_app.js
@@ -55,15 +54,9 @@ function NitroBlogFrontend({ Component, pageProps:  { session, ...pageProps }}: 
 
   return (
     <SessionProvider session={session}>  
-        <Nav />
-        {/* <AnimatePresence
-            exitBeforeEnter
-            initial={false}
-            onExitComplete={() => window.scrollTo(0, 0)}
-        > */}
-          {isLoading && <Loader /> } 
-         <Component {...pageProps} />
-        {/* </AnimatePresence> */}
+        <Nav key="nav"/> 
+        {isLoading && <Loader /> } 
+        <Component {...pageProps} />
     </SessionProvider>
   );
 }
