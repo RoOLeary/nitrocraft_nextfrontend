@@ -93,7 +93,7 @@ export default function Click(props:any) {
               // ? 'Loading...'
               // : 
               isLoading
-                  ? 'Loading Posts...s'
+                  ? 'Loading Posts...'
                   : 
                   'Load More'
               }  
