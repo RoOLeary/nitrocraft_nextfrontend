@@ -40,7 +40,7 @@ export default function Click(props:any) {
   }, [])
 
   const HandleLoadMoreClick = () => {
-    console.log('clicked');
+    console.log('clicked')
     setIsLoading(true);
     const currentPage = postsData.page + 1
     const arr = {
@@ -53,8 +53,6 @@ export default function Click(props:any) {
   }
 
   const posts = postsData.data ? [].concat(...postsData.data) : [];
-  // const isLoadingInitialData = !postsData.data;
-  // const isLoadingMore = isLoadingInitialData || (postsData?.size > 0 && postsData.data && typeof postsData.data[postsData?.size - 1] === "undefined");
   const isEmpty = postsData.data?.[0]?.length === 0;
   const isReachingEnd = isEmpty || (postsData.data && postsData.data.length === props.data.length);
 
