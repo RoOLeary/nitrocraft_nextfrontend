@@ -5,9 +5,7 @@ import Image from 'next/image';
 import Layout from '../components/Layout';
 import Signup from '../components/Signup';
 import PostSingle from '../components/PostSingle';
-import imageLoader from '../imageLoader'
-
-import { useElementWhenOnScreen } from '../hooks/useElementWhenOnScreen'
+import imageLoader from '../imageLoader';
 
 const Grid = styled.div`
   margin-top: 2em;
@@ -54,7 +52,7 @@ export default function WithClick(props:any) {
         setIsLoading(false);
     }
 
-    const posts = postsData.data ? [].concat(...postsData.data) : [];
+    const posts = postsData.data ? postsData.data : [];
     // const isLoadingInitialData = !postsData.data;
     // const isLoadingMore = isLoadingInitialData || (postsData?.size > 0 && postsData.data && typeof postsData.data[postsData?.size - 1] === "undefined");
     const isEmpty = postsData.data?.[0]?.length === 0;
