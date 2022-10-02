@@ -30,7 +30,7 @@ const options = {
           return session;
         },
         async redirect({ url, baseUrl }) {
-            const redirUrl = 'https://ro-next.vercel.app/members'
+            const redirUrl = 'https://nitrocraft-nextfrontend.vercel.app/members'
             return redirUrl;
         }
     },
