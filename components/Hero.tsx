@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { useViewportScroll, useTransform, motion } from 'framer-motion';
+import { useScroll, useTransform, motion } from 'framer-motion';
 import { useTypingText } from '../hooks/useTypingTest';
 import imageLoader from './../imageLoader';
 import Image from 'next/image';
@@ -26,7 +26,7 @@ const Hero = ({ eyebrow, heading, subHeading }: IHero ): JSX.Element => {
 
     
     const { word } = useTypingText([`${eyebrow}`, 'Web Developer', 'Nerd', 'LFC Fan'], 250, 20);
-    const { scrollY } = useViewportScroll();
+    const { scrollY } = useScroll();
     const y1 = useTransform(scrollY, [0, 300], [0, 200]);
     const y2 = useTransform(scrollY, [0, 300], [0, -100]);
     const y3 = useTransform(scrollY, [0, 300], [0, -50]);

@@ -28,6 +28,10 @@ const options = {
     
           session.user.uid = token.sub;
           return session;
+        },
+        async redirect({ url, baseUrl }) {
+            const redirUrl = 'https://ro-next.vercel.app/members'
+            return redirUrl;
         }
     },
 }
