@@ -1,16 +1,36 @@
-import type { AppProps } from 'next/app';
-import '../styles/globals.css'
-import Nav from "../components/Nav";
-import Loader from "../components/Loader";
-// pages/_app.js
-import { SessionProvider } from "next-auth/react";
+import type { AppProps, NextWebVitalsMetric } from 'next/app';
+import { AnimatePresence } from 'framer-motion';
 import Router from 'next/router'
 import { useState, useEffect } from 'react';
-import NProgress from "nprogress"
+import Nav from './../components/Nav';
+import Loader from './../components/Loader';
+import '../styles/globals.css'
+import { SessionProvider } from "next-auth/react";
+import NProgress from 'nprogress';
+import type { Session } from "next-auth";
 
 declare const window: any
 
-function NitroBlogFrontend({ Component, pageProps:  { session, ...pageProps }}: AppProps): JSX.Element {
+// export function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric): void {
+//     window.gtag('event', name, {
+//         event_category: label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
+//         value: Math.round(name === 'CLS' ? value * 1000 : value), // values must be integers
+//         event_label: id, // id unique to current page load
+//         non_interaction: true, // avoids affecting bounce rate.
+//     })
+// }
+
+// export interface CustomAppProps extends AppProps {
+//   Component: NextComponentType;
+//   pageProps: { auth?: boolean; session?: Session }
+// }
+
+function NitroBlogFrontend({
+    Component,
+    pageProps,
+  }: AppProps<{
+    session: Session;
+  }>) {
   const [isLoading, setIsLoading] = useState(false);
   const router = Router;
 
@@ -50,15 +70,44 @@ function NitroBlogFrontend({ Component, pageProps:  { session, ...pageProps }}: 
       console.log('something is bollocksed.')
     });
 
-  }, [Router])
+  }, [router.events])
+
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/sw.js").then(
+          function (registration) {
+            console.log(
+              "Service Worker registration successful with scope: ",
+              registration.scope
+            );
+          },
+          function (err) {
+            console.log("Service Worker registration failed: ", err);
+          }
+        );
+      });
+    }
+  }, []);
+
 
   return (
-    <SessionProvider session={session}>  
-        <Nav key="nav"/> 
-        {isLoading && <Loader /> } 
-        <Component {...pageProps} />
-    </SessionProvider>
-  );
-}
+    <SessionProvider session={pageProps.session}>  
+        {/* <AnimatePresence
+          exitBeforeEnter
+          initial={false}
+          onExitComplete={() => window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+          })}
+        > */}
+          <Nav key="nav"/> 
+          {isLoading && <Loader /> } 
+          <Component {...pageProps} />
+        {/* </AnimatePresence> */}
+      </SessionProvider>
+    );
+  }
 
-export default NitroBlogFrontend
+  export default NitroBlogFrontend
