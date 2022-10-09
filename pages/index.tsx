@@ -93,8 +93,8 @@ export default function Home({ entry }) {
           link={textVisualContent.link}
           linkText={textVisualContent.linkText}
         />
-        <Tickets />
-        <Columns />
+        {/* <Tickets />
+        <Columns /> */}
         <Blocks 
           // uid={confBlockContent['uid']} 
           text1={confBlockContent['text1']}
