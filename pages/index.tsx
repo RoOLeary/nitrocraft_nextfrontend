@@ -31,7 +31,8 @@ export default function Home({ entry }) {
   const HeroText = {
     eyebrow: 'Hello there!',
     heading: 'My name is Ronan, and I build websites.',
-    subHeading: entry['data'][0]['homeIntro'].replace(/(<([^>]+)>)/gi, ""),
+    // subHeading: entry['data'][0]['homeIntro'].replace(/(<([^>]+)>)/gi, ""),
+    subHeading: 'This is a work in progress....NextJS rules!'
   }
 
   const textVisualContent = {
@@ -79,11 +80,13 @@ export default function Home({ entry }) {
     signOut()
   }
 
+  console.log(entry.data[0].homeTitle);
+
   return (
    
     <>
       <Layout>
-        <Hero eyebrow={HeroText.eyebrow} heading={HeroText.heading} subHeading={HeroText.subHeading} />
+        <Hero eyebrow={HeroText.eyebrow} heading={entry.data[0].homeTitle} subHeading={HeroText.subHeading} />
         <Text heading={leadPost.heading} column1={leadPost.column1} />
         {/* <Related related={morePosts} /> */}
         <TextVisual 
@@ -113,7 +116,7 @@ export default function Home({ entry }) {
 
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch('https://servd-test-staging.cl-eu-west-3.servd.dev/api/homepage.json',{
+  const res = await fetch('https://craft-ezhk.frb.io/api/homepage.json',{
       credentials: "include",
       headers: {
           "Access-Control-Allow-Origin" : "*", 
