@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import Head from 'next/head';
-import SEO from './SEO';
+// import SEO from './SEO';
 import Footer from "./Footer";
 
 import { motion } from 'framer-motion';
@@ -21,7 +21,7 @@ const Layout = ({ children }: Props): JSX.Element => (
         <Head>
             <title>NextJS Craft</title>
             <link rel="icon" href="/favicon.ico" />
-            <SEO />
+            {/* <SEO /> */}
         </Head>
        
             {children}
