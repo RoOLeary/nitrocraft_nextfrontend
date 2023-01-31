@@ -32,7 +32,7 @@ export default function Home({ entry }) {
     eyebrow: 'Hello there!',
     heading: 'My name is Ronan, and I build websites.',
     // subHeading: entry['data'][0]['homeIntro'].replace(/(<([^>]+)>)/gi, ""),
-    subHeading: 'This is a work in progress....NextJS rules!'
+    subHeading: 'I specialise in the development of headless modern CMS websites and applications, using Craft CMS & NextJS as my tools of choice.'
   }
 
   const textVisualContent = {
